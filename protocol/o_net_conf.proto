@@ -1,0 +1,9 @@
+package oo.conf;
+option optimize_for = SPEED;
+option java_package = "oo.conf";
+import "o_net_ctrl.proto";
+
+message local_node_conf{
+	required oo.proto.node_info local = 1;
+	repeated oo.proto.node_info others = 2;
+}

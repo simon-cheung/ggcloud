@@ -1,0 +1,136 @@
+package oo.proto;
+option optimize_for = SPEED;
+option java_package = "oo.proto";
+
+message user_login{
+	required string name = 1;
+	required string pwd = 2;	
+}
+
+message user_login_result{
+	required int32 error = 1;
+	optional string ser_addr = 2;
+	optional string port = 3;
+	optional string session_code = 4;
+}
+
+message user_enter_room{
+	required string room_name = 1;
+}
+
+message user_enter_room_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message user_enter_room_update{
+	required string user = 1;
+	required string nick = 2;
+}
+
+message user_leave_room{
+	required string room_name = 1;
+}
+
+message user_leave_room_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message user_leave_room_update{
+	required string user = 1;
+}
+
+message user_content{
+	enum UCon{
+		UC_txt = 1;
+		UC_jpg = 2;
+		UC_png = 3;
+		UC_gif = 4;
+		UC_url = 5;
+		UC_voice = 6;
+	}
+	required UCon con_type = 1;
+	required string content = 2;
+}
+
+message user_send_to_user{
+	required string user = 1;
+	required string user_name = 2;
+	required user_content content = 3;
+}
+
+message user_send_to_user_result{
+	required int32 error = 1;
+	required string room_name = 3;
+}
+
+message user_send_to_user_update{
+	required string user = 1;
+	required string user_name = 2;
+	required user_content content = 3;
+}
+
+message user_send_to_room{
+	required string user = 1;
+	required string room_name = 2;
+	required user_content content = 3;
+}
+
+message user_send_to_room_result{
+	required int32 error = 1;
+	required string room_name = 3;
+}
+
+message user_send_to_room_update{
+	required string user = 1;
+	required string room_name = 2;
+	required user_content content = 3;
+}
+
+message room_create{
+	required string room_name = 1;
+}
+
+message room_create_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_active{
+	required string room_name = 1;
+}
+
+message room_active_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_destory{
+	required string room_name = 1;
+}
+
+message room_destory_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_close{
+	required string room_name = 1;
+}
+
+message room_close_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_lst_user{
+	required string room_name = 1;		
+}
+
+message room_lst_user_result{
+	required int32 error = 1;
+	required string room_name = 2;
+	repeated string user = 3;
+	repeated string nicks = 4;
+}
