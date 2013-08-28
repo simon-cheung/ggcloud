@@ -2,6 +2,41 @@ package oo.proto;
 option optimize_for = SPEED;
 option java_package = "oo.proto";
 
+// catagory	: protocols
+// login	: login,logout
+// user		: enter room,leave room,send to, send to room
+// room		: 
+//			basic	: create,active,close,destory,list user
+//			live	: active voice,active video,deactive voice, deactive video, 
+//						active mic, deactive mic, active_camera, deactive camera, reject voice, reject video
+
+message user_content{
+	enum UCon{
+		UC_txt = 1;
+		UC_jpg = 2;
+		UC_png = 3;
+		UC_gif = 4;
+		UC_url = 5;
+		UC_voice = 6;
+	}
+	required UCon con_type = 1;
+	required string content = 2;
+}
+
+message user_state_in_room{
+	required string user = 1;
+	required string nick = 2;
+	required bool actived_mic = 3;
+	required bool actived_camera = 4;
+	required bool rejected_voice = 5;
+	required bool rejected_video = 6;
+}
+
+message live_state{
+	required int32 voice_actived = 1;
+	required int32 video_actived = 2;
+}
+
 message user_login{
 	required string name = 1;
 	required string pwd = 2;	
@@ -39,19 +74,6 @@ message user_leave_room_result{
 
 message user_leave_room_update{
 	required string user = 1;
-}
-
-message user_content{
-	enum UCon{
-		UC_txt = 1;
-		UC_jpg = 2;
-		UC_png = 3;
-		UC_gif = 4;
-		UC_url = 5;
-		UC_voice = 6;
-	}
-	required UCon con_type = 1;
-	required string content = 2;
 }
 
 message user_send_to_user{
@@ -131,6 +153,14 @@ message room_lst_user{
 message room_lst_user_result{
 	required int32 error = 1;
 	required string room_name = 2;
-	repeated string user = 3;
-	repeated string nicks = 4;
+	repeated user_state_in_room users = 3;
+}
+
+message room_live_active_voice{
+	required string room_name = 1;
+}
+
+message room_live_active_voice_result{
+	required int32 error = 1;
+	required string room_name = 2;
 }

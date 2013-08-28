@@ -33,6 +33,9 @@ void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
 void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
 void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
 
+class user_content;
+class user_state_in_room;
+class live_state;
 class user_login;
 class user_login_result;
 class user_enter_room;
@@ -41,7 +44,6 @@ class user_enter_room_update;
 class user_leave_room;
 class user_leave_room_result;
 class user_leave_room_update;
-class user_content;
 class user_send_to_user;
 class user_send_to_user_result;
 class user_send_to_user_update;
@@ -58,6 +60,8 @@ class room_close;
 class room_close_result;
 class room_lst_user;
 class room_lst_user_result;
+class room_live_active_voice;
+class room_live_active_voice_result;
 
 enum user_content_UCon {
   user_content_UCon_UC_txt = 1,
@@ -83,6 +87,369 @@ inline bool user_content_UCon_Parse(
     user_content_UCon_descriptor(), name, value);
 }
 // ===================================================================
+
+class user_content : public ::google::protobuf::Message {
+ public:
+  user_content();
+  virtual ~user_content();
+  
+  user_content(const user_content& from);
+  
+  inline user_content& operator=(const user_content& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const user_content& default_instance();
+  
+  void Swap(user_content* other);
+  
+  // implements Message ----------------------------------------------
+  
+  user_content* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const user_content& from);
+  void MergeFrom(const user_content& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  typedef user_content_UCon UCon;
+  static const UCon UC_txt = user_content_UCon_UC_txt;
+  static const UCon UC_jpg = user_content_UCon_UC_jpg;
+  static const UCon UC_png = user_content_UCon_UC_png;
+  static const UCon UC_gif = user_content_UCon_UC_gif;
+  static const UCon UC_url = user_content_UCon_UC_url;
+  static const UCon UC_voice = user_content_UCon_UC_voice;
+  static inline bool UCon_IsValid(int value) {
+    return user_content_UCon_IsValid(value);
+  }
+  static const UCon UCon_MIN =
+    user_content_UCon_UCon_MIN;
+  static const UCon UCon_MAX =
+    user_content_UCon_UCon_MAX;
+  static const int UCon_ARRAYSIZE =
+    user_content_UCon_UCon_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  UCon_descriptor() {
+    return user_content_UCon_descriptor();
+  }
+  static inline const ::std::string& UCon_Name(UCon value) {
+    return user_content_UCon_Name(value);
+  }
+  static inline bool UCon_Parse(const ::std::string& name,
+      UCon* value) {
+    return user_content_UCon_Parse(name, value);
+  }
+  
+  // accessors -------------------------------------------------------
+  
+  // required .oo.proto.user_content.UCon con_type = 1;
+  inline bool has_con_type() const;
+  inline void clear_con_type();
+  static const int kConTypeFieldNumber = 1;
+  inline ::oo::proto::user_content_UCon con_type() const;
+  inline void set_con_type(::oo::proto::user_content_UCon value);
+  
+  // required string content = 2;
+  inline bool has_content() const;
+  inline void clear_content();
+  static const int kContentFieldNumber = 2;
+  inline const ::std::string& content() const;
+  inline void set_content(const ::std::string& value);
+  inline void set_content(const char* value);
+  inline void set_content(const char* value, size_t size);
+  inline ::std::string* mutable_content();
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.user_content)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  int con_type_;
+  ::std::string* content_;
+  static const ::std::string _default_content_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static user_content* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class user_state_in_room : public ::google::protobuf::Message {
+ public:
+  user_state_in_room();
+  virtual ~user_state_in_room();
+  
+  user_state_in_room(const user_state_in_room& from);
+  
+  inline user_state_in_room& operator=(const user_state_in_room& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const user_state_in_room& default_instance();
+  
+  void Swap(user_state_in_room* other);
+  
+  // implements Message ----------------------------------------------
+  
+  user_state_in_room* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const user_state_in_room& from);
+  void MergeFrom(const user_state_in_room& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string user = 1;
+  inline bool has_user() const;
+  inline void clear_user();
+  static const int kUserFieldNumber = 1;
+  inline const ::std::string& user() const;
+  inline void set_user(const ::std::string& value);
+  inline void set_user(const char* value);
+  inline void set_user(const char* value, size_t size);
+  inline ::std::string* mutable_user();
+  
+  // required string nick = 2;
+  inline bool has_nick() const;
+  inline void clear_nick();
+  static const int kNickFieldNumber = 2;
+  inline const ::std::string& nick() const;
+  inline void set_nick(const ::std::string& value);
+  inline void set_nick(const char* value);
+  inline void set_nick(const char* value, size_t size);
+  inline ::std::string* mutable_nick();
+  
+  // required bool actived_mic = 3;
+  inline bool has_actived_mic() const;
+  inline void clear_actived_mic();
+  static const int kActivedMicFieldNumber = 3;
+  inline bool actived_mic() const;
+  inline void set_actived_mic(bool value);
+  
+  // required bool actived_camera = 4;
+  inline bool has_actived_camera() const;
+  inline void clear_actived_camera();
+  static const int kActivedCameraFieldNumber = 4;
+  inline bool actived_camera() const;
+  inline void set_actived_camera(bool value);
+  
+  // required bool rejected_voice = 5;
+  inline bool has_rejected_voice() const;
+  inline void clear_rejected_voice();
+  static const int kRejectedVoiceFieldNumber = 5;
+  inline bool rejected_voice() const;
+  inline void set_rejected_voice(bool value);
+  
+  // required bool rejected_video = 6;
+  inline bool has_rejected_video() const;
+  inline void clear_rejected_video();
+  static const int kRejectedVideoFieldNumber = 6;
+  inline bool rejected_video() const;
+  inline void set_rejected_video(bool value);
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.user_state_in_room)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::std::string* user_;
+  static const ::std::string _default_user_;
+  ::std::string* nick_;
+  static const ::std::string _default_nick_;
+  bool actived_mic_;
+  bool actived_camera_;
+  bool rejected_voice_;
+  bool rejected_video_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static user_state_in_room* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class live_state : public ::google::protobuf::Message {
+ public:
+  live_state();
+  virtual ~live_state();
+  
+  live_state(const live_state& from);
+  
+  inline live_state& operator=(const live_state& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const live_state& default_instance();
+  
+  void Swap(live_state* other);
+  
+  // implements Message ----------------------------------------------
+  
+  live_state* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const live_state& from);
+  void MergeFrom(const live_state& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 voice_actived = 1;
+  inline bool has_voice_actived() const;
+  inline void clear_voice_actived();
+  static const int kVoiceActivedFieldNumber = 1;
+  inline ::google::protobuf::int32 voice_actived() const;
+  inline void set_voice_actived(::google::protobuf::int32 value);
+  
+  // required int32 video_actived = 2;
+  inline bool has_video_actived() const;
+  inline void clear_video_actived();
+  static const int kVideoActivedFieldNumber = 2;
+  inline ::google::protobuf::int32 video_actived() const;
+  inline void set_video_actived(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.live_state)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::google::protobuf::int32 voice_actived_;
+  ::google::protobuf::int32 video_actived_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static live_state* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class user_login : public ::google::protobuf::Message {
  public:
@@ -897,135 +1264,6 @@ class user_leave_room_update : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static user_leave_room_update* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class user_content : public ::google::protobuf::Message {
- public:
-  user_content();
-  virtual ~user_content();
-  
-  user_content(const user_content& from);
-  
-  inline user_content& operator=(const user_content& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const user_content& default_instance();
-  
-  void Swap(user_content* other);
-  
-  // implements Message ----------------------------------------------
-  
-  user_content* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const user_content& from);
-  void MergeFrom(const user_content& from);
-  void Clear();
-  bool IsInitialized() const;
-  
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  
-  ::google::protobuf::Metadata GetMetadata() const;
-  
-  // nested types ----------------------------------------------------
-  
-  typedef user_content_UCon UCon;
-  static const UCon UC_txt = user_content_UCon_UC_txt;
-  static const UCon UC_jpg = user_content_UCon_UC_jpg;
-  static const UCon UC_png = user_content_UCon_UC_png;
-  static const UCon UC_gif = user_content_UCon_UC_gif;
-  static const UCon UC_url = user_content_UCon_UC_url;
-  static const UCon UC_voice = user_content_UCon_UC_voice;
-  static inline bool UCon_IsValid(int value) {
-    return user_content_UCon_IsValid(value);
-  }
-  static const UCon UCon_MIN =
-    user_content_UCon_UCon_MIN;
-  static const UCon UCon_MAX =
-    user_content_UCon_UCon_MAX;
-  static const int UCon_ARRAYSIZE =
-    user_content_UCon_UCon_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  UCon_descriptor() {
-    return user_content_UCon_descriptor();
-  }
-  static inline const ::std::string& UCon_Name(UCon value) {
-    return user_content_UCon_Name(value);
-  }
-  static inline bool UCon_Parse(const ::std::string& name,
-      UCon* value) {
-    return user_content_UCon_Parse(name, value);
-  }
-  
-  // accessors -------------------------------------------------------
-  
-  // required .oo.proto.user_content.UCon con_type = 1;
-  inline bool has_con_type() const;
-  inline void clear_con_type();
-  static const int kConTypeFieldNumber = 1;
-  inline ::oo::proto::user_content_UCon con_type() const;
-  inline void set_con_type(::oo::proto::user_content_UCon value);
-  
-  // required string content = 2;
-  inline bool has_content() const;
-  inline void clear_content();
-  static const int kContentFieldNumber = 2;
-  inline const ::std::string& content() const;
-  inline void set_content(const ::std::string& value);
-  inline void set_content(const char* value);
-  inline void set_content(const char* value, size_t size);
-  inline ::std::string* mutable_content();
-  
-  // @@protoc_insertion_point(class_scope:oo.proto.user_content)
- private:
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-  mutable int _cached_size_;
-  
-  int con_type_;
-  ::std::string* content_;
-  static const ::std::string _default_content_;
-  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
-  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
-  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
-  
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-  
-  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
-  inline bool _has_bit(int index) const {
-    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
-  }
-  inline void _set_bit(int index) {
-    _has_bits_[index / 32] |= (1u << (index % 32));
-  }
-  inline void _clear_bit(int index) {
-    _has_bits_[index / 32] &= ~(1u << (index % 32));
-  }
-  
-  void InitAsDefaultInstance();
-  static user_content* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2623,37 +2861,17 @@ class room_lst_user_result : public ::google::protobuf::Message {
   inline void set_room_name(const char* value, size_t size);
   inline ::std::string* mutable_room_name();
   
-  // repeated string user = 3;
-  inline int user_size() const;
-  inline void clear_user();
-  static const int kUserFieldNumber = 3;
-  inline const ::std::string& user(int index) const;
-  inline ::std::string* mutable_user(int index);
-  inline void set_user(int index, const ::std::string& value);
-  inline void set_user(int index, const char* value);
-  inline void set_user(int index, const char* value, size_t size);
-  inline ::std::string* add_user();
-  inline void add_user(const ::std::string& value);
-  inline void add_user(const char* value);
-  inline void add_user(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& user() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_user();
-  
-  // repeated string nicks = 4;
-  inline int nicks_size() const;
-  inline void clear_nicks();
-  static const int kNicksFieldNumber = 4;
-  inline const ::std::string& nicks(int index) const;
-  inline ::std::string* mutable_nicks(int index);
-  inline void set_nicks(int index, const ::std::string& value);
-  inline void set_nicks(int index, const char* value);
-  inline void set_nicks(int index, const char* value, size_t size);
-  inline ::std::string* add_nicks();
-  inline void add_nicks(const ::std::string& value);
-  inline void add_nicks(const char* value);
-  inline void add_nicks(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& nicks() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_nicks();
+  // repeated .oo.proto.user_state_in_room users = 3;
+  inline int users_size() const;
+  inline void clear_users();
+  static const int kUsersFieldNumber = 3;
+  inline const ::oo::proto::user_state_in_room& users(int index) const;
+  inline ::oo::proto::user_state_in_room* mutable_users(int index);
+  inline ::oo::proto::user_state_in_room* add_users();
+  inline const ::google::protobuf::RepeatedPtrField< ::oo::proto::user_state_in_room >&
+      users() const;
+  inline ::google::protobuf::RepeatedPtrField< ::oo::proto::user_state_in_room >*
+      mutable_users();
   
   // @@protoc_insertion_point(class_scope:oo.proto.room_lst_user_result)
  private:
@@ -2663,13 +2881,12 @@ class room_lst_user_result : public ::google::protobuf::Message {
   ::google::protobuf::int32 error_;
   ::std::string* room_name_;
   static const ::std::string _default_room_name_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> user_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> nicks_;
+  ::google::protobuf::RepeatedPtrField< ::oo::proto::user_state_in_room > users_;
   friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
   friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
   friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
   
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
   
   // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
   inline bool _has_bit(int index) const {
@@ -2685,10 +2902,455 @@ class room_lst_user_result : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static room_lst_user_result* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class room_live_active_voice : public ::google::protobuf::Message {
+ public:
+  room_live_active_voice();
+  virtual ~room_live_active_voice();
+  
+  room_live_active_voice(const room_live_active_voice& from);
+  
+  inline room_live_active_voice& operator=(const room_live_active_voice& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const room_live_active_voice& default_instance();
+  
+  void Swap(room_live_active_voice* other);
+  
+  // implements Message ----------------------------------------------
+  
+  room_live_active_voice* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const room_live_active_voice& from);
+  void MergeFrom(const room_live_active_voice& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string room_name = 1;
+  inline bool has_room_name() const;
+  inline void clear_room_name();
+  static const int kRoomNameFieldNumber = 1;
+  inline const ::std::string& room_name() const;
+  inline void set_room_name(const ::std::string& value);
+  inline void set_room_name(const char* value);
+  inline void set_room_name(const char* value, size_t size);
+  inline ::std::string* mutable_room_name();
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.room_live_active_voice)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::std::string* room_name_;
+  static const ::std::string _default_room_name_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static room_live_active_voice* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class room_live_active_voice_result : public ::google::protobuf::Message {
+ public:
+  room_live_active_voice_result();
+  virtual ~room_live_active_voice_result();
+  
+  room_live_active_voice_result(const room_live_active_voice_result& from);
+  
+  inline room_live_active_voice_result& operator=(const room_live_active_voice_result& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const room_live_active_voice_result& default_instance();
+  
+  void Swap(room_live_active_voice_result* other);
+  
+  // implements Message ----------------------------------------------
+  
+  room_live_active_voice_result* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const room_live_active_voice_result& from);
+  void MergeFrom(const room_live_active_voice_result& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 error = 1;
+  inline bool has_error() const;
+  inline void clear_error();
+  static const int kErrorFieldNumber = 1;
+  inline ::google::protobuf::int32 error() const;
+  inline void set_error(::google::protobuf::int32 value);
+  
+  // required string room_name = 2;
+  inline bool has_room_name() const;
+  inline void clear_room_name();
+  static const int kRoomNameFieldNumber = 2;
+  inline const ::std::string& room_name() const;
+  inline void set_room_name(const ::std::string& value);
+  inline void set_room_name(const char* value);
+  inline void set_room_name(const char* value, size_t size);
+  inline ::std::string* mutable_room_name();
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.room_live_active_voice_result)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::google::protobuf::int32 error_;
+  ::std::string* room_name_;
+  static const ::std::string _default_room_name_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static room_live_active_voice_result* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
+
+// user_content
+
+// required .oo.proto.user_content.UCon con_type = 1;
+inline bool user_content::has_con_type() const {
+  return _has_bit(0);
+}
+inline void user_content::clear_con_type() {
+  con_type_ = 1;
+  _clear_bit(0);
+}
+inline ::oo::proto::user_content_UCon user_content::con_type() const {
+  return static_cast< ::oo::proto::user_content_UCon >(con_type_);
+}
+inline void user_content::set_con_type(::oo::proto::user_content_UCon value) {
+  GOOGLE_DCHECK(::oo::proto::user_content_UCon_IsValid(value));
+  _set_bit(0);
+  con_type_ = value;
+}
+
+// required string content = 2;
+inline bool user_content::has_content() const {
+  return _has_bit(1);
+}
+inline void user_content::clear_content() {
+  if (content_ != &_default_content_) {
+    content_->clear();
+  }
+  _clear_bit(1);
+}
+inline const ::std::string& user_content::content() const {
+  return *content_;
+}
+inline void user_content::set_content(const ::std::string& value) {
+  _set_bit(1);
+  if (content_ == &_default_content_) {
+    content_ = new ::std::string;
+  }
+  content_->assign(value);
+}
+inline void user_content::set_content(const char* value) {
+  _set_bit(1);
+  if (content_ == &_default_content_) {
+    content_ = new ::std::string;
+  }
+  content_->assign(value);
+}
+inline void user_content::set_content(const char* value, size_t size) {
+  _set_bit(1);
+  if (content_ == &_default_content_) {
+    content_ = new ::std::string;
+  }
+  content_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* user_content::mutable_content() {
+  _set_bit(1);
+  if (content_ == &_default_content_) {
+    content_ = new ::std::string;
+  }
+  return content_;
+}
+
+// -------------------------------------------------------------------
+
+// user_state_in_room
+
+// required string user = 1;
+inline bool user_state_in_room::has_user() const {
+  return _has_bit(0);
+}
+inline void user_state_in_room::clear_user() {
+  if (user_ != &_default_user_) {
+    user_->clear();
+  }
+  _clear_bit(0);
+}
+inline const ::std::string& user_state_in_room::user() const {
+  return *user_;
+}
+inline void user_state_in_room::set_user(const ::std::string& value) {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  user_->assign(value);
+}
+inline void user_state_in_room::set_user(const char* value) {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  user_->assign(value);
+}
+inline void user_state_in_room::set_user(const char* value, size_t size) {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  user_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* user_state_in_room::mutable_user() {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  return user_;
+}
+
+// required string nick = 2;
+inline bool user_state_in_room::has_nick() const {
+  return _has_bit(1);
+}
+inline void user_state_in_room::clear_nick() {
+  if (nick_ != &_default_nick_) {
+    nick_->clear();
+  }
+  _clear_bit(1);
+}
+inline const ::std::string& user_state_in_room::nick() const {
+  return *nick_;
+}
+inline void user_state_in_room::set_nick(const ::std::string& value) {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(value);
+}
+inline void user_state_in_room::set_nick(const char* value) {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(value);
+}
+inline void user_state_in_room::set_nick(const char* value, size_t size) {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* user_state_in_room::mutable_nick() {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  return nick_;
+}
+
+// required bool actived_mic = 3;
+inline bool user_state_in_room::has_actived_mic() const {
+  return _has_bit(2);
+}
+inline void user_state_in_room::clear_actived_mic() {
+  actived_mic_ = false;
+  _clear_bit(2);
+}
+inline bool user_state_in_room::actived_mic() const {
+  return actived_mic_;
+}
+inline void user_state_in_room::set_actived_mic(bool value) {
+  _set_bit(2);
+  actived_mic_ = value;
+}
+
+// required bool actived_camera = 4;
+inline bool user_state_in_room::has_actived_camera() const {
+  return _has_bit(3);
+}
+inline void user_state_in_room::clear_actived_camera() {
+  actived_camera_ = false;
+  _clear_bit(3);
+}
+inline bool user_state_in_room::actived_camera() const {
+  return actived_camera_;
+}
+inline void user_state_in_room::set_actived_camera(bool value) {
+  _set_bit(3);
+  actived_camera_ = value;
+}
+
+// required bool rejected_voice = 5;
+inline bool user_state_in_room::has_rejected_voice() const {
+  return _has_bit(4);
+}
+inline void user_state_in_room::clear_rejected_voice() {
+  rejected_voice_ = false;
+  _clear_bit(4);
+}
+inline bool user_state_in_room::rejected_voice() const {
+  return rejected_voice_;
+}
+inline void user_state_in_room::set_rejected_voice(bool value) {
+  _set_bit(4);
+  rejected_voice_ = value;
+}
+
+// required bool rejected_video = 6;
+inline bool user_state_in_room::has_rejected_video() const {
+  return _has_bit(5);
+}
+inline void user_state_in_room::clear_rejected_video() {
+  rejected_video_ = false;
+  _clear_bit(5);
+}
+inline bool user_state_in_room::rejected_video() const {
+  return rejected_video_;
+}
+inline void user_state_in_room::set_rejected_video(bool value) {
+  _set_bit(5);
+  rejected_video_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// live_state
+
+// required int32 voice_actived = 1;
+inline bool live_state::has_voice_actived() const {
+  return _has_bit(0);
+}
+inline void live_state::clear_voice_actived() {
+  voice_actived_ = 0;
+  _clear_bit(0);
+}
+inline ::google::protobuf::int32 live_state::voice_actived() const {
+  return voice_actived_;
+}
+inline void live_state::set_voice_actived(::google::protobuf::int32 value) {
+  _set_bit(0);
+  voice_actived_ = value;
+}
+
+// required int32 video_actived = 2;
+inline bool live_state::has_video_actived() const {
+  return _has_bit(1);
+}
+inline void live_state::clear_video_actived() {
+  video_actived_ = 0;
+  _clear_bit(1);
+}
+inline ::google::protobuf::int32 live_state::video_actived() const {
+  return video_actived_;
+}
+inline void live_state::set_video_actived(::google::protobuf::int32 value) {
+  _set_bit(1);
+  video_actived_ = value;
+}
+
+// -------------------------------------------------------------------
 
 // user_login
 
@@ -3270,69 +3932,6 @@ inline ::std::string* user_leave_room_update::mutable_user() {
     user_ = new ::std::string;
   }
   return user_;
-}
-
-// -------------------------------------------------------------------
-
-// user_content
-
-// required .oo.proto.user_content.UCon con_type = 1;
-inline bool user_content::has_con_type() const {
-  return _has_bit(0);
-}
-inline void user_content::clear_con_type() {
-  con_type_ = 1;
-  _clear_bit(0);
-}
-inline ::oo::proto::user_content_UCon user_content::con_type() const {
-  return static_cast< ::oo::proto::user_content_UCon >(con_type_);
-}
-inline void user_content::set_con_type(::oo::proto::user_content_UCon value) {
-  GOOGLE_DCHECK(::oo::proto::user_content_UCon_IsValid(value));
-  _set_bit(0);
-  con_type_ = value;
-}
-
-// required string content = 2;
-inline bool user_content::has_content() const {
-  return _has_bit(1);
-}
-inline void user_content::clear_content() {
-  if (content_ != &_default_content_) {
-    content_->clear();
-  }
-  _clear_bit(1);
-}
-inline const ::std::string& user_content::content() const {
-  return *content_;
-}
-inline void user_content::set_content(const ::std::string& value) {
-  _set_bit(1);
-  if (content_ == &_default_content_) {
-    content_ = new ::std::string;
-  }
-  content_->assign(value);
-}
-inline void user_content::set_content(const char* value) {
-  _set_bit(1);
-  if (content_ == &_default_content_) {
-    content_ = new ::std::string;
-  }
-  content_->assign(value);
-}
-inline void user_content::set_content(const char* value, size_t size) {
-  _set_bit(1);
-  if (content_ == &_default_content_) {
-    content_ = new ::std::string;
-  }
-  content_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* user_content::mutable_content() {
-  _set_bit(1);
-  if (content_ == &_default_content_) {
-    content_ = new ::std::string;
-  }
-  return content_;
 }
 
 // -------------------------------------------------------------------
@@ -4419,92 +5018,137 @@ inline ::std::string* room_lst_user_result::mutable_room_name() {
   return room_name_;
 }
 
-// repeated string user = 3;
-inline int room_lst_user_result::user_size() const {
-  return user_.size();
+// repeated .oo.proto.user_state_in_room users = 3;
+inline int room_lst_user_result::users_size() const {
+  return users_.size();
 }
-inline void room_lst_user_result::clear_user() {
-  user_.Clear();
+inline void room_lst_user_result::clear_users() {
+  users_.Clear();
 }
-inline const ::std::string& room_lst_user_result::user(int index) const {
-  return user_.Get(index);
+inline const ::oo::proto::user_state_in_room& room_lst_user_result::users(int index) const {
+  return users_.Get(index);
 }
-inline ::std::string* room_lst_user_result::mutable_user(int index) {
-  return user_.Mutable(index);
+inline ::oo::proto::user_state_in_room* room_lst_user_result::mutable_users(int index) {
+  return users_.Mutable(index);
 }
-inline void room_lst_user_result::set_user(int index, const ::std::string& value) {
-  user_.Mutable(index)->assign(value);
+inline ::oo::proto::user_state_in_room* room_lst_user_result::add_users() {
+  return users_.Add();
 }
-inline void room_lst_user_result::set_user(int index, const char* value) {
-  user_.Mutable(index)->assign(value);
+inline const ::google::protobuf::RepeatedPtrField< ::oo::proto::user_state_in_room >&
+room_lst_user_result::users() const {
+  return users_;
 }
-inline void room_lst_user_result::set_user(int index, const char* value, size_t size) {
-  user_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* room_lst_user_result::add_user() {
-  return user_.Add();
-}
-inline void room_lst_user_result::add_user(const ::std::string& value) {
-  user_.Add()->assign(value);
-}
-inline void room_lst_user_result::add_user(const char* value) {
-  user_.Add()->assign(value);
-}
-inline void room_lst_user_result::add_user(const char* value, size_t size) {
-  user_.Add()->assign(reinterpret_cast<const char*>(value), size);
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-room_lst_user_result::user() const {
-  return user_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-room_lst_user_result::mutable_user() {
-  return &user_;
+inline ::google::protobuf::RepeatedPtrField< ::oo::proto::user_state_in_room >*
+room_lst_user_result::mutable_users() {
+  return &users_;
 }
 
-// repeated string nicks = 4;
-inline int room_lst_user_result::nicks_size() const {
-  return nicks_.size();
+// -------------------------------------------------------------------
+
+// room_live_active_voice
+
+// required string room_name = 1;
+inline bool room_live_active_voice::has_room_name() const {
+  return _has_bit(0);
 }
-inline void room_lst_user_result::clear_nicks() {
-  nicks_.Clear();
+inline void room_live_active_voice::clear_room_name() {
+  if (room_name_ != &_default_room_name_) {
+    room_name_->clear();
+  }
+  _clear_bit(0);
 }
-inline const ::std::string& room_lst_user_result::nicks(int index) const {
-  return nicks_.Get(index);
+inline const ::std::string& room_live_active_voice::room_name() const {
+  return *room_name_;
 }
-inline ::std::string* room_lst_user_result::mutable_nicks(int index) {
-  return nicks_.Mutable(index);
+inline void room_live_active_voice::set_room_name(const ::std::string& value) {
+  _set_bit(0);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  room_name_->assign(value);
 }
-inline void room_lst_user_result::set_nicks(int index, const ::std::string& value) {
-  nicks_.Mutable(index)->assign(value);
+inline void room_live_active_voice::set_room_name(const char* value) {
+  _set_bit(0);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  room_name_->assign(value);
 }
-inline void room_lst_user_result::set_nicks(int index, const char* value) {
-  nicks_.Mutable(index)->assign(value);
+inline void room_live_active_voice::set_room_name(const char* value, size_t size) {
+  _set_bit(0);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  room_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline void room_lst_user_result::set_nicks(int index, const char* value, size_t size) {
-  nicks_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
+inline ::std::string* room_live_active_voice::mutable_room_name() {
+  _set_bit(0);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  return room_name_;
 }
-inline ::std::string* room_lst_user_result::add_nicks() {
-  return nicks_.Add();
+
+// -------------------------------------------------------------------
+
+// room_live_active_voice_result
+
+// required int32 error = 1;
+inline bool room_live_active_voice_result::has_error() const {
+  return _has_bit(0);
 }
-inline void room_lst_user_result::add_nicks(const ::std::string& value) {
-  nicks_.Add()->assign(value);
+inline void room_live_active_voice_result::clear_error() {
+  error_ = 0;
+  _clear_bit(0);
 }
-inline void room_lst_user_result::add_nicks(const char* value) {
-  nicks_.Add()->assign(value);
+inline ::google::protobuf::int32 room_live_active_voice_result::error() const {
+  return error_;
 }
-inline void room_lst_user_result::add_nicks(const char* value, size_t size) {
-  nicks_.Add()->assign(reinterpret_cast<const char*>(value), size);
+inline void room_live_active_voice_result::set_error(::google::protobuf::int32 value) {
+  _set_bit(0);
+  error_ = value;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-room_lst_user_result::nicks() const {
-  return nicks_;
+
+// required string room_name = 2;
+inline bool room_live_active_voice_result::has_room_name() const {
+  return _has_bit(1);
 }
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-room_lst_user_result::mutable_nicks() {
-  return &nicks_;
+inline void room_live_active_voice_result::clear_room_name() {
+  if (room_name_ != &_default_room_name_) {
+    room_name_->clear();
+  }
+  _clear_bit(1);
+}
+inline const ::std::string& room_live_active_voice_result::room_name() const {
+  return *room_name_;
+}
+inline void room_live_active_voice_result::set_room_name(const ::std::string& value) {
+  _set_bit(1);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  room_name_->assign(value);
+}
+inline void room_live_active_voice_result::set_room_name(const char* value) {
+  _set_bit(1);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  room_name_->assign(value);
+}
+inline void room_live_active_voice_result::set_room_name(const char* value, size_t size) {
+  _set_bit(1);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  room_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* room_live_active_voice_result::mutable_room_name() {
+  _set_bit(1);
+  if (room_name_ == &_default_room_name_) {
+    room_name_ = new ::std::string;
+  }
+  return room_name_;
 }
 
 
