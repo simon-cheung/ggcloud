@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rtp_test", "rtp_test.vcxproj", "{25338E9A-13D2-4046-93E7-0B9D2E29B464}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F54A4DA-2035-43B5-9D1B-9BC13DA17B50} = {9F54A4DA-2035-43B5-9D1B-9BC13DA17B50}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "voip_core", "..\build\voip_core.vcxproj", "{9F54A4DA-2035-43B5-9D1B-9BC13DA17B50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25338E9A-13D2-4046-93E7-0B9D2E29B464}.Debug|Win32.ActiveCfg = Debug|Win32
+		{25338E9A-13D2-4046-93E7-0B9D2E29B464}.Debug|Win32.Build.0 = Debug|Win32
+		{25338E9A-13D2-4046-93E7-0B9D2E29B464}.Release|Win32.ActiveCfg = Release|Win32
+		{25338E9A-13D2-4046-93E7-0B9D2E29B464}.Release|Win32.Build.0 = Release|Win32
+		{9F54A4DA-2035-43B5-9D1B-9BC13DA17B50}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9F54A4DA-2035-43B5-9D1B-9BC13DA17B50}.Debug|Win32.Build.0 = Debug|Win32
+		{9F54A4DA-2035-43B5-9D1B-9BC13DA17B50}.Release|Win32.ActiveCfg = Release|Win32
+		{9F54A4DA-2035-43B5-9D1B-9BC13DA17B50}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
