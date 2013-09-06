@@ -13,3 +13,11 @@
 #include <logmacro.h>
 #include <bigint.h>
 
+#define OO_NONCLIENT_BUILD  // buld dll
+
+#ifdef OO_NONCLIENT_BUILD
+#define OOExport _ooExport
+#else
+#define OOExport
+#endif
+

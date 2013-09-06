@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="asiosocket.h" />
     <ClInclude Include="bigint.h" />
+    <ClInclude Include="cross_macro.h" />
     <ClInclude Include="logmacro.h" />
     <ClInclude Include="oslog.h" />
     <ClInclude Include="ospch.h" />

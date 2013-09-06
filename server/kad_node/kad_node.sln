@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "os_util", "..\..\os_util\os
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "service_frm", "..\service_frm\service_frm.vcxproj", "{68C73BFE-CAED-4252-9F42-D2D7796BCEB7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oriole", "..\oriole\oriole.vcxproj", "{B32B7736-5A97-4157-B49F-1A81599E403D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{68C73BFE-CAED-4252-9F42-D2D7796BCEB7}.Debug|Win32.Build.0 = Debug|Win32
 		{68C73BFE-CAED-4252-9F42-D2D7796BCEB7}.Release|Win32.ActiveCfg = Release|Win32
 		{68C73BFE-CAED-4252-9F42-D2D7796BCEB7}.Release|Win32.Build.0 = Release|Win32
+		{B32B7736-5A97-4157-B49F-1A81599E403D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B32B7736-5A97-4157-B49F-1A81599E403D}.Debug|Win32.Build.0 = Debug|Win32
+		{B32B7736-5A97-4157-B49F-1A81599E403D}.Release|Win32.ActiveCfg = Release|Win32
+		{B32B7736-5A97-4157-B49F-1A81599E403D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

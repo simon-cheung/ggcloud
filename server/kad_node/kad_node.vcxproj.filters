@@ -45,8 +45,20 @@
     <ClCompile Include="..\..\protocol\o_net_conf.pb.cc">
       <Filter>protocol</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\protocol\o_s_user.pb.cc">
+    <ClCompile Include="unit_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="service_frm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protocol\o_conf.pb.cc">
       <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="static_module.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kad_node_proxy.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,8 +86,17 @@
     <ClInclude Include="..\..\protocol\o_net_conf.pb.h">
       <Filter>protocol</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\protocol\o_s_user.pb.h">
+    <ClInclude Include="service_frm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="unit_base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\protocol\o_conf.pb.h">
       <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="kad_node_proxy.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,7 +107,7 @@
     <None Include="..\..\protocol\o_net_conf.proto">
       <Filter>protocol</Filter>
     </None>
-    <None Include="..\..\protocol\o_s_user.proto">
+    <None Include="..\..\protocol\o_conf.proto">
       <Filter>protocol</Filter>
     </None>
   </ItemGroup>

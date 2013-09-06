@@ -5,12 +5,6 @@
 namespace oo{
     static void sendMsg(SessionPtr pSession, uuid fid, uuid toid, std::string msg);
     //=============================================================================================
-    kad_node_netunit& kad_node_netunit::instance()
-    {
-        static kad_node_netunit __Inst__;
-        return __Inst__;
-    }
-
     void kad_node_netunit::start()
     {
         Joint::instance().visit(boost::bind(&oo::kad_node_netunit::onPacket, _1, _2, _3),

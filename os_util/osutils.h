@@ -1,4 +1,5 @@
 #pragma once
+#include "cross_macro.h"
 
 #include <assert.h>
 #include <stdio.h>

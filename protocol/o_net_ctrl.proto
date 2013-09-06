@@ -43,3 +43,9 @@ message find_value_result{
 	required node_info r1 = 1;
 	optional string	   value = 2;
 }
+
+message proxy_pkg{
+	required string from = 1;
+	required string to = 2;
+	required string pkg = 3;
+}

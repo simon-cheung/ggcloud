@@ -19,6 +19,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="oriole.def">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="..\..\protocol\o_s_user.proto">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="oriole_service.h">
@@ -30,6 +36,9 @@
     <ClInclude Include="oriole_pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\protocol\o_s_user.pb.h">
+      <Filter>data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="oriole_service.cpp">
@@ -37,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="oriole_object.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protocol\o_s_user.pb.cc">
+      <Filter>data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

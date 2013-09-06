@@ -47,6 +47,9 @@
     <ClInclude Include="osutils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cross_macro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

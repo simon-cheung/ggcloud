@@ -53,7 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../protocol;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\boost_1_43_0;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;../..;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\boost_1_43_0;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -75,6 +75,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>../;../..;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\boost_1_43_0;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -85,35 +86,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\protocol\o_conf.pb.cc" />
     <ClCompile Include="..\..\protocol\o_net_conf.pb.cc" />
     <ClCompile Include="..\..\protocol\o_net_ctrl.pb.cc" />
-    <ClCompile Include="..\..\protocol\o_s_user.pb.cc" />
     <ClCompile Include="kad_net.cpp" />
     <ClCompile Include="kad_net_ctrl.cpp" />
     <ClCompile Include="kad_node.cpp" />
     <ClCompile Include="kad_node_netunit.cpp" />
+    <ClCompile Include="kad_node_proxy.cpp" />
     <ClCompile Include="MsgDispatchor.cpp" />
+    <ClCompile Include="service_frm.cpp" />
+    <ClCompile Include="static_module.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="task_mgr.cpp" />
+    <ClCompile Include="unit_base.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\protocol\o_conf.pb.h" />
     <ClInclude Include="..\..\protocol\o_net_conf.pb.h" />
     <ClInclude Include="..\..\protocol\o_net_ctrl.pb.h" />
-    <ClInclude Include="..\..\protocol\o_s_user.pb.h" />
+    <ClInclude Include="kad_node_proxy.h" />
+    <ClInclude Include="unit_base.h" />
     <ClInclude Include="kad_net.h" />
     <ClInclude Include="kad_net_ctrl.h" />
     <ClInclude Include="kad_node_netunit.h" />
     <ClInclude Include="MsgDispatchor.h" />
+    <ClInclude Include="service_frm.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="task_mgr.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\protocol\o_conf.proto" />
     <None Include="..\..\protocol\o_net_conf.proto" />
     <None Include="..\..\protocol\o_net_ctrl.proto" />
-    <None Include="..\..\protocol\o_s_user.proto" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

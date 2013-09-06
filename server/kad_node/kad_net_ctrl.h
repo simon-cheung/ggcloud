@@ -20,6 +20,8 @@ namespace oo{
         int tell_obj(const node_id& key, const std::string& msg);
         int multi_tell_obj(std::vector<node_id>& dest, const std::string& msg);
 
+        // 
+        int deliver_msg(const std::string& from, const std::string& to, const std::string& msg);
     protected:
         void handler_conn(SessionPtr pNew, std::string service);
         void _active_self();
