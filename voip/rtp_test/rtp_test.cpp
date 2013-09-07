@@ -12,57 +12,65 @@
 #include <stdio.h>
 #endif
 
-#include "audio_unit.h"
-#include "psm_player.h"
-#include "psm_record.h"
+#include <mediastreamer2/mediastream.h>
 
 #include <fstream>
 
 int main(int argc, char* argv[])
 {
+    ms_init();
 
-    voip_core::audio_unit& au = voip_core::audio_unit::instance();
-    au.startup();
+    MSSndCard* sndcard,*sndpcard;
+    sndcard = ms_snd_card_manager_get_default_capture_card(ms_snd_card_manager_get());
+    sndpcard = ms_snd_card_manager_get_default_playback_card(ms_snd_card_manager_get());
+    // capture filter
+    MSFilter* s_read = ms_snd_card_create_reader(sndcard);
+    MSFilter* s_write = ms_snd_card_create_writer(sndpcard);
 
-    // record 
-    voip_core::psm_record pr;
-    int sec = 5 * 50; // second
-    pr.start(1000, 16000);
-    size_t bsize = pr.calc_bytes_with_ms(20/*ms*/);
-    char* buf = new char[bsize * sec + bsize];
-    for(int i = 0; i < sec;){
-        int res = pr.record((void*)(buf+bsize * i), bsize);
-        if(res == 1){
-            Sleep(1);
-            continue;
-        }else if(res == 0){
-            i++; // record next
-        }else{
-            break; // error
-        }
-    }
+    MSFilter* s_rec_file = ms_filter_new(MS_FILE_REC_ID);
+    MSFilter* s_pla_file = ms_filter_new(MS_FILE_PLAYER_ID);
 
-    pr.stop();
-    // save
-    std::fstream fs("t1.pcm", std::ios_base::out | std::ios_base::binary | std::ios_base::trunc);
-    if(fs.is_open()){
-        fs.write(buf, sec * bsize );
-        fs.close();
-    }
-    // player
-    voip_core::psm_player pp;
-    voip_core::psm_stream* ps = pp.start_stream(pr.get_channels(), pr.get_type(), pr.get_rate());
-    bool bcommit = false;
-    for(int i = 0; i < sec; ){
-        int res = pp.queue_data(ps, (void*)(buf + i * bsize), bsize);
-        if( res == 0 ) //wait
-            Sleep(10);
-        else
-            i++;
-    }
+    // param
+    int sr = 16000;
+    int chan = 1;
+    ms_filter_call_method(s_read, MS_FILTER_SET_SAMPLE_RATE, &sr);
+    ms_filter_call_method(s_write, MS_FILTER_SET_SAMPLE_RATE, &sr);
+    ms_filter_call_method(s_rec_file, MS_FILTER_SET_SAMPLE_RATE, &sr);
+    ms_filter_call_method(s_pla_file, MS_FILTER_SET_SAMPLE_RATE, &sr);
+    ms_filter_call_method(s_read, MS_FILTER_SET_NCHANNELS, &chan);
+    ms_filter_call_method(s_write, MS_FILTER_SET_NCHANNELS, &chan);
+    ms_filter_call_method(s_rec_file, MS_FILTER_SET_NCHANNELS, &chan);
+    ms_filter_call_method(s_pla_file, MS_FILTER_SET_NCHANNELS, &chan);
+
+    ms_filter_call_method(s_rec_file, MS_RECORDER_OPEN, "rr.wav");
+
+    // link for graph
+    ms_filter_link(s_read, 0, s_rec_file, 0);
+    ms_filter_link(s_pla_file, 0, s_write, 0);
+
+
+    // ticker
+    MSTicker* tick = ms_ticker_new();
+    ms_ticker_attach(tick, s_read);
+    ms_ticker_attach(tick, s_pla_file);
+
+    //ms_filter_call_method_noarg(s_read, MS_RECORDER_START);
+    ms_filter_call_method_noarg(s_rec_file, MS_RECORDER_START);
+
+    ms_sleep(5);
+
+    ms_filter_call_method(s_read, MS_RECORDER_PAUSE, NULL);
+    ms_filter_call_method(s_read, MS_RECORDER_CLOSE, NULL);
+
+    // then play
+    ms_filter_call_method(s_pla_file, MS_PLAYER_OPEN, "rr.wav");
+    ms_filter_call_method_noarg(s_pla_file, MS_PLAYER_START);
 
     printf("Press Enter Key, Quit...");
     getchar();
 	return 0;
+}
+
+void record(int rate, int channel){    
 }
 
