@@ -39,6 +39,12 @@
     <ClInclude Include="..\..\protocol\o_s_user.pb.h">
       <Filter>data</Filter>
     </ClInclude>
+    <ClInclude Include="oriole_room.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="oriole_user.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="oriole_service.cpp">
@@ -49,6 +55,12 @@
     </ClCompile>
     <ClCompile Include="..\..\protocol\o_s_user.pb.cc">
       <Filter>data</Filter>
+    </ClCompile>
+    <ClCompile Include="oriole_room.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="oriole_user.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

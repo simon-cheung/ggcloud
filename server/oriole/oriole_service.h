@@ -1,9 +1,11 @@
 #pragma once
 namespace oo{
-
+    class oriole_user;
     class oriole_service        
     {
         std::string mId;
+        typedef Hashmap<std::string, oriole_user*> user_map;
+        user_map    user_map_;
     public:
         oriole_service(void);
         ~oriole_service(void);
@@ -17,8 +19,9 @@ namespace oo{
 
         const std::string& getId() const{ return mId;}
 
-        int  proc_msg(Message* msg);
-
+        int  dispatch_msg(const std::string& from, const std::string& to, const std::string& msg);
+    protected:
+        int handle_user_login(const std::string& from, oo::proto::user_login* ul);
     public:// service frame
         static void*   creator();
         static void    destory(void* inst);
@@ -31,8 +34,7 @@ namespace oo{
         static const char* getId(void* inst);
         static const char* getModuleName(void* inst) ;
 
-        static int     proc_msg(void* inst, void* msg_buf, size_t len);
-
+        static int proc_msg(void* delegate, const char* frm, const char* to, void* msg_buf, size_t len);
     };
 
 }

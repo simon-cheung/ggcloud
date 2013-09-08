@@ -83,12 +83,16 @@
     <ClInclude Include="..\..\protocol\o_s_user.pb.h" />
     <ClInclude Include="oriole_object.h" />
     <ClInclude Include="oriole_pch.h" />
+    <ClInclude Include="oriole_room.h" />
     <ClInclude Include="oriole_service.h" />
+    <ClInclude Include="oriole_user.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\protocol\o_s_user.pb.cc" />
     <ClCompile Include="oriole_object.cpp" />
+    <ClCompile Include="oriole_room.cpp" />
     <ClCompile Include="oriole_service.cpp" />
+    <ClCompile Include="oriole_user.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

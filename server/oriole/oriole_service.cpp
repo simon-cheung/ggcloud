@@ -3,6 +3,7 @@
 #include "oriole_service.h"
 #include <protocol/o_s_user.pb.h>
 #include <kad_node/unit_base.h>
+#include "oriole_user.h"
 
 static service_desc oo_sd = {
     {"oriole"},
@@ -15,7 +16,6 @@ static service_desc oo_sd = {
     &oo::oriole_service::deserialize,
     &oo::oriole_service::getId,
     &oo::oriole_service::getModuleName,
-    &oo::oriole_service::proc_msg
 };
 namespace oo{
 
@@ -29,9 +29,14 @@ namespace oo{
 
     int oriole_service::startup(const std::string& id, const std::string& cfg){
         mId = id;
+        // register dispatchor
+        reg_dispatchor(mId.c_str(), this, &oriole_service::proc_msg);
+        return 0;
     }
 
     int oriole_service::stop(){
+        unreg_dispatchor(mId.c_str());
+        return 0;
     }
 
     size_t oriole_service::calc_cache() const{
@@ -43,7 +48,35 @@ namespace oo{
     size_t oriole_service::deserialize(const std::string& istream){
     }
 
-    int  oriole_service::proc_msg(Message* msg){
+    int  oriole_service::dispatch_msg(const std::string& from, const std::string& to, const std::string& msg){
+        Message* proto;
+        if(!netpacket_2_protobuf(&proto, msg)){
+            return -1;
+        }
+        const google::protobuf::Descriptor* desc = proto->GetDescriptor();
+        if(desc == oo::proto::user_login::descriptor()) { // login
+            handle_user_login(from, proto);
+        }else{
+            user_map::iterator itf = user_map_.find(to);
+            if(itf == user_map_.end())
+                return -1;
+            itf->second->proc_msg(from, proto);
+        }
+
+        return 0;
+    }
+
+    int oriole_service::handle_user_login(const std::string& from, oo::proto::user_login* ul){
+        oriole_user* ou = new oriole_user;
+        oo::proto::user_state us;
+        us.set_user(ul->name());
+        us.set_nick(ul->name());
+        std::string user_s;
+        us.SerializeToString(&user_s);
+        google::protobuf::io::ArrayInputStream ai(user_s.c_str(), user_s.length());
+        ou->deserialize(ai);
+        user_map_.insert(user_map::value_type(ul->name(), ou));
+        return 0;
     }
 
     //=======================================================================================
@@ -91,8 +124,9 @@ namespace oo{
         return oo_sd.module_name;
     }
 
-    int     oriole_service::proc_msg(void* inst, void* msg_buf, size_t len){
-        oriole_service* os = (oriole_service*)inst;
+    int     oriole_service::proc_msg(void* delegate, const char* frm, const char* to, void* msg_buf, size_t len){
+        oriole_service* os = (oriole_service*)delegate;
+        return os->proc_msg(frm, to, std::string((const char*)msg_buf, len));
     }
 }
 

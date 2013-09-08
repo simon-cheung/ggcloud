@@ -1,5 +1,7 @@
 #pragma once
 namespace oo{
+    using google::protobuf::io::ZeroCopyInputStream;
+    using google::protobuf::io::ZeroCopyOutputStream;
 
     class oriole_object
     {
@@ -7,8 +9,8 @@ namespace oo{
         oriole_object(void);
         virtual ~oriole_object(void);
 
-        virtual std::istream& serialize(std::istream& istream) = 0;
-        virtual std::ostream& deserialize(std::istream& istream) = 0;
+        virtual ZeroCopyOutputStream& serialize(ZeroCopyOutputStream& istream) = 0;
+        virtual ZeroCopyInputStream& deserialize(ZeroCopyInputStream& istream) = 0;
 
         virtual const std::string& getId() const = 0;
 
