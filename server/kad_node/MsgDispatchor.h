@@ -1,7 +1,8 @@
 #pragma once
+
 namespace oo{
     struct Dispatchor_base;
-    typedef boost::function< void (Message*)>       MsgProc;
+    typedef boost::function< void (const std::string& from, const std::string& to, const std::string& buf)>       MsgProc;
     typedef std::string msgid;
     class MsgDispatchor{
         struct Dispatchor
@@ -11,12 +12,12 @@ namespace oo{
             int     priority;
             int     life;
         };
-        typedef Hashmap<msgid, Dispatchor > MsgProcTbl;
+        typedef Hashmap<std::string, Dispatchor > MsgProcTbl;
         MsgProcTbl        mDispatchors;    
         mutex             mDispatchMutex;
     public:
         // for process
-        void wait(msgid id, Message** ppWait);
+        void wait(msgid id, std::string& ppWait);
         // dispatch
         void     setTaskDispatchor(msgid id, MsgProc proc, int life = -1, ulong worker = -1, int priority = -1);
         void     setDirectDispatchor(msgid id, MsgProc dis, int life = -1, ulong worker = -1, int priority = -1);
@@ -26,9 +27,9 @@ namespace oo{
         void    unlockDispatch();
         bool    tryLockDispatch();
 
-        void    dispatch(msgid id, Message* msg);
+        bool    dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf);
     protected:
-        void    _dispatch(msgid id, Message* msg, Dispatchor& da);
+        int    _dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf, Dispatchor& da);
     };
 
     template<class ProtoMsg>

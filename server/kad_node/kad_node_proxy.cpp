@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "kad_node_netunit.h"
 #include "kad_node_proxy.h"
-#include "kad_net_ctrl.h"
+#include "service_frm.h"
 
 #include "task_mgr.h"
 #include <protocol/o_conf.pb.h>
@@ -37,6 +37,18 @@ namespace oo{
 
     int kad_node_proxy::deliver_msg(const std::string& from, const std::string& to, const std::string& msg){
 
+        Hashmap<std::string, SessionPtr>::iterator itf = mSessPeer.find(to);
+        if(itf != mSessPeer.end()){
+            oo::proto::proxy_pkg ppkg;
+            ppkg.set_from(from);
+            ppkg.set_to(to);
+            ppkg.set_pkg(msg);
+            std::string output;
+            ppkg.SerializeToString(&output);
+            itf->second->write_not_free(output.c_str(), output.length());
+            return 0;
+        }
+        return 1;
     }
     
     void kad_node_proxy::handler_conn(SessionPtr pNew, std::string /*service*/){
@@ -63,13 +75,13 @@ namespace oo{
         ps->recv_in_size += len;
         if(ps->peer_id.empty()){
             ps->peer_id = ppkg.from();
-            mSessPeer.insert(Hashmap<std::string, SessionPtr>::value_type(ps->peer_id, pSession);
+            kad_node_proxy::instance().mSessPeer.insert(Hashmap<std::string, SessionPtr>::value_type(ps->peer_id, pSession);
         }else if(ps->peer_id != ppkg.from()){
             pSession->close();
             onError(pSession, boost::system::error_code());
             return;
         }
-        kad_net_ctrl::instance().deliver_msg(ppkg.from(), ppkg.to(), ppkg.pkg());
+        service_frm::instance().deliver_msg(ppkg.from(), ppkg.to(), ppkg.pkg());
     }
 
     void kad_node_proxy::onError(SessionPtr pSession, const boost::system::error_code& e)

@@ -1,9 +1,11 @@
 #pragma once
+#include "MsgDispatchor.h"
 
 namespace oo{
 
     class service_frm 
         : public singleton_default<service_frm>
+        , public MsgDispatchor
     { 
         typedef Hashmap<std::string, const service_desc*> module_map;
         typedef std::pair<void*, const service_desc*> module_inst;

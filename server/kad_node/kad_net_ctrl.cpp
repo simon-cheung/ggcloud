@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "kad_net.h"
 #include "kad_net_ctrl.h"
-#include "o_net_conf.pb.h"
+#include <protocol/o_net_conf.pb.h>
+#include <protocol/o_conf.pb.h>
 #include "task_mgr.h"
+#include "kad_node_proxy.h"
 
 namespace oo{
 
@@ -15,9 +17,9 @@ namespace oo{
     }
 
     int kad_net_ctrl::startup(const std::string& conf){
-        mKadNet = new kad_net;
-        mKadNet->load_conf(conf);
-        const node_info& lni = mKadNet->get_local_node_info();
+        kad_net_ = new kad_net;
+        kad_net_->load_conf(conf);
+        const oo::proto::node_info& lni = kad_net_->get_local_node_info();
         std::stringstream ss;
         ss << lni.port();
         Joint::instance().listenAt(lni.addr().c_str(), ss.str().c_str(), 
@@ -30,13 +32,30 @@ namespace oo{
     int kad_net_ctrl::stop(){
     }
 
-    int kad_net_ctrl::publish(const node_id& key, const std::string& obj, bool bvalid){
+    int kad_net_ctrl::publish(const std::string& key, const std::string& value, bool bvalid){
+        if(bvalid){
+            key_value_map_.insert(key_value_map::value_type(key, value));
+        }else{
+            key_value_map::iterator itf = key_value_map_.find(key);
+            if(itf != key_value_map_.end())
+                key_value_map_.erase(itf);
+        }
+        return 0;
     }
 
-    int kad_net_ctrl::tell_obj(const node_id& key, const std::string& msg){
+    int kad_net_ctrl::query(const std::string& key, std::string& value){
+        if(local_value_query(key, value) == 0)
+            return 0;
+        // else ask to net
     }
 
-    int kad_net_ctrl::multi_tell_obj(std::vector<node_id>& dest, const std::string& msg){
+    int kad_net_ctrl::local_value_query(const std::string& key, std::string& value){
+        key_value_map::iterator itf = key_value_map_.find(key);
+        if(itf != key_value_map_.end()){
+            value = itf->second;
+            return 0;
+        }
+        return 1;
     }
 
     void kad_net_ctrl::handler_conn(SessionPtr pNew, std::string service){
@@ -44,9 +63,9 @@ namespace oo{
     }
 
     void kad_net_ctrl::_active_self(){
-        const node_info& lni = mKadNet->get_local_node_info();
-        std::vector<node_info> kadn;
-        mKadNet->find_shortest(node_id::from_hex_string(lni.id()), kadn);
+        const oo::proto::node_info& lni = kad_net_->get_local_node_info();
+        std::vector<oo::proto::> kadn;
+        kad_net_->find_shortest(oo::proto::node_id::from_hex_string(lni.id()), kadn);
     }
 
 }

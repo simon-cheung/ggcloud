@@ -35,8 +35,10 @@ void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
 
 class user_content;
 class user_state_in_room;
+class user_state;
 class live_state;
 class user_login;
+class user_hearttick;
 class user_login_result;
 class user_enter_room;
 class user_enter_room_result;
@@ -281,7 +283,7 @@ class user_state_in_room : public ::google::protobuf::Message {
   inline void set_user(const char* value, size_t size);
   inline ::std::string* mutable_user();
   
-  // required string nick = 2;
+  // optional string nick = 2;
   inline bool has_nick() const;
   inline void clear_nick();
   static const int kNickFieldNumber = 2;
@@ -351,6 +353,111 @@ class user_state_in_room : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static user_state_in_room* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class user_state : public ::google::protobuf::Message {
+ public:
+  user_state();
+  virtual ~user_state();
+  
+  user_state(const user_state& from);
+  
+  inline user_state& operator=(const user_state& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const user_state& default_instance();
+  
+  void Swap(user_state* other);
+  
+  // implements Message ----------------------------------------------
+  
+  user_state* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const user_state& from);
+  void MergeFrom(const user_state& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string user = 1;
+  inline bool has_user() const;
+  inline void clear_user();
+  static const int kUserFieldNumber = 1;
+  inline const ::std::string& user() const;
+  inline void set_user(const ::std::string& value);
+  inline void set_user(const char* value);
+  inline void set_user(const char* value, size_t size);
+  inline ::std::string* mutable_user();
+  
+  // optional string nick = 2;
+  inline bool has_nick() const;
+  inline void clear_nick();
+  static const int kNickFieldNumber = 2;
+  inline const ::std::string& nick() const;
+  inline void set_nick(const ::std::string& value);
+  inline void set_nick(const char* value);
+  inline void set_nick(const char* value, size_t size);
+  inline ::std::string* mutable_nick();
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.user_state)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::std::string* user_;
+  static const ::std::string _default_user_;
+  ::std::string* nick_;
+  static const ::std::string _default_nick_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static user_state* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -553,6 +660,95 @@ class user_login : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static user_login* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class user_hearttick : public ::google::protobuf::Message {
+ public:
+  user_hearttick();
+  virtual ~user_hearttick();
+  
+  user_hearttick(const user_hearttick& from);
+  
+  inline user_hearttick& operator=(const user_hearttick& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const user_hearttick& default_instance();
+  
+  void Swap(user_hearttick* other);
+  
+  // implements Message ----------------------------------------------
+  
+  user_hearttick* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const user_hearttick& from);
+  void MergeFrom(const user_hearttick& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional int32 any = 1;
+  inline bool has_any() const;
+  inline void clear_any();
+  static const int kAnyFieldNumber = 1;
+  inline ::google::protobuf::int32 any() const;
+  inline void set_any(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.user_hearttick)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::google::protobuf::int32 any_;
+  friend void  protobuf_AddDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_AssignDesc_o_5fs_5fuser_2eproto();
+  friend void protobuf_ShutdownFile_o_5fs_5fuser_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static user_hearttick* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -3208,7 +3404,7 @@ inline ::std::string* user_state_in_room::mutable_user() {
   return user_;
 }
 
-// required string nick = 2;
+// optional string nick = 2;
 inline bool user_state_in_room::has_nick() const {
   return _has_bit(1);
 }
@@ -3312,6 +3508,94 @@ inline bool user_state_in_room::rejected_video() const {
 inline void user_state_in_room::set_rejected_video(bool value) {
   _set_bit(5);
   rejected_video_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// user_state
+
+// required string user = 1;
+inline bool user_state::has_user() const {
+  return _has_bit(0);
+}
+inline void user_state::clear_user() {
+  if (user_ != &_default_user_) {
+    user_->clear();
+  }
+  _clear_bit(0);
+}
+inline const ::std::string& user_state::user() const {
+  return *user_;
+}
+inline void user_state::set_user(const ::std::string& value) {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  user_->assign(value);
+}
+inline void user_state::set_user(const char* value) {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  user_->assign(value);
+}
+inline void user_state::set_user(const char* value, size_t size) {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  user_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* user_state::mutable_user() {
+  _set_bit(0);
+  if (user_ == &_default_user_) {
+    user_ = new ::std::string;
+  }
+  return user_;
+}
+
+// optional string nick = 2;
+inline bool user_state::has_nick() const {
+  return _has_bit(1);
+}
+inline void user_state::clear_nick() {
+  if (nick_ != &_default_nick_) {
+    nick_->clear();
+  }
+  _clear_bit(1);
+}
+inline const ::std::string& user_state::nick() const {
+  return *nick_;
+}
+inline void user_state::set_nick(const ::std::string& value) {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(value);
+}
+inline void user_state::set_nick(const char* value) {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(value);
+}
+inline void user_state::set_nick(const char* value, size_t size) {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* user_state::mutable_nick() {
+  _set_bit(1);
+  if (nick_ == &_default_nick_) {
+    nick_ = new ::std::string;
+  }
+  return nick_;
 }
 
 // -------------------------------------------------------------------
@@ -3436,6 +3720,26 @@ inline ::std::string* user_login::mutable_pwd() {
     pwd_ = new ::std::string;
   }
   return pwd_;
+}
+
+// -------------------------------------------------------------------
+
+// user_hearttick
+
+// optional int32 any = 1;
+inline bool user_hearttick::has_any() const {
+  return _has_bit(0);
+}
+inline void user_hearttick::clear_any() {
+  any_ = 0;
+  _clear_bit(0);
+}
+inline ::google::protobuf::int32 user_hearttick::any() const {
+  return any_;
+}
+inline void user_hearttick::set_any(::google::protobuf::int32 value) {
+  _set_bit(0);
+  any_ = value;
 }
 
 // -------------------------------------------------------------------

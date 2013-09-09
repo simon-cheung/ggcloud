@@ -1,8 +1,11 @@
 #include "stdafx.h"
-#include "o_net_conf.pb.h"
+#include <protocol/o_net_conf.pb.h>
 #include "unit_base.h"
 #include "service_frm.h"
-#include "o_conf.pb.h"
+#include <protocol/o_conf.pb.h>
+#include "kad_net_ctrl.h"
+#include "kad_node_proxy.h"
+
 
 #if OO_PLATFORM == OO_PLATFORM_WIN32
 #  define WIN32_LEAN_AND_MEAN
@@ -142,4 +145,15 @@ namespace oo{
     int service_frm::_update_module(const std::string& name){
         return 0;
     }
+
+    int service_frm::deliver_msg(const std::string& from, const std::string& to, const std::string& msg){
+        msgid tid;
+        int intf = kad_net_ctrl::instance().local_value_query(to, tid);
+        if(intf == 0 && dispatch(tid, from, to, msg)){
+            return 0;
+        }// there is obj with name [to]
+        // ask kad net, search to's msg entry
+        return 1;
+    }
+
 }

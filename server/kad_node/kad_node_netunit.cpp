@@ -22,7 +22,8 @@ namespace oo{
             pSession->close();
             onError(pSession, boost::system::error_code());
         }// end, error msg
-        kad_node_netunit::instance().dispatch(msg->GetTypeName(), msg);
+
+        // process msg
     }
 
     void kad_node_netunit::onError(SessionPtr pSession, const boost::system::error_code& e)

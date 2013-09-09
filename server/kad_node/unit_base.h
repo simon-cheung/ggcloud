@@ -13,10 +13,10 @@ typedef struct _service_desc{
 
     const char* (*pfn_getId)(void* inst);
     const char* (*pfn_getModuleName)(void* inst) ;
-
-    int     (*pfn_proc_msg)(void* inst, void* msg_buf, size_t len);
 }service_desc, *service_desc_ptr;
 
 // interface
-int send_msg(const char* dest, void* msg_buf, size_t len);
-int reg_dispatchor(const char* id, int (*pfn_dispatchor)(const char* frm, void* msg_buf, size_t len));
+int send_msg(const char* from, const char* to, void* msg_buf, size_t len);
+int reg_dispatchor(const char* id, void* delegate, 
+            int (*pfn_dispatchor)(void* delegate, const char* frm, const char* to, void* msg_buf, size_t len));
+int unreg_dispatchor(const char* id);
