@@ -35,6 +35,7 @@ message user_state_in_room{
 message user_state{
 	required string user = 1;
 	optional string nick = 2;
+	repeated string room_relation = 3;
 }
 
 message live_state{
@@ -170,6 +171,51 @@ message room_live_active_voice{
 }
 
 message room_live_active_voice_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_live_deactive_voice{
+	required string room_name = 1;
+}
+
+message room_live_deactive_voice_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_live_active_mic{
+	required string room_name = 1;
+}
+
+message room_live_active_mic_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_live_deactive_mic{
+	required string room_name = 1;
+}
+
+message room_live_deactive_mic_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_live_active_voice_player{
+	required string room_name = 1;
+}
+
+message room_live_active_voice_player_result{
+	required int32 error = 1;
+	required string room_name = 2;
+}
+
+message room_live_deactive_voice_player{
+	required string room_name = 1;
+}
+
+message room_live_deactive_voice_player_result{
 	required int32 error = 1;
 	required string room_name = 2;
 }

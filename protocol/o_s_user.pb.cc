@@ -109,6 +109,36 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* room_live_active_voice_result_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   room_live_active_voice_result_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_deactive_voice_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_deactive_voice_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_deactive_voice_result_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_deactive_voice_result_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_active_mic_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_active_mic_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_active_mic_result_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_active_mic_result_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_deactive_mic_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_deactive_mic_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_deactive_mic_result_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_deactive_mic_result_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_active_voice_player_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_active_voice_player_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_active_voice_player_result_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_active_voice_player_result_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_deactive_voice_player_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_deactive_voice_player_reflection_ = NULL;
+const ::google::protobuf::Descriptor* room_live_deactive_voice_player_result_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  room_live_deactive_voice_player_result_reflection_ = NULL;
 
 }  // namespace
 
@@ -157,9 +187,10 @@ void protobuf_AssignDesc_o_5fs_5fuser_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(user_state_in_room));
   user_state_descriptor_ = file->message_type(2);
-  static const int user_state_offsets_[2] = {
+  static const int user_state_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(user_state, user_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(user_state, nick_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(user_state, room_relation_),
   };
   user_state_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -617,6 +648,161 @@ void protobuf_AssignDesc_o_5fs_5fuser_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(room_live_active_voice_result));
+  room_live_deactive_voice_descriptor_ = file->message_type(31);
+  static const int room_live_deactive_voice_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice, room_name_),
+  };
+  room_live_deactive_voice_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_deactive_voice_descriptor_,
+      room_live_deactive_voice::default_instance_,
+      room_live_deactive_voice_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_deactive_voice));
+  room_live_deactive_voice_result_descriptor_ = file->message_type(32);
+  static const int room_live_deactive_voice_result_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_result, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_result, room_name_),
+  };
+  room_live_deactive_voice_result_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_deactive_voice_result_descriptor_,
+      room_live_deactive_voice_result::default_instance_,
+      room_live_deactive_voice_result_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_result, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_result, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_deactive_voice_result));
+  room_live_active_mic_descriptor_ = file->message_type(33);
+  static const int room_live_active_mic_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic, room_name_),
+  };
+  room_live_active_mic_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_active_mic_descriptor_,
+      room_live_active_mic::default_instance_,
+      room_live_active_mic_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_active_mic));
+  room_live_active_mic_result_descriptor_ = file->message_type(34);
+  static const int room_live_active_mic_result_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic_result, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic_result, room_name_),
+  };
+  room_live_active_mic_result_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_active_mic_result_descriptor_,
+      room_live_active_mic_result::default_instance_,
+      room_live_active_mic_result_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic_result, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_mic_result, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_active_mic_result));
+  room_live_deactive_mic_descriptor_ = file->message_type(35);
+  static const int room_live_deactive_mic_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic, room_name_),
+  };
+  room_live_deactive_mic_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_deactive_mic_descriptor_,
+      room_live_deactive_mic::default_instance_,
+      room_live_deactive_mic_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_deactive_mic));
+  room_live_deactive_mic_result_descriptor_ = file->message_type(36);
+  static const int room_live_deactive_mic_result_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic_result, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic_result, room_name_),
+  };
+  room_live_deactive_mic_result_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_deactive_mic_result_descriptor_,
+      room_live_deactive_mic_result::default_instance_,
+      room_live_deactive_mic_result_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic_result, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_mic_result, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_deactive_mic_result));
+  room_live_active_voice_player_descriptor_ = file->message_type(37);
+  static const int room_live_active_voice_player_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player, room_name_),
+  };
+  room_live_active_voice_player_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_active_voice_player_descriptor_,
+      room_live_active_voice_player::default_instance_,
+      room_live_active_voice_player_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_active_voice_player));
+  room_live_active_voice_player_result_descriptor_ = file->message_type(38);
+  static const int room_live_active_voice_player_result_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player_result, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player_result, room_name_),
+  };
+  room_live_active_voice_player_result_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_active_voice_player_result_descriptor_,
+      room_live_active_voice_player_result::default_instance_,
+      room_live_active_voice_player_result_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player_result, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_active_voice_player_result, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_active_voice_player_result));
+  room_live_deactive_voice_player_descriptor_ = file->message_type(39);
+  static const int room_live_deactive_voice_player_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player, room_name_),
+  };
+  room_live_deactive_voice_player_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_deactive_voice_player_descriptor_,
+      room_live_deactive_voice_player::default_instance_,
+      room_live_deactive_voice_player_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_deactive_voice_player));
+  room_live_deactive_voice_player_result_descriptor_ = file->message_type(40);
+  static const int room_live_deactive_voice_player_result_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player_result, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player_result, room_name_),
+  };
+  room_live_deactive_voice_player_result_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      room_live_deactive_voice_player_result_descriptor_,
+      room_live_deactive_voice_player_result::default_instance_,
+      room_live_deactive_voice_player_result_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player_result, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(room_live_deactive_voice_player_result, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(room_live_deactive_voice_player_result));
 }
 
 namespace {
@@ -691,6 +877,26 @@ void protobuf_RegisterTypes(const ::std::string&) {
     room_live_active_voice_descriptor_, &room_live_active_voice::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     room_live_active_voice_result_descriptor_, &room_live_active_voice_result::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_deactive_voice_descriptor_, &room_live_deactive_voice::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_deactive_voice_result_descriptor_, &room_live_deactive_voice_result::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_active_mic_descriptor_, &room_live_active_mic::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_active_mic_result_descriptor_, &room_live_active_mic_result::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_deactive_mic_descriptor_, &room_live_deactive_mic::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_deactive_mic_result_descriptor_, &room_live_deactive_mic_result::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_active_voice_player_descriptor_, &room_live_active_voice_player::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_active_voice_player_result_descriptor_, &room_live_active_voice_player_result::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_deactive_voice_player_descriptor_, &room_live_deactive_voice_player::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    room_live_deactive_voice_player_result_descriptor_, &room_live_deactive_voice_player_result::default_instance());
 }
 
 }  // namespace
@@ -758,6 +964,26 @@ void protobuf_ShutdownFile_o_5fs_5fuser_2eproto() {
   delete room_live_active_voice_reflection_;
   delete room_live_active_voice_result::default_instance_;
   delete room_live_active_voice_result_reflection_;
+  delete room_live_deactive_voice::default_instance_;
+  delete room_live_deactive_voice_reflection_;
+  delete room_live_deactive_voice_result::default_instance_;
+  delete room_live_deactive_voice_result_reflection_;
+  delete room_live_active_mic::default_instance_;
+  delete room_live_active_mic_reflection_;
+  delete room_live_active_mic_result::default_instance_;
+  delete room_live_active_mic_result_reflection_;
+  delete room_live_deactive_mic::default_instance_;
+  delete room_live_deactive_mic_reflection_;
+  delete room_live_deactive_mic_result::default_instance_;
+  delete room_live_deactive_mic_result_reflection_;
+  delete room_live_active_voice_player::default_instance_;
+  delete room_live_active_voice_player_reflection_;
+  delete room_live_active_voice_player_result::default_instance_;
+  delete room_live_active_voice_player_result_reflection_;
+  delete room_live_deactive_voice_player::default_instance_;
+  delete room_live_deactive_voice_player_reflection_;
+  delete room_live_deactive_voice_player_result::default_instance_;
+  delete room_live_deactive_voice_player_result_reflection_;
 }
 
 void protobuf_AddDesc_o_5fs_5fuser_2eproto() {
@@ -775,49 +1001,65 @@ void protobuf_AddDesc_o_5fs_5fuser_2eproto() {
     "tate_in_room\022\014\n\004user\030\001 \002(\t\022\014\n\004nick\030\002 \001(\t"
     "\022\023\n\013actived_mic\030\003 \002(\010\022\026\n\016actived_camera\030"
     "\004 \002(\010\022\026\n\016rejected_voice\030\005 \002(\010\022\026\n\016rejecte"
-    "d_video\030\006 \002(\010\"(\n\nuser_state\022\014\n\004user\030\001 \002("
-    "\t\022\014\n\004nick\030\002 \001(\t\":\n\nlive_state\022\025\n\rvoice_a"
-    "ctived\030\001 \002(\005\022\025\n\rvideo_actived\030\002 \002(\005\"\'\n\nu"
-    "ser_login\022\014\n\004name\030\001 \002(\t\022\013\n\003pwd\030\002 \002(\t\"\035\n\016"
-    "user_hearttick\022\013\n\003any\030\001 \001(\005\"X\n\021user_logi"
-    "n_result\022\r\n\005error\030\001 \002(\005\022\020\n\010ser_addr\030\002 \001("
-    "\t\022\014\n\004port\030\003 \001(\t\022\024\n\014session_code\030\004 \001(\t\"$\n"
-    "\017user_enter_room\022\021\n\troom_name\030\001 \002(\t\":\n\026u"
-    "ser_enter_room_result\022\r\n\005error\030\001 \002(\005\022\021\n\t"
-    "room_name\030\002 \002(\t\"4\n\026user_enter_room_updat"
-    "e\022\014\n\004user\030\001 \002(\t\022\014\n\004nick\030\002 \002(\t\"$\n\017user_le"
-    "ave_room\022\021\n\troom_name\030\001 \002(\t\":\n\026user_leav"
-    "e_room_result\022\r\n\005error\030\001 \002(\005\022\021\n\troom_nam"
-    "e\030\002 \002(\t\"&\n\026user_leave_room_update\022\014\n\004use"
-    "r\030\001 \002(\t\"]\n\021user_send_to_user\022\014\n\004user\030\001 \002"
-    "(\t\022\021\n\tuser_name\030\002 \002(\t\022\'\n\007content\030\003 \002(\0132\026"
-    ".oo.proto.user_content\"<\n\030user_send_to_u"
-    "ser_result\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\003"
-    " \002(\t\"d\n\030user_send_to_user_update\022\014\n\004user"
-    "\030\001 \002(\t\022\021\n\tuser_name\030\002 \002(\t\022\'\n\007content\030\003 \002"
-    "(\0132\026.oo.proto.user_content\"]\n\021user_send_"
-    "to_room\022\014\n\004user\030\001 \002(\t\022\021\n\troom_name\030\002 \002(\t"
-    "\022\'\n\007content\030\003 \002(\0132\026.oo.proto.user_conten"
-    "t\"<\n\030user_send_to_room_result\022\r\n\005error\030\001"
-    " \002(\005\022\021\n\troom_name\030\003 \002(\t\"d\n\030user_send_to_"
-    "room_update\022\014\n\004user\030\001 \002(\t\022\021\n\troom_name\030\002"
+    "d_video\030\006 \002(\010\"?\n\nuser_state\022\014\n\004user\030\001 \002("
+    "\t\022\014\n\004nick\030\002 \001(\t\022\025\n\rroom_relation\030\003 \003(\t\":"
+    "\n\nlive_state\022\025\n\rvoice_actived\030\001 \002(\005\022\025\n\rv"
+    "ideo_actived\030\002 \002(\005\"\'\n\nuser_login\022\014\n\004name"
+    "\030\001 \002(\t\022\013\n\003pwd\030\002 \002(\t\"\035\n\016user_hearttick\022\013\n"
+    "\003any\030\001 \001(\005\"X\n\021user_login_result\022\r\n\005error"
+    "\030\001 \002(\005\022\020\n\010ser_addr\030\002 \001(\t\022\014\n\004port\030\003 \001(\t\022\024"
+    "\n\014session_code\030\004 \001(\t\"$\n\017user_enter_room\022"
+    "\021\n\troom_name\030\001 \002(\t\":\n\026user_enter_room_re"
+    "sult\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\"4"
+    "\n\026user_enter_room_update\022\014\n\004user\030\001 \002(\t\022\014"
+    "\n\004nick\030\002 \002(\t\"$\n\017user_leave_room\022\021\n\troom_"
+    "name\030\001 \002(\t\":\n\026user_leave_room_result\022\r\n\005"
+    "error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\"&\n\026user_l"
+    "eave_room_update\022\014\n\004user\030\001 \002(\t\"]\n\021user_s"
+    "end_to_user\022\014\n\004user\030\001 \002(\t\022\021\n\tuser_name\030\002"
     " \002(\t\022\'\n\007content\030\003 \002(\0132\026.oo.proto.user_co"
-    "ntent\" \n\013room_create\022\021\n\troom_name\030\001 \002(\t\""
-    "6\n\022room_create_result\022\r\n\005error\030\001 \002(\005\022\021\n\t"
-    "room_name\030\002 \002(\t\" \n\013room_active\022\021\n\troom_n"
-    "ame\030\001 \002(\t\"6\n\022room_active_result\022\r\n\005error"
-    "\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\"!\n\014room_destor"
-    "y\022\021\n\troom_name\030\001 \002(\t\"7\n\023room_destory_res"
-    "ult\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\"\037\n"
-    "\nroom_close\022\021\n\troom_name\030\001 \002(\t\"5\n\021room_c"
-    "lose_result\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030"
-    "\002 \002(\t\"\"\n\rroom_lst_user\022\021\n\troom_name\030\001 \002("
-    "\t\"e\n\024room_lst_user_result\022\r\n\005error\030\001 \002(\005"
-    "\022\021\n\troom_name\030\002 \002(\t\022+\n\005users\030\003 \003(\0132\034.oo."
-    "proto.user_state_in_room\"+\n\026room_live_ac"
-    "tive_voice\022\021\n\troom_name\030\001 \002(\t\"A\n\035room_li"
-    "ve_active_voice_result\022\r\n\005error\030\001 \002(\005\022\021\n"
-    "\troom_name\030\002 \002(\tB\014\n\010oo.protoH\001", 2030);
+    "ntent\"<\n\030user_send_to_user_result\022\r\n\005err"
+    "or\030\001 \002(\005\022\021\n\troom_name\030\003 \002(\t\"d\n\030user_send"
+    "_to_user_update\022\014\n\004user\030\001 \002(\t\022\021\n\tuser_na"
+    "me\030\002 \002(\t\022\'\n\007content\030\003 \002(\0132\026.oo.proto.use"
+    "r_content\"]\n\021user_send_to_room\022\014\n\004user\030\001"
+    " \002(\t\022\021\n\troom_name\030\002 \002(\t\022\'\n\007content\030\003 \002(\013"
+    "2\026.oo.proto.user_content\"<\n\030user_send_to"
+    "_room_result\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name"
+    "\030\003 \002(\t\"d\n\030user_send_to_room_update\022\014\n\004us"
+    "er\030\001 \002(\t\022\021\n\troom_name\030\002 \002(\t\022\'\n\007content\030\003"
+    " \002(\0132\026.oo.proto.user_content\" \n\013room_cre"
+    "ate\022\021\n\troom_name\030\001 \002(\t\"6\n\022room_create_re"
+    "sult\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\" "
+    "\n\013room_active\022\021\n\troom_name\030\001 \002(\t\"6\n\022room"
+    "_active_result\022\r\n\005error\030\001 \002(\005\022\021\n\troom_na"
+    "me\030\002 \002(\t\"!\n\014room_destory\022\021\n\troom_name\030\001 "
+    "\002(\t\"7\n\023room_destory_result\022\r\n\005error\030\001 \002("
+    "\005\022\021\n\troom_name\030\002 \002(\t\"\037\n\nroom_close\022\021\n\tro"
+    "om_name\030\001 \002(\t\"5\n\021room_close_result\022\r\n\005er"
+    "ror\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\"\"\n\rroom_lst"
+    "_user\022\021\n\troom_name\030\001 \002(\t\"e\n\024room_lst_use"
+    "r_result\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002"
+    "(\t\022+\n\005users\030\003 \003(\0132\034.oo.proto.user_state_"
+    "in_room\"+\n\026room_live_active_voice\022\021\n\troo"
+    "m_name\030\001 \002(\t\"A\n\035room_live_active_voice_r"
+    "esult\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\""
+    "-\n\030room_live_deactive_voice\022\021\n\troom_name"
+    "\030\001 \002(\t\"C\n\037room_live_deactive_voice_resul"
+    "t\022\r\n\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\t\")\n\024r"
+    "oom_live_active_mic\022\021\n\troom_name\030\001 \002(\t\"?"
+    "\n\033room_live_active_mic_result\022\r\n\005error\030\001"
+    " \002(\005\022\021\n\troom_name\030\002 \002(\t\"+\n\026room_live_dea"
+    "ctive_mic\022\021\n\troom_name\030\001 \002(\t\"A\n\035room_liv"
+    "e_deactive_mic_result\022\r\n\005error\030\001 \002(\005\022\021\n\t"
+    "room_name\030\002 \002(\t\"2\n\035room_live_active_voic"
+    "e_player\022\021\n\troom_name\030\001 \002(\t\"H\n$room_live"
+    "_active_voice_player_result\022\r\n\005error\030\001 \002"
+    "(\005\022\021\n\troom_name\030\002 \002(\t\"4\n\037room_live_deact"
+    "ive_voice_player\022\021\n\troom_name\030\001 \002(\t\"J\n&r"
+    "oom_live_deactive_voice_player_result\022\r\n"
+    "\005error\030\001 \002(\005\022\021\n\troom_name\030\002 \002(\tB\014\n\010oo.pr"
+    "otoH\001", 2645);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "o_s_user.proto", &protobuf_RegisterTypes);
   user_content::default_instance_ = new user_content();
@@ -851,6 +1093,16 @@ void protobuf_AddDesc_o_5fs_5fuser_2eproto() {
   room_lst_user_result::default_instance_ = new room_lst_user_result();
   room_live_active_voice::default_instance_ = new room_live_active_voice();
   room_live_active_voice_result::default_instance_ = new room_live_active_voice_result();
+  room_live_deactive_voice::default_instance_ = new room_live_deactive_voice();
+  room_live_deactive_voice_result::default_instance_ = new room_live_deactive_voice_result();
+  room_live_active_mic::default_instance_ = new room_live_active_mic();
+  room_live_active_mic_result::default_instance_ = new room_live_active_mic_result();
+  room_live_deactive_mic::default_instance_ = new room_live_deactive_mic();
+  room_live_deactive_mic_result::default_instance_ = new room_live_deactive_mic_result();
+  room_live_active_voice_player::default_instance_ = new room_live_active_voice_player();
+  room_live_active_voice_player_result::default_instance_ = new room_live_active_voice_player_result();
+  room_live_deactive_voice_player::default_instance_ = new room_live_deactive_voice_player();
+  room_live_deactive_voice_player_result::default_instance_ = new room_live_deactive_voice_player_result();
   user_content::default_instance_->InitAsDefaultInstance();
   user_state_in_room::default_instance_->InitAsDefaultInstance();
   user_state::default_instance_->InitAsDefaultInstance();
@@ -882,6 +1134,16 @@ void protobuf_AddDesc_o_5fs_5fuser_2eproto() {
   room_lst_user_result::default_instance_->InitAsDefaultInstance();
   room_live_active_voice::default_instance_->InitAsDefaultInstance();
   room_live_active_voice_result::default_instance_->InitAsDefaultInstance();
+  room_live_deactive_voice::default_instance_->InitAsDefaultInstance();
+  room_live_deactive_voice_result::default_instance_->InitAsDefaultInstance();
+  room_live_active_mic::default_instance_->InitAsDefaultInstance();
+  room_live_active_mic_result::default_instance_->InitAsDefaultInstance();
+  room_live_deactive_mic::default_instance_->InitAsDefaultInstance();
+  room_live_deactive_mic_result::default_instance_->InitAsDefaultInstance();
+  room_live_active_voice_player::default_instance_->InitAsDefaultInstance();
+  room_live_active_voice_player_result::default_instance_->InitAsDefaultInstance();
+  room_live_deactive_voice_player::default_instance_->InitAsDefaultInstance();
+  room_live_deactive_voice_player_result::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_o_5fs_5fuser_2eproto);
 }
 
@@ -1637,6 +1899,7 @@ const ::std::string user_state::_default_nick_;
 #ifndef _MSC_VER
 const int user_state::kUserFieldNumber;
 const int user_state::kNickFieldNumber;
+const int user_state::kRoomRelationFieldNumber;
 #endif  // !_MSC_VER
 
 user_state::user_state()
@@ -1708,6 +1971,7 @@ void user_state::Clear() {
       }
     }
   }
+  room_relation_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1747,6 +2011,24 @@ bool user_state::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(26)) goto parse_room_relation;
+        break;
+      }
+      
+      // repeated string room_relation = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_room_relation:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_room_relation()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_relation(0).data(), this->room_relation(0).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_room_relation;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1787,6 +2069,15 @@ void user_state::SerializeWithCachedSizes(
       2, this->nick(), output);
   }
   
+  // repeated string room_relation = 3;
+  for (int i = 0; i < this->room_relation_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->room_relation(i).data(), this->room_relation(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->room_relation(i), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1815,6 +2106,15 @@ void user_state::SerializeWithCachedSizes(
         2, this->nick(), target);
   }
   
+  // repeated string room_relation = 3;
+  for (int i = 0; i < this->room_relation_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_relation(i).data(), this->room_relation(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->room_relation(i), target);
+  }
+  
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1841,6 +2141,13 @@ int user_state::ByteSize() const {
     }
     
   }
+  // repeated string room_relation = 3;
+  total_size += 1 * this->room_relation_size();
+  for (int i = 0; i < this->room_relation_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->room_relation(i));
+  }
+  
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1866,6 +2173,7 @@ void user_state::MergeFrom(const ::google::protobuf::Message& from) {
 
 void user_state::MergeFrom(const user_state& from) {
   GOOGLE_CHECK_NE(&from, this);
+  room_relation_.MergeFrom(from.room_relation_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from._has_bit(0)) {
       set_user(from.user());
@@ -1899,6 +2207,7 @@ void user_state::Swap(user_state* other) {
   if (other != this) {
     std::swap(user_, other->user_);
     std::swap(nick_, other->nick_);
+    room_relation_.Swap(&other->room_relation_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9380,6 +9689,2466 @@ void room_live_active_voice_result::Swap(room_live_active_voice_result* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = room_live_active_voice_result_descriptor_;
   metadata.reflection = room_live_active_voice_result_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_deactive_voice::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_deactive_voice::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_deactive_voice::room_live_deactive_voice()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_deactive_voice::InitAsDefaultInstance() {
+}
+
+room_live_deactive_voice::room_live_deactive_voice(const room_live_deactive_voice& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice::SharedCtor() {
+  _cached_size_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_deactive_voice::~room_live_deactive_voice() {
+  SharedDtor();
+}
+
+void room_live_deactive_voice::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_deactive_voice::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_deactive_voice::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_deactive_voice_descriptor_;
+}
+
+const room_live_deactive_voice& room_live_deactive_voice::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_deactive_voice* room_live_deactive_voice::default_instance_ = NULL;
+
+room_live_deactive_voice* room_live_deactive_voice::New() const {
+  return new room_live_deactive_voice;
+}
+
+void room_live_deactive_voice::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (_has_bit(0)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_deactive_voice::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string room_name = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_deactive_voice::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_deactive_voice::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_deactive_voice::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string room_name = 1;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_deactive_voice::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_deactive_voice* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_deactive_voice*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_deactive_voice::MergeFrom(const room_live_deactive_voice& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_deactive_voice::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice::CopyFrom(const room_live_deactive_voice& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_deactive_voice::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void room_live_deactive_voice::Swap(room_live_deactive_voice* other) {
+  if (other != this) {
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_deactive_voice::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_deactive_voice_descriptor_;
+  metadata.reflection = room_live_deactive_voice_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_deactive_voice_result::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_deactive_voice_result::kErrorFieldNumber;
+const int room_live_deactive_voice_result::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_deactive_voice_result::room_live_deactive_voice_result()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_deactive_voice_result::InitAsDefaultInstance() {
+}
+
+room_live_deactive_voice_result::room_live_deactive_voice_result(const room_live_deactive_voice_result& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice_result::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_deactive_voice_result::~room_live_deactive_voice_result() {
+  SharedDtor();
+}
+
+void room_live_deactive_voice_result::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_deactive_voice_result::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_deactive_voice_result::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_deactive_voice_result_descriptor_;
+}
+
+const room_live_deactive_voice_result& room_live_deactive_voice_result::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_deactive_voice_result* room_live_deactive_voice_result::default_instance_ = NULL;
+
+room_live_deactive_voice_result* room_live_deactive_voice_result::New() const {
+  return new room_live_deactive_voice_result;
+}
+
+void room_live_deactive_voice_result::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    error_ = 0;
+    if (_has_bit(1)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_deactive_voice_result::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 error = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &error_)));
+          _set_bit(0);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_room_name;
+        break;
+      }
+      
+      // required string room_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_room_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_deactive_voice_result::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->error(), output);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_deactive_voice_result::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->error(), target);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_deactive_voice_result::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 error = 1;
+    if (has_error()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->error());
+    }
+    
+    // required string room_name = 2;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_deactive_voice_result::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_deactive_voice_result* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_deactive_voice_result*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_deactive_voice_result::MergeFrom(const room_live_deactive_voice_result& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_error(from.error());
+    }
+    if (from._has_bit(1)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_deactive_voice_result::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice_result::CopyFrom(const room_live_deactive_voice_result& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_deactive_voice_result::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void room_live_deactive_voice_result::Swap(room_live_deactive_voice_result* other) {
+  if (other != this) {
+    std::swap(error_, other->error_);
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_deactive_voice_result::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_deactive_voice_result_descriptor_;
+  metadata.reflection = room_live_deactive_voice_result_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_active_mic::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_active_mic::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_active_mic::room_live_active_mic()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_active_mic::InitAsDefaultInstance() {
+}
+
+room_live_active_mic::room_live_active_mic(const room_live_active_mic& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_active_mic::SharedCtor() {
+  _cached_size_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_active_mic::~room_live_active_mic() {
+  SharedDtor();
+}
+
+void room_live_active_mic::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_active_mic::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_active_mic::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_active_mic_descriptor_;
+}
+
+const room_live_active_mic& room_live_active_mic::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_active_mic* room_live_active_mic::default_instance_ = NULL;
+
+room_live_active_mic* room_live_active_mic::New() const {
+  return new room_live_active_mic;
+}
+
+void room_live_active_mic::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (_has_bit(0)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_active_mic::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string room_name = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_active_mic::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_active_mic::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_active_mic::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string room_name = 1;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_active_mic::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_active_mic* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_active_mic*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_active_mic::MergeFrom(const room_live_active_mic& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_active_mic::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_active_mic::CopyFrom(const room_live_active_mic& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_active_mic::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void room_live_active_mic::Swap(room_live_active_mic* other) {
+  if (other != this) {
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_active_mic::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_active_mic_descriptor_;
+  metadata.reflection = room_live_active_mic_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_active_mic_result::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_active_mic_result::kErrorFieldNumber;
+const int room_live_active_mic_result::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_active_mic_result::room_live_active_mic_result()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_active_mic_result::InitAsDefaultInstance() {
+}
+
+room_live_active_mic_result::room_live_active_mic_result(const room_live_active_mic_result& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_active_mic_result::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_active_mic_result::~room_live_active_mic_result() {
+  SharedDtor();
+}
+
+void room_live_active_mic_result::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_active_mic_result::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_active_mic_result::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_active_mic_result_descriptor_;
+}
+
+const room_live_active_mic_result& room_live_active_mic_result::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_active_mic_result* room_live_active_mic_result::default_instance_ = NULL;
+
+room_live_active_mic_result* room_live_active_mic_result::New() const {
+  return new room_live_active_mic_result;
+}
+
+void room_live_active_mic_result::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    error_ = 0;
+    if (_has_bit(1)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_active_mic_result::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 error = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &error_)));
+          _set_bit(0);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_room_name;
+        break;
+      }
+      
+      // required string room_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_room_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_active_mic_result::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->error(), output);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_active_mic_result::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->error(), target);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_active_mic_result::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 error = 1;
+    if (has_error()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->error());
+    }
+    
+    // required string room_name = 2;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_active_mic_result::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_active_mic_result* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_active_mic_result*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_active_mic_result::MergeFrom(const room_live_active_mic_result& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_error(from.error());
+    }
+    if (from._has_bit(1)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_active_mic_result::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_active_mic_result::CopyFrom(const room_live_active_mic_result& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_active_mic_result::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void room_live_active_mic_result::Swap(room_live_active_mic_result* other) {
+  if (other != this) {
+    std::swap(error_, other->error_);
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_active_mic_result::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_active_mic_result_descriptor_;
+  metadata.reflection = room_live_active_mic_result_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_deactive_mic::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_deactive_mic::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_deactive_mic::room_live_deactive_mic()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_deactive_mic::InitAsDefaultInstance() {
+}
+
+room_live_deactive_mic::room_live_deactive_mic(const room_live_deactive_mic& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_deactive_mic::SharedCtor() {
+  _cached_size_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_deactive_mic::~room_live_deactive_mic() {
+  SharedDtor();
+}
+
+void room_live_deactive_mic::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_deactive_mic::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_deactive_mic::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_deactive_mic_descriptor_;
+}
+
+const room_live_deactive_mic& room_live_deactive_mic::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_deactive_mic* room_live_deactive_mic::default_instance_ = NULL;
+
+room_live_deactive_mic* room_live_deactive_mic::New() const {
+  return new room_live_deactive_mic;
+}
+
+void room_live_deactive_mic::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (_has_bit(0)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_deactive_mic::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string room_name = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_deactive_mic::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_deactive_mic::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_deactive_mic::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string room_name = 1;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_deactive_mic::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_deactive_mic* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_deactive_mic*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_deactive_mic::MergeFrom(const room_live_deactive_mic& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_deactive_mic::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_deactive_mic::CopyFrom(const room_live_deactive_mic& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_deactive_mic::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void room_live_deactive_mic::Swap(room_live_deactive_mic* other) {
+  if (other != this) {
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_deactive_mic::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_deactive_mic_descriptor_;
+  metadata.reflection = room_live_deactive_mic_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_deactive_mic_result::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_deactive_mic_result::kErrorFieldNumber;
+const int room_live_deactive_mic_result::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_deactive_mic_result::room_live_deactive_mic_result()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_deactive_mic_result::InitAsDefaultInstance() {
+}
+
+room_live_deactive_mic_result::room_live_deactive_mic_result(const room_live_deactive_mic_result& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_deactive_mic_result::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_deactive_mic_result::~room_live_deactive_mic_result() {
+  SharedDtor();
+}
+
+void room_live_deactive_mic_result::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_deactive_mic_result::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_deactive_mic_result::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_deactive_mic_result_descriptor_;
+}
+
+const room_live_deactive_mic_result& room_live_deactive_mic_result::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_deactive_mic_result* room_live_deactive_mic_result::default_instance_ = NULL;
+
+room_live_deactive_mic_result* room_live_deactive_mic_result::New() const {
+  return new room_live_deactive_mic_result;
+}
+
+void room_live_deactive_mic_result::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    error_ = 0;
+    if (_has_bit(1)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_deactive_mic_result::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 error = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &error_)));
+          _set_bit(0);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_room_name;
+        break;
+      }
+      
+      // required string room_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_room_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_deactive_mic_result::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->error(), output);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_deactive_mic_result::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->error(), target);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_deactive_mic_result::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 error = 1;
+    if (has_error()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->error());
+    }
+    
+    // required string room_name = 2;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_deactive_mic_result::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_deactive_mic_result* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_deactive_mic_result*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_deactive_mic_result::MergeFrom(const room_live_deactive_mic_result& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_error(from.error());
+    }
+    if (from._has_bit(1)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_deactive_mic_result::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_deactive_mic_result::CopyFrom(const room_live_deactive_mic_result& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_deactive_mic_result::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void room_live_deactive_mic_result::Swap(room_live_deactive_mic_result* other) {
+  if (other != this) {
+    std::swap(error_, other->error_);
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_deactive_mic_result::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_deactive_mic_result_descriptor_;
+  metadata.reflection = room_live_deactive_mic_result_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_active_voice_player::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_active_voice_player::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_active_voice_player::room_live_active_voice_player()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_active_voice_player::InitAsDefaultInstance() {
+}
+
+room_live_active_voice_player::room_live_active_voice_player(const room_live_active_voice_player& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_active_voice_player::SharedCtor() {
+  _cached_size_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_active_voice_player::~room_live_active_voice_player() {
+  SharedDtor();
+}
+
+void room_live_active_voice_player::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_active_voice_player::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_active_voice_player::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_active_voice_player_descriptor_;
+}
+
+const room_live_active_voice_player& room_live_active_voice_player::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_active_voice_player* room_live_active_voice_player::default_instance_ = NULL;
+
+room_live_active_voice_player* room_live_active_voice_player::New() const {
+  return new room_live_active_voice_player;
+}
+
+void room_live_active_voice_player::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (_has_bit(0)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_active_voice_player::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string room_name = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_active_voice_player::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_active_voice_player::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_active_voice_player::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string room_name = 1;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_active_voice_player::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_active_voice_player* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_active_voice_player*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_active_voice_player::MergeFrom(const room_live_active_voice_player& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_active_voice_player::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_active_voice_player::CopyFrom(const room_live_active_voice_player& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_active_voice_player::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void room_live_active_voice_player::Swap(room_live_active_voice_player* other) {
+  if (other != this) {
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_active_voice_player::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_active_voice_player_descriptor_;
+  metadata.reflection = room_live_active_voice_player_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_active_voice_player_result::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_active_voice_player_result::kErrorFieldNumber;
+const int room_live_active_voice_player_result::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_active_voice_player_result::room_live_active_voice_player_result()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_active_voice_player_result::InitAsDefaultInstance() {
+}
+
+room_live_active_voice_player_result::room_live_active_voice_player_result(const room_live_active_voice_player_result& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_active_voice_player_result::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_active_voice_player_result::~room_live_active_voice_player_result() {
+  SharedDtor();
+}
+
+void room_live_active_voice_player_result::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_active_voice_player_result::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_active_voice_player_result::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_active_voice_player_result_descriptor_;
+}
+
+const room_live_active_voice_player_result& room_live_active_voice_player_result::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_active_voice_player_result* room_live_active_voice_player_result::default_instance_ = NULL;
+
+room_live_active_voice_player_result* room_live_active_voice_player_result::New() const {
+  return new room_live_active_voice_player_result;
+}
+
+void room_live_active_voice_player_result::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    error_ = 0;
+    if (_has_bit(1)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_active_voice_player_result::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 error = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &error_)));
+          _set_bit(0);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_room_name;
+        break;
+      }
+      
+      // required string room_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_room_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_active_voice_player_result::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->error(), output);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_active_voice_player_result::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->error(), target);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_active_voice_player_result::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 error = 1;
+    if (has_error()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->error());
+    }
+    
+    // required string room_name = 2;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_active_voice_player_result::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_active_voice_player_result* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_active_voice_player_result*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_active_voice_player_result::MergeFrom(const room_live_active_voice_player_result& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_error(from.error());
+    }
+    if (from._has_bit(1)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_active_voice_player_result::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_active_voice_player_result::CopyFrom(const room_live_active_voice_player_result& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_active_voice_player_result::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void room_live_active_voice_player_result::Swap(room_live_active_voice_player_result* other) {
+  if (other != this) {
+    std::swap(error_, other->error_);
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_active_voice_player_result::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_active_voice_player_result_descriptor_;
+  metadata.reflection = room_live_active_voice_player_result_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_deactive_voice_player::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_deactive_voice_player::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_deactive_voice_player::room_live_deactive_voice_player()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_deactive_voice_player::InitAsDefaultInstance() {
+}
+
+room_live_deactive_voice_player::room_live_deactive_voice_player(const room_live_deactive_voice_player& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice_player::SharedCtor() {
+  _cached_size_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_deactive_voice_player::~room_live_deactive_voice_player() {
+  SharedDtor();
+}
+
+void room_live_deactive_voice_player::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_deactive_voice_player::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_deactive_voice_player::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_deactive_voice_player_descriptor_;
+}
+
+const room_live_deactive_voice_player& room_live_deactive_voice_player::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_deactive_voice_player* room_live_deactive_voice_player::default_instance_ = NULL;
+
+room_live_deactive_voice_player* room_live_deactive_voice_player::New() const {
+  return new room_live_deactive_voice_player;
+}
+
+void room_live_deactive_voice_player::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (_has_bit(0)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_deactive_voice_player::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string room_name = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_deactive_voice_player::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_deactive_voice_player::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string room_name = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_deactive_voice_player::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string room_name = 1;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_deactive_voice_player::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_deactive_voice_player* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_deactive_voice_player*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_deactive_voice_player::MergeFrom(const room_live_deactive_voice_player& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_deactive_voice_player::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice_player::CopyFrom(const room_live_deactive_voice_player& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_deactive_voice_player::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void room_live_deactive_voice_player::Swap(room_live_deactive_voice_player* other) {
+  if (other != this) {
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_deactive_voice_player::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_deactive_voice_player_descriptor_;
+  metadata.reflection = room_live_deactive_voice_player_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::std::string room_live_deactive_voice_player_result::_default_room_name_;
+#ifndef _MSC_VER
+const int room_live_deactive_voice_player_result::kErrorFieldNumber;
+const int room_live_deactive_voice_player_result::kRoomNameFieldNumber;
+#endif  // !_MSC_VER
+
+room_live_deactive_voice_player_result::room_live_deactive_voice_player_result()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void room_live_deactive_voice_player_result::InitAsDefaultInstance() {
+}
+
+room_live_deactive_voice_player_result::room_live_deactive_voice_player_result(const room_live_deactive_voice_player_result& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice_player_result::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = 0;
+  room_name_ = const_cast< ::std::string*>(&_default_room_name_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+room_live_deactive_voice_player_result::~room_live_deactive_voice_player_result() {
+  SharedDtor();
+}
+
+void room_live_deactive_voice_player_result::SharedDtor() {
+  if (room_name_ != &_default_room_name_) {
+    delete room_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void room_live_deactive_voice_player_result::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* room_live_deactive_voice_player_result::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return room_live_deactive_voice_player_result_descriptor_;
+}
+
+const room_live_deactive_voice_player_result& room_live_deactive_voice_player_result::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_o_5fs_5fuser_2eproto();  return *default_instance_;
+}
+
+room_live_deactive_voice_player_result* room_live_deactive_voice_player_result::default_instance_ = NULL;
+
+room_live_deactive_voice_player_result* room_live_deactive_voice_player_result::New() const {
+  return new room_live_deactive_voice_player_result;
+}
+
+void room_live_deactive_voice_player_result::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    error_ = 0;
+    if (_has_bit(1)) {
+      if (room_name_ != &_default_room_name_) {
+        room_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool room_live_deactive_voice_player_result::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 error = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &error_)));
+          _set_bit(0);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_room_name;
+        break;
+      }
+      
+      // required string room_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_room_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_room_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->room_name().data(), this->room_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void room_live_deactive_voice_player_result::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->error(), output);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->room_name(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* room_live_deactive_voice_player_result::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 error = 1;
+  if (_has_bit(0)) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->error(), target);
+  }
+  
+  // required string room_name = 2;
+  if (_has_bit(1)) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->room_name().data(), this->room_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->room_name(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int room_live_deactive_voice_player_result::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 error = 1;
+    if (has_error()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->error());
+    }
+    
+    // required string room_name = 2;
+    if (has_room_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->room_name());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void room_live_deactive_voice_player_result::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const room_live_deactive_voice_player_result* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const room_live_deactive_voice_player_result*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void room_live_deactive_voice_player_result::MergeFrom(const room_live_deactive_voice_player_result& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from._has_bit(0)) {
+      set_error(from.error());
+    }
+    if (from._has_bit(1)) {
+      set_room_name(from.room_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void room_live_deactive_voice_player_result::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void room_live_deactive_voice_player_result::CopyFrom(const room_live_deactive_voice_player_result& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool room_live_deactive_voice_player_result::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  return true;
+}
+
+void room_live_deactive_voice_player_result::Swap(room_live_deactive_voice_player_result* other) {
+  if (other != this) {
+    std::swap(error_, other->error_);
+    std::swap(room_name_, other->room_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata room_live_deactive_voice_player_result::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = room_live_deactive_voice_player_result_descriptor_;
+  metadata.reflection = room_live_deactive_voice_player_result_reflection_;
   return metadata;
 }
 
