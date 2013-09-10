@@ -25,15 +25,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -----------------------------------------------------------------------------
 */
+#include "osutils.h"
 #include <CoreFoundation/CoreFoundation.h>
-#include "ooutils.h"
 
-namespace Ogre {
+namespace oo {
 
     CFBundleRef mac_loadExeBundle(const char *path);
     void * mac_getBundleSym(CFBundleRef bundle, const char *name);
     bool mac_unloadExeBundle(CFBundleRef bundle);
     void* mac_loadDylib(const char* name);
-    _OgreExport std::string macPluginPath();
-    _OgreExport std::string macBundlePath();
+    _ooExport std::string macPluginPath();
+    _ooExport std::string macBundlePath();
 }

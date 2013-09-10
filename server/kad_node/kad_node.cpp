@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
     //
     oo::Log::Instance()->start("Log.conf");
 
-    NAFInfo("would startup with %d thread", 4);
+    printf("would startup with %d thread", 4);
     oo::MsgPortTaskManager::instance().startup(4);        // 开启四个线程用以逻辑运算
 
     oo::kad_node_netunit::instance().start();
@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
         oo::Joint::instance().run();
     }
 
-    NAFInfo("app over!wait worker...");
+    printf("app over!wait worker...");
     oo::MsgPortTaskManager::instance().stop();
 
     printf("ok, Any Key, Quit....");
@@ -74,7 +74,7 @@ void OnConsoleCmd()
     std::cin >> cmd;
     if(cmd.compare("q") == 0)
     {
-        naf::Joint::instance().stop();
+        oo::Joint::instance().stop();
     }
     else if(cmd.compare("dofile") == 0)
     {

@@ -137,6 +137,14 @@ typedef long AtomicWord;
 #define ATOMIC_REF(x) _InterlockedIncrement(x)
 #define ATOMIC_REL(x) _InterlockedDecrement(x)
 #define ATOMIC_SET(x,y) (x=y)
+
+#elif defined(__APPLE_CC__)
+#include <libkern/OSAtomic.h>
+typedef int64_t AtomicWord;
+#define ATOMIC_REF(x) OSAtomicIncrement64(x)
+#define ATOMIC_REL(x) OSAtomicDecrement64(x)
+#define ATOMIC_SET(x,y) (x=y)
+
 #else
 #if __GNUC__ * 100 + __GNUC_MINOR__ >= 402
 # include <ext/atomicity.h> 
@@ -177,7 +185,7 @@ namespace oo
 
         AtomicRefWith() : mReference(NULL){}
 
-        AtomicRefWith(long* outref)
+        AtomicRefWith(AtomicWord* outref)
             : mReference((AtomicWord*)outref)
         {
             ATOMIC_SET(*mReference, 0);
@@ -196,7 +204,7 @@ namespace oo
             ref();
         }
 
-        void bind(long* outref)
+        void bind(AtomicWord* outref)
         {
             mReference = outref;
             ATOMIC_SET(*mReference, 0);
@@ -233,7 +241,7 @@ namespace oo
           inline void do_nothing() const { }
         };
         static object_creator create_object;
-
+    protected:
         singleton_default();
 
       public:
@@ -278,35 +286,25 @@ namespace naf
     template<class Message>
     inline void write_config_file(const std::string& path, Message& msg)
     {
-        FILE * pFile;
-        pFile = fopen (path.c_str(), "w");
-        if (pFile!=NULL)
-        {		
-#ifdef WIN32
-            google::protobuf::io::FileOutputStream fo(pFile->_file);
-#else
-            google::protobuf::io::FileOutputStream fo(pFile->_fileno);
-#endif
+        std::ofstream ofs(path);
+        ofs.open(path, std::ios_base::out | std::ios_base::trunc);
+        if (ofs.is_open())
+        {
+            google::protobuf::io::OstreamOutputStream fo(&ofs);
 
             google::protobuf::TextFormat::Print(msg, &fo);
-            fclose(pFile);
         }
     }
 
     template<class Message>
     inline void read_config_file(const std::string& path, Message& msg)
     {
-        FILE * pFile = fopen (path.c_str(), "r");
-
-        if (pFile!=NULL)
+        std::ifstream  ifi;
+        ifi.open(path, std::ios_base::in);
+        if (ifi.is_open())
         {
-#ifdef WIN32
-            google::protobuf::io::FileInputStream fi(pFile->_file);
-#else
-            google::protobuf::io::FileInputStream fi(pFile->_fileno);
-#endif
+            google::protobuf::io::IstreamInputStream fi(&ifi);
             google::protobuf::TextFormat::Parse(&fi, &msg);
-            fclose(pFile);
         }
     }
 }

@@ -150,7 +150,7 @@ namespace oo{
         STACK_TRACE;
         NAFInfo("connect 2 %s:%s", addr, service);
         // Resolve the host name into an IP address.
-        boost::asio::ip::tcp::resolver resolver(mSocket.io_service());
+        boost::asio::ip::tcp::resolver resolver(mpJoint->io_service());
         boost::asio::ip::tcp::resolver::query query(addr, service);
         boost::asio::ip::tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
 
@@ -173,7 +173,7 @@ namespace oo{
         catch(boost::system::error_code& e)
         {
             std::string stre = e.message();
-            NAFInfo("connect 2 %s:%s error: %s", addr, service, stre);
+            NAFInfo("connect 2 %s:%s error: %s", addr, service, stre.c_str());
             mSocket.close();
             std::cerr << stre << std::endl;
             return false;

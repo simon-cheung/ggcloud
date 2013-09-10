@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include <protocol/o_net_conf.pb.h>
+#include <protocol/o_conf.pb.h>
 #include "unit_base.h"
 #include "service_frm.h"
-#include <protocol/o_conf.pb.h>
 #include "kad_net_ctrl.h"
 #include "kad_node_proxy.h"
 

@@ -28,7 +28,12 @@ namespace oo
     }
     inline uint32 GetCurThreadId()
     {
+#ifdef __APPLE_CC__
+        pthread_t id = pthread_self();
+        return (uint32)((uint64)id % 0xffffffff);
+#else
         return (uint32)pthread_self();
+#endif
     }
     inline uint32 GetProcessId()
     {

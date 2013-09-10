@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "kad_net.h"
-#include "kad_net_ctrl.h"
 #include <protocol/o_net_conf.pb.h>
 #include <protocol/o_conf.pb.h>
+#include "kad_net.h"
+#include "kad_net_ctrl.h"
 #include "task_mgr.h"
 #include "kad_node_proxy.h"
 
@@ -23,9 +23,9 @@ namespace oo{
         std::stringstream ss;
         ss << lni.port();
         Joint::instance().listenAt(lni.addr().c_str(), ss.str().c_str(), 
-            boost::bind(kad_net_ctrl::handler_conn, kad_net_ctrl::instance_ptr(), _1, _2));
+            boost::bind(&kad_net_ctrl::handler_conn, kad_net_ctrl::instance_ptr(), _1, _2));
 
-        MsgPortTaskManager::instance().addTask(boost::bind(&_active_self, this), (ulong)(this));
+        MsgPortTaskManager::instance().addTask(boost::bind(&kad_net_ctrl::_active_self, this), (ulong)(this));
         return 1;
     }
 
@@ -64,8 +64,8 @@ namespace oo{
 
     void kad_net_ctrl::_active_self(){
         const oo::proto::node_info& lni = kad_net_->get_local_node_info();
-        std::vector<oo::proto::> kadn;
-        kad_net_->find_shortest(oo::proto::node_id::from_hex_string(lni.id()), kadn);
+        std::vector<node_info> kadn;
+        kad_net_->find_shortest(oo::node_id::from_hex_string(lni.id()), kadn);
     }
 
 }
