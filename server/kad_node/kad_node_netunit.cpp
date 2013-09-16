@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "MsgDispatchor.h"
 #include "kad_node_netunit.h"
 #include "task_mgr.h"
 

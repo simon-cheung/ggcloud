@@ -1,6 +1,7 @@
 #include "stdafx.h"
-#include "MsgDispatchor.h"
 #include "task_mgr.h"
+#include "MsgDispatchor.h"
+
 
 namespace oo{
     void MsgDispatchor::lockDispatch()
@@ -72,9 +73,9 @@ namespace oo{
         ppWait = msg;
     }
 
-    void _managedDispatchor(msgid id, MsgProc proc, int worker, int priority, Message* msg)
+    void _managedDispatchor(msgid id, MsgProc proc, int worker, int priority, const std::string& from, const std::string& to, const std::string& buf)
     {
-        MsgPortTaskManager::instance().addTask(boost::bind(proc, msg), worker, priority);
+        MsgPortTaskManager::instance().addTask(boost::bind(proc, from, to, buf), worker, priority);
     }
 
     void MsgDispatchor::wait(msgid id, std::string& ppWait)
@@ -84,7 +85,7 @@ namespace oo{
 
     void MsgDispatchor::setTaskDispatchor(msgid id, MsgProc proc, int life, ulong worker, int priority)
     {
-        setDirectDispatchor(id, boost::bind(&_managedDispatchor, id, proc, worker, priority, _1), life, worker, priority);
+        setDirectDispatchor(id, boost::bind(&_managedDispatchor, id, proc, worker, priority, _1, _2, _3), life, worker, priority);
     }
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2223B91F17E1BD020055FC14 /* msg_flow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2223B91D17E1BD020055FC14 /* msg_flow.cpp */; };
 		222AC0F017DF007E0041CE49 /* o_conf.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 222AC0AA17DF007E0041CE49 /* o_conf.pb.cc */; };
 		222AC0F117DF007E0041CE49 /* o_net_conf.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 222AC0AD17DF007E0041CE49 /* o_net_conf.pb.cc */; };
 		222AC0F217DF007E0041CE49 /* o_net_ctrl.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 222AC0B017DF007E0041CE49 /* o_net_ctrl.pb.cc */; };
@@ -68,7 +69,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		222AC07C17DEFF9F0041CE49 /* oriole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = oriole; path = kad_node; sourceTree = BUILT_PRODUCTS_DIR; };
+		2223B91D17E1BD020055FC14 /* msg_flow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msg_flow.cpp; sourceTree = "<group>"; };
+		2223B91E17E1BD020055FC14 /* msg_flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg_flow.h; sourceTree = "<group>"; };
+		222AC07C17DEFF9F0041CE49 /* kad_node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kad_node; sourceTree = BUILT_PRODUCTS_DIR; };
 		222AC0AA17DF007E0041CE49 /* o_conf.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = o_conf.pb.cc; sourceTree = "<group>"; };
 		222AC0AB17DF007E0041CE49 /* o_conf.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = o_conf.pb.h; sourceTree = "<group>"; };
 		222AC0AC17DF007E0041CE49 /* o_conf.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = o_conf.proto; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 		222AC13C17DF03300041CE49 /* osutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osutil.cpp; sourceTree = "<group>"; };
 		222AC13D17DF03300041CE49 /* osutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osutils.h; sourceTree = "<group>"; };
 		222AC13E17DF03300041CE49 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		22BC2D6817E7032C00B3BF5B /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../../../../../../../usr/local/lib/libprotobuf.a; sourceTree = "<group>"; };
+		22BC2D6A17E703C300B3BF5B /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "../../../../../../../usr/local/lib/libprotobuf-lite.a"; sourceTree = "<group>"; };
 		22C2EFAD17DF246000A0E9D7 /* log4cpp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = log4cpp.xcodeproj; path = "../../../../../work/opensource/log4cpp-1.0/macbuild/log4cpp/log4cpp.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +172,8 @@
 		222AC07317DEFF9F0041CE49 = {
 			isa = PBXGroup;
 			children = (
+				22BC2D6A17E703C300B3BF5B /* libprotobuf-lite.a */,
+				22BC2D6817E7032C00B3BF5B /* libprotobuf.a */,
 				222AC12C17DF03300041CE49 /* os_util */,
 				222AC0A817DF007E0041CE49 /* protocol */,
 				222AC0B617DF007E0041CE49 /* server */,
@@ -179,7 +186,7 @@
 		222AC07D17DEFF9F0041CE49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				222AC07C17DEFF9F0041CE49 /* oriole */,
+				222AC07C17DEFF9F0041CE49 /* kad_node */,
 				222AC10917DF020A0041CE49 /* oriole.dylib */,
 				222AC12817DF030F0041CE49 /* libosutil.a */,
 			);
@@ -239,6 +246,8 @@
 				222AC0D017DF007E0041CE49 /* task_mgr.h */,
 				222AC0D117DF007E0041CE49 /* unit_base.cpp */,
 				222AC0D217DF007E0041CE49 /* unit_base.h */,
+				2223B91D17E1BD020055FC14 /* msg_flow.cpp */,
+				2223B91E17E1BD020055FC14 /* msg_flow.h */,
 			);
 			path = kad_node;
 			sourceTree = "<group>";
@@ -353,7 +362,7 @@
 			);
 			name = kad_node;
 			productName = oriole;
-			productReference = 222AC07C17DEFF9F0041CE49 /* oriole */;
+			productReference = 222AC07C17DEFF9F0041CE49 /* kad_node */;
 			productType = "com.apple.product-type.tool";
 		};
 		222AC10817DF020A0041CE49 /* oriole */ = {
@@ -452,6 +461,7 @@
 				222AC0FB17DF007E0041CE49 /* static_module.cpp in Sources */,
 				222AC0FD17DF007E0041CE49 /* task_mgr.cpp in Sources */,
 				222AC0FE17DF007E0041CE49 /* unit_base.cpp in Sources */,
+				2223B91F17E1BD020055FC14 /* msg_flow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +527,10 @@
 					/Users/MacOS/work/opensource/boost/include,
 					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /Users/MacOS/work/opensource/boost/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/Users/MacOS/work/opensource/boost/lib,
+					/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lboost_thread";
@@ -554,7 +567,10 @@
 					/Users/MacOS/work/opensource/boost/include,
 					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /Users/MacOS/work/opensource/boost/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/Users/MacOS/work/opensource/boost/lib,
+					/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lboost_thread";
 				SDKROOT = macosx;
@@ -564,6 +580,12 @@
 		222AC08617DEFF9F0041CE49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-lboost_system",
+					"-lboost_thread",
+					"-lprotobuf",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -571,6 +593,12 @@
 		222AC08717DEFF9F0041CE49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-lboost_system",
+					"-lboost_thread",
+					"-lprotobuf",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

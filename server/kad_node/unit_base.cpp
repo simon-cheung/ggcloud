@@ -12,8 +12,8 @@ static int cpp_dis(void* delegate, int (*pfn_dispatchor)(void* delegate, const c
     return pfn_dispatchor(delegate, from.c_str(), to.c_str(), (const void*)msg.c_str(), msg.length());
 }
 
-int reg_dispatchor(const char* id, void* delegate, int (*pfn_dispatchor)(void* delegate, const char* frm, const char* to, void* msg_buf, size_t len)){
-    oo::service_frm::instance().setTaskDispatchor(id, boost::bind(&cpp_dis, pfn_dispatchor, delegate, _1, _2, _3, _4));
+int reg_dispatchor(const char* id, void* delegate, int (*pfn_dispatchor)(void* delegate, const char* frm, const char* to, const void* msg_buf, size_t len)){
+    oo::service_frm::instance().setTaskDispatchor(id, boost::bind(&cpp_dis, delegate, pfn_dispatchor, _1, _2, _3));
     return 0;
 }
 

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "unit_base.h"
 #include "kad_node_netunit.h"
 #include "kad_node_proxy.h"
 #include "service_frm.h"
@@ -75,7 +76,7 @@ namespace oo{
         ps->recv_in_size += len;
         if(ps->peer_id.empty()){
             ps->peer_id = ppkg.from();
-            kad_node_proxy::instance().mSessPeer.insert(Hashmap<std::string, SessionPtr>::value_type(ps->peer_id, pSession);
+            kad_node_proxy::instance().mSessPeer.insert(Hashmap<std::string, SessionPtr>::value_type(ps->peer_id, pSession));
         }else if(ps->peer_id != ppkg.from()){
             pSession->close();
             onError(pSession, boost::system::error_code());

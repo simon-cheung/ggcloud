@@ -46,7 +46,7 @@ namespace oo{
             size_t zpos = buff.find_first_of('\0');
             std::string m_name = buff.substr(0, zpos);
             const ::google::protobuf::Descriptor* m_desc = ::google::protobuf::DescriptorPool::generated_pool()->FindMessageTypeByName(m_name);
-            const Message* m_type = ::google::protobuf::MessageFactory::GetPrototype(m_desc);
+            const Message* m_type = ::google::protobuf::MessageFactory::generated_factory()->GetPrototype(m_desc);
             *msg = m_type->New();
             return (*msg)->ParseFromString(buff.substr(zpos + 1));
         }catch(...){
