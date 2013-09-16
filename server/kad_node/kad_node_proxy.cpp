@@ -10,6 +10,12 @@
 
 namespace oo{
     //=============================================================================================
+    kad_node_proxy::kad_node_proxy(){
+    }
+
+    kad_node_proxy::~kad_node_proxy(){
+    }
+
     void kad_node_proxy::start(const std::string& conf)
     {
         oo::conf::proxy_conf pc;

@@ -5,6 +5,7 @@
 #include "kad_net_ctrl.h"
 #include "task_mgr.h"
 #include "kad_node_proxy.h"
+#include "kad_node_netunit.h"
 
 namespace oo{
 
@@ -22,6 +23,9 @@ namespace oo{
         const oo::proto::node_info& lni = kad_net_->get_local_node_info();
         std::stringstream ss;
         ss << lni.port();
+
+        oo::kad_node_netunit::instance().start();
+
         Joint::instance().listenAt(lni.addr().c_str(), ss.str().c_str(), 
             boost::bind(&kad_net_ctrl::handler_conn, kad_net_ctrl::instance_ptr(), _1, _2));
 

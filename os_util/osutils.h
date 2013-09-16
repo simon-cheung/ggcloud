@@ -231,19 +231,6 @@ namespace oo
     template <typename T>
     struct singleton_default
     {
-      private:
-        struct object_creator
-        {
-          // This constructor does nothing more than ensure that instance()
-          //  is called before main() begins, thus creating the static
-          //  T object before multithreading race issues can come up.
-          object_creator() { singleton_default<T>::instance(); }
-          inline void do_nothing() const { }
-        };
-        static object_creator create_object;
-    protected:
-        singleton_default();
-
       public:
         typedef T object_type;
 
@@ -255,12 +242,6 @@ namespace oo
           // It is guaranteed to be created before main() begins because of
           //  the next line.
           static object_type obj;
-
-          // The following line does nothing else than force the instantiation
-          //  of singleton_default<T>::create_object, whose constructor is
-          //  called before main() begins.
-          create_object.do_nothing();
-
           return obj;
         }
 
@@ -274,12 +255,9 @@ namespace oo
 		    return &instance();
 	    }
     };
-    template <typename T>
-    typename singleton_default<T>::object_creator
-    singleton_default<T>::create_object;
 }
 
-namespace naf
+namespace oo
 {
     // protobuf用作配置文档，辅助函数
     // protobuf用作配置文档，辅助函数
