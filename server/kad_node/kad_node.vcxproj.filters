@@ -60,6 +60,9 @@
     <ClCompile Include="kad_node_proxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="msg_flow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kad_net.h">
@@ -98,6 +101,12 @@
     <ClInclude Include="kad_node_proxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="msg_flow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -110,5 +119,10 @@
     <None Include="..\..\protocol\o_conf.proto">
       <Filter>protocol</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kad_node.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

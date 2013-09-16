@@ -22,9 +22,9 @@
 
 #if OO_PLATFORM == OO_PLATFORM_WIN32
 #    define DYNLIB_HANDLE hInstance
-#    define DYNLIB_LOAD( a ) LoadLibraryEx( a, NULL, LOAD_WITH_ALTERED_SEARCH_PATH )
+#    define DYNLIB_LOAD( a ) LoadLibraryExA( a, NULL, LOAD_WITH_ALTERED_SEARCH_PATH )
 #    define DYNLIB_GETSYM( a, b ) GetProcAddress( a, b )
-#    define DYNLIB_UNLOAD( a ) !FreeLibrary( a )
+#    define DYNLIB_UNLOAD( a ) !FreeLibrary( (HMODULE)a )
 
 struct HINSTANCE__;
 typedef struct HINSTANCE__* hInstance;
@@ -79,11 +79,11 @@ namespace oo{
 		if (name.substr(name.length() - 4, 4) != ".dll")
 			name += ".dll";
 #endif
-        DYNLIB_HANDLE inst = (void*)DYNLIB_LOAD( name.c_str() );
+        DYNLIB_HANDLE inst = (DYNLIB_HANDLE)DYNLIB_LOAD( name.c_str() );
 
         if( !inst ){
             PFN_Definition pfnd = (PFN_Definition)DYNLIB_GETSYM(inst, "mod_definition");
-            if(!pfnd){
+            if(pfnd == NULL){
                 DYNLIB_UNLOAD(inst);
                 return -1;
             }
@@ -91,12 +91,6 @@ namespace oo{
             sd->inst_ptr = inst;
             reg_module(sd);
         }
-    }
-
-    int service_frm::_load_static_module(){
-        // handly load
-
-        return 0;
     }
 
     int service_frm::_unload_module(const std::string& file){

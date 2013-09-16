@@ -30,6 +30,7 @@ namespace oo{
     }
 
     int kad_net_ctrl::stop(){
+        return 0;
     }
 
     int kad_net_ctrl::publish(const std::string& key, const std::string& value, bool bvalid){

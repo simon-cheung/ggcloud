@@ -12,10 +12,12 @@ namespace oo{
 
     netpacket& netpacket::operator=(const netpacket& pkt)
     {
+        return *this;
     }
 
     char* netpacket::body()
     {
+        return this->body_;
     }
 
     // write
@@ -31,6 +33,7 @@ namespace oo{
 
     bool  netpacket::increaseCacheSize(int size)
     {
+        return false;
     }
 
     void  netpacket::seekWritePos(int from, int off)
@@ -39,10 +42,12 @@ namespace oo{
 
     int   netpacket::write(const void* data, int len)
     {
+        return 0;
     }
     // read
     char* netpacket::getReadPos()
     {
+        return this->readpos_;
     }
 
     void  netpacket::seekReadPos(int from, int off)
@@ -51,5 +56,6 @@ namespace oo{
 
     int   netpacket::read(void* data, int len)
     {
+        return 0;
     }
 }

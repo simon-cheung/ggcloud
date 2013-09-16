@@ -95,7 +95,7 @@ BOOL WINAPI ShellHandler(DWORD ctrl_type)
     case CTRL_BREAK_EVENT:
     case CTRL_CLOSE_EVENT:
     case CTRL_SHUTDOWN_EVENT:
-        naf::Joint::instance().interrupt(&OnConsoleCmd);
+        oo::Joint::instance().interrupt(&OnConsoleCmd);
         return TRUE;
     default:
         return FALSE;

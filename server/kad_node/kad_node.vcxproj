@@ -53,7 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../;../..;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\boost_1_43_0;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;../..;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vs2010porjects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -66,6 +66,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\;D:\thirdsdk\protobuf-2.3.0\vsprojects\lib\$(ConfigurationName);D:\thirdsdk\log4cpp-1.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>log4cppDLLD.lib;os_util.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -75,7 +77,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>../;../..;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\boost_1_43_0;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;../..;../../os_util;D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -86,15 +88,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\protocol\o_conf.pb.cc" />
-    <ClCompile Include="..\..\protocol\o_net_conf.pb.cc" />
-    <ClCompile Include="..\..\protocol\o_net_ctrl.pb.cc" />
+    <ClCompile Include="..\..\protocol\o_conf.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\protocol\o_net_conf.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\protocol\o_net_ctrl.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="kad_net.cpp" />
     <ClCompile Include="kad_net_ctrl.cpp" />
     <ClCompile Include="kad_node.cpp" />
     <ClCompile Include="kad_node_netunit.cpp" />
     <ClCompile Include="kad_node_proxy.cpp" />
     <ClCompile Include="MsgDispatchor.cpp" />
+    <ClCompile Include="msg_flow.cpp" />
     <ClCompile Include="service_frm.cpp" />
     <ClCompile Include="static_module.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -109,6 +118,8 @@
     <ClInclude Include="..\..\protocol\o_net_conf.pb.h" />
     <ClInclude Include="..\..\protocol\o_net_ctrl.pb.h" />
     <ClInclude Include="kad_node_proxy.h" />
+    <ClInclude Include="msg_flow.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="unit_base.h" />
     <ClInclude Include="kad_net.h" />
     <ClInclude Include="kad_net_ctrl.h" />
@@ -123,6 +134,9 @@
     <None Include="..\..\protocol\o_net_conf.proto" />
     <None Include="..\..\protocol\o_net_ctrl.proto" />
     <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kad_node.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -51,7 +51,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\boost_1_43_0;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vsprojects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\thirdsdk\lua-5.1.4\src;D:\thirdsdk\luabind-0.9.1;D:\thirdsdk\log4cpp-1.0\include;D:\thirdsdk\protobuf-2.3.0\vs2010porjects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>

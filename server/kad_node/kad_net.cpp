@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "o_net_conf.pb.h"
+#include <protocol/o_net_conf.pb.h>
 #include "kad_net.h"
 
 namespace oo{
