@@ -18,11 +18,23 @@ namespace oo{
         int stop();
 
         int publish(const std::string& key, const std::string& value, bool bvalid);
+        int query(const std::string& key, std::string& value);
 
         int local_value_query(const std::string& key, std::string& value);
-        int query(const std::string& key, std::string& value);
     protected:
-        void handler_conn(SessionPtr pNew, std::string service);
+        // net thread
+        void waitSession(SessionPtr pSession);
+        void onPacket(int idt, SessionPtr pSession, void* buf, size_t len);
+        void onError(int idt, SessionPtr pSession, const boost::system::error_code& e);
+        void onPacketOnSession(SessionPtr pSession, void* buf, size_t len);
+        void onErrorOnSeesion(SessionPtr pSession, const boost::system::error_code& e);
+    protected:
+        // kad net op
+        void publish_self();
+        void publish_keyvalue();
+
+    protected:
+        void handle_conn(SessionPtr pNew, std::string service);
         void _active_self();
     };
 }

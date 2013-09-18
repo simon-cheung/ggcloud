@@ -15,7 +15,6 @@
 #include <sys/resource.h>
 #endif
 
-DEFINE_LOG_CATEGORY(NAF_Log)
 #ifdef WIN32
 BOOL WINAPI ShellHandler(DWORD ctrl_type);
 #else
@@ -49,6 +48,7 @@ int main(int argc, char* argv[])
 
     printf("would startup with %d thread", 4);
     oo::MsgPortTaskManager::instance().startup(4);        // 开启四个线程用以逻辑运算
+    oo::kad_node_netunit::instance().start();
 
     if(argc < 3){
         default_conf(argc, argv);

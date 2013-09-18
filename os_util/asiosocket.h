@@ -18,6 +18,19 @@ namespace oo{
     class Session
         : public boost::enable_shared_from_this<Session>
     {
+    public:
+        enum SessEvent{
+            SE_Connecting,
+            SE_Connected,
+            SE_Read,
+            SE_ReadOver,
+            SE_Write,
+            SE_WriteOver,
+            SE_Error
+        };
+
+        static const char* SessEventName[];
+
     protected:
         friend class Joint;
 
@@ -46,6 +59,8 @@ namespace oo{
 
         const std::string& getName() const { return mName; }
         void setName(const std::string& name) { mName = name; }
+
+        const std::string& getEventId(SessEvent se) const;
 
         void setHandler(HandlePacket hp, HandleError he) { mHandlerPacket = hp; mHandlerError = he; }
     protected:

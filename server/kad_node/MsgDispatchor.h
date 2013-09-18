@@ -3,11 +3,13 @@
 namespace oo{
     struct Dispatchor_base;
     typedef boost::function< void (const std::string& from, const std::string& to, const std::string& buf)>       MsgProc;
+    typedef boost::function_base MsgProcBase;
     typedef std::string msgid;
+
     class MsgDispatchor{
         struct Dispatchor
         {
-            MsgProc func;
+            MsgProcBase* func;
             ulong   worker;
             int     priority;
             int     life;
@@ -30,6 +32,15 @@ namespace oo{
         bool    dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf);
     protected:
         int    _dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf, Dispatchor& da);
+    };
+
+    struct SNMSession{
+        std::string cert;
+        std::string peer_id;
+        time_t      connected_t;
+        time_t      checked_t;
+        uint64      recv_in_size;
+        uint64      send_out_size;
     };
 
     template<class ProtoMsg>

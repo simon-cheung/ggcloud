@@ -6,6 +6,7 @@
 #include "task_mgr.h"
 #include "kad_node_proxy.h"
 #include "kad_node_netunit.h"
+#include "MsgDispatchor.h"
 
 namespace oo{
 
@@ -24,10 +25,8 @@ namespace oo{
         std::stringstream ss;
         ss << lni.port();
 
-        oo::kad_node_netunit::instance().start();
-
         Joint::instance().listenAt(lni.addr().c_str(), ss.str().c_str(), 
-            boost::bind(&kad_net_ctrl::handler_conn, kad_net_ctrl::instance_ptr(), _1, _2));
+            boost::bind(&kad_net_ctrl::handle_conn, kad_net_ctrl::instance_ptr(), _1, _2));
 
         MsgPortTaskManager::instance().addTask(boost::bind(&kad_net_ctrl::_active_self, this), (ulong)(this));
         return 1;
@@ -63,14 +62,46 @@ namespace oo{
         return 1;
     }
 
-    void kad_net_ctrl::handler_conn(SessionPtr pNew, std::string service){
-        Joint::instance().addSession(pNew);
-    }
-
     void kad_net_ctrl::_active_self(){
         const oo::proto::node_info& lni = kad_net_->get_local_node_info();
         std::vector<node_info> kadn;
         kad_net_->find_shortest(oo::node_id::from_hex_string(lni.id()), kadn);
+        for(std::vector<node_info>::iterator it = kadn.begin(); it != kadn.end(); it++){
+
+        }
     }
 
+    void kad_net_ctrl::handle_conn(SessionPtr pNew, std::string service){
+        // MsgPortTaskManager
+        // timeout 10 seconds
+        KDInfo("New Connection [%s] from service[%s]", pNew->getName().c_str(), service.c_str());
+        int idt = MsgPortTaskManager::instance().addTimer(boost::bind(&kad_net_ctrl::waitSession, pNew), 10000, 1, (ulong)(this));
+        // check routine
+        pNew->setHandler(boost::bind(&kad_net_ctrl::onPacket, idt, _1, _2, _3), boost::bind(&kad_net_ctrl::onError, idt, _1, _2));
+    }
+
+    void kad_net_ctrl::waitSession(SessionPtr pSession){
+        KDError("Connection [%s] , timeout for check.so close", pSession->getName().c_str());
+        pSession->close();
+    }
+
+    void kad_net_ctrl::onPacket(int idt, SessionPtr pSession, void* buf, size_t len){
+        Message* msg;
+        if(!netpacket_2_protobuf(&msg, std::string((const char*)buf, len))){
+            KDError("Connection [%s] , check msg error", pSession->getName().c_str());
+            pSession->close();
+            onError(pSession, boost::system::error_code());
+        }// end, error msg
+
+        // process msg
+    }
+
+    void kad_net_ctrl::onError(int idt, SessionPtr pSession, const boost::system::error_code& e){
+    }
+
+    void kad_net_ctrl::onPacketOnSession(SessionPtr pSession, void* buf, size_t len){
+    }
+
+    void kad_net_ctrl::onErrorOnSeesion(SessionPtr pSession, const boost::system::error_code& e){
+    }
 }

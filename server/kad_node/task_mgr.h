@@ -40,6 +40,7 @@ namespace oo
             ulong id;
             int priority;
             int gap;
+            int life;
             boost::system_time::time_duration_type::tick_type last;
         };
 
@@ -70,7 +71,8 @@ namespace oo
         void stop();
 
         void addTask(MsgPortTask task, ulong worker = -1, int priority = -1);
-        int addTimer(TimerTask task, int cycletime, ulong worker = -1, int priority = -1);
+        int addTimer(TimerTask task, int cycletime, int life = -1, ulong worker = -1, int priority = -1);
+
         void clearAllTask();
         void clearAllTimer();
 

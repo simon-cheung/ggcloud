@@ -1,5 +1,7 @@
 #include "ospch.h"
 
+DEFINE_LOG_CATEGORY(NAF_Log)
+
 namespace oo{
     netpacket::netpacket()
         : body_(NULL), writepos_(NULL), readpos_(NULL)

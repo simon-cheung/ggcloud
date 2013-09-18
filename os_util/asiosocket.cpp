@@ -4,6 +4,15 @@
 namespace oo{
     using namespace boost::asio;
     using boost::asio::ip::tcp;
+    const char* Session::SessEventName[] ={
+        "Connecting",
+        "Connected",
+        "Read",
+        "ReadOver",
+        "Write",
+        "WriteOver",
+        "Error"
+    };
 
     Session::Session(Joint* pJoint)
         : mSocket(pJoint->io_service())
@@ -34,6 +43,9 @@ namespace oo{
         mbWork = true;
     }
 
+    const std::string& Session::getEventId(SessEvent se) const {
+        return mName + "+" + SessEventName[se];
+    }
     void Session::close()
     {
         STACK_TRACE;

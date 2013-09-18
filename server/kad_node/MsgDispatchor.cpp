@@ -87,5 +87,4 @@ namespace oo{
     {
         setDirectDispatchor(id, boost::bind(&_managedDispatchor, id, proc, worker, priority, _1, _2, _3), life, worker, priority);
     }
-
 }

@@ -49,40 +49,39 @@ namespace oo{
                 boost::system_time::time_duration_type::tick_type now = st.time_of_day().total_milliseconds();
                 if(mTimerWaitList.empty())
                 {// wait
-                    for(std::list<TimerProperties>::iterator iter = mTimerList.begin(); iter != mTimerList.end(); iter++)
+                    for(std::list<TimerProperties>::iterator iter = mTimerList.begin(); iter != mTimerList.end(); )
                     {
                         if(now - iter->last > iter->gap)
                         {
                             iter->last = now;
                             mTimerWaitList.insert(mTimerWaitList.end(), *iter);
+                            if(iter->life != -1)
+                                iter->life--;
                         }
+                        if(iter->life <= 0)
+                            iter = mTimerList.erase(iter);
+                        else
+                            iter++;
                     }
                 }
 
-                mTimerMutex.unlock();
                 // dispatch timer
                 if(!mTimerWaitList.empty())
                 {
-                    mQueueMutex.lock();
                     for(std::list<TimerProperties>::iterator iter = mTimerWaitList.begin(); iter != mTimerWaitList.end(); iter++)
                     {
                         _addTask(iter->task, iter->group, iter->priority, true);
                     }
                     mTimerWaitList.clear();
                     mWeaker.notify_all();   
-                    mQueueMutex.unlock();
                 }
             }
-            else
-            {
-                mTimerMutex.unlock();
-            }
-
+            mTimerMutex.unlock();
             boost::this_thread::sleep(boost::posix_time::milliseconds(1));
         }
     }
 
-    int MsgPortTaskManager::addTimer(TimerTask task, int cycletime, ulong group, int priority)
+    int MsgPortTaskManager::addTimer(TimerTask task, int cycletime, int life, ulong group, int priority)
     {
         static int __curId = 0;
         mutex::scoped_lock sl(mTimerMutex);
@@ -90,6 +89,7 @@ namespace oo{
         tp.id = __curId++;
         tp.task = boost::bind(task, tp.id);
         tp.gap = cycletime;
+        tp.life = life;
         tp.group = group;
         tp.priority = priority;
         
