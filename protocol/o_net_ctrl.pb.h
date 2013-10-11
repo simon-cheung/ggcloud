@@ -37,11 +37,13 @@ class node_info;
 class node_active;
 class node_kad_update;
 class store_key;
+class store_key_result;
 class find_node;
 class find_node_result;
 class find_value;
 class find_value_result;
 class proxy_pkg;
+class net_ctrl_msg;
 
 enum node_info_InetProto {
   node_info_InetProto_TCP = 0,
@@ -502,6 +504,107 @@ class store_key : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static store_key* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class store_key_result : public ::google::protobuf::Message {
+ public:
+  store_key_result();
+  virtual ~store_key_result();
+  
+  store_key_result(const store_key_result& from);
+  
+  inline store_key_result& operator=(const store_key_result& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const store_key_result& default_instance();
+  
+  void Swap(store_key_result* other);
+  
+  // implements Message ----------------------------------------------
+  
+  store_key_result* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const store_key_result& from);
+  void MergeFrom(const store_key_result& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string key = 1;
+  inline bool has_key() const;
+  inline void clear_key();
+  static const int kKeyFieldNumber = 1;
+  inline const ::std::string& key() const;
+  inline void set_key(const ::std::string& value);
+  inline void set_key(const char* value);
+  inline void set_key(const char* value, size_t size);
+  inline ::std::string* mutable_key();
+  
+  // required bool is_suc = 2;
+  inline bool has_is_suc() const;
+  inline void clear_is_suc();
+  static const int kIsSucFieldNumber = 2;
+  inline bool is_suc() const;
+  inline void set_is_suc(bool value);
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.store_key_result)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::std::string* key_;
+  static const ::std::string _default_key_;
+  bool is_suc_;
+  friend void  protobuf_AddDesc_o_5fnet_5fctrl_2eproto();
+  friend void protobuf_AssignDesc_o_5fnet_5fctrl_2eproto();
+  friend void protobuf_ShutdownFile_o_5fnet_5fctrl_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static store_key_result* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1001,6 +1104,171 @@ class proxy_pkg : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static proxy_pkg* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class net_ctrl_msg : public ::google::protobuf::Message {
+ public:
+  net_ctrl_msg();
+  virtual ~net_ctrl_msg();
+  
+  net_ctrl_msg(const net_ctrl_msg& from);
+  
+  inline net_ctrl_msg& operator=(const net_ctrl_msg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const net_ctrl_msg& default_instance();
+  
+  void Swap(net_ctrl_msg* other);
+  
+  // implements Message ----------------------------------------------
+  
+  net_ctrl_msg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const net_ctrl_msg& from);
+  void MergeFrom(const net_ctrl_msg& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string trans_local_id = 1;
+  inline bool has_trans_local_id() const;
+  inline void clear_trans_local_id();
+  static const int kTransLocalIdFieldNumber = 1;
+  inline const ::std::string& trans_local_id() const;
+  inline void set_trans_local_id(const ::std::string& value);
+  inline void set_trans_local_id(const char* value);
+  inline void set_trans_local_id(const char* value, size_t size);
+  inline ::std::string* mutable_trans_local_id();
+  
+  // optional .oo.proto.node_active node_active_ = 2;
+  inline bool has_node_active_() const;
+  inline void clear_node_active_();
+  static const int kNodeActiveFieldNumber = 2;
+  inline const ::oo::proto::node_active& node_active_() const;
+  inline ::oo::proto::node_active* mutable_node_active_();
+  
+  // optional .oo.proto.node_kad_update node_kad_update_ = 3;
+  inline bool has_node_kad_update_() const;
+  inline void clear_node_kad_update_();
+  static const int kNodeKadUpdateFieldNumber = 3;
+  inline const ::oo::proto::node_kad_update& node_kad_update_() const;
+  inline ::oo::proto::node_kad_update* mutable_node_kad_update_();
+  
+  // optional .oo.proto.store_key store_key_ = 4;
+  inline bool has_store_key_() const;
+  inline void clear_store_key_();
+  static const int kStoreKeyFieldNumber = 4;
+  inline const ::oo::proto::store_key& store_key_() const;
+  inline ::oo::proto::store_key* mutable_store_key_();
+  
+  // optional .oo.proto.store_key_result store_key_result_ = 5;
+  inline bool has_store_key_result_() const;
+  inline void clear_store_key_result_();
+  static const int kStoreKeyResultFieldNumber = 5;
+  inline const ::oo::proto::store_key_result& store_key_result_() const;
+  inline ::oo::proto::store_key_result* mutable_store_key_result_();
+  
+  // optional .oo.proto.find_node find_node_ = 6;
+  inline bool has_find_node_() const;
+  inline void clear_find_node_();
+  static const int kFindNodeFieldNumber = 6;
+  inline const ::oo::proto::find_node& find_node_() const;
+  inline ::oo::proto::find_node* mutable_find_node_();
+  
+  // optional .oo.proto.find_node_result find_node_result_ = 7;
+  inline bool has_find_node_result_() const;
+  inline void clear_find_node_result_();
+  static const int kFindNodeResultFieldNumber = 7;
+  inline const ::oo::proto::find_node_result& find_node_result_() const;
+  inline ::oo::proto::find_node_result* mutable_find_node_result_();
+  
+  // optional .oo.proto.find_value find_value_ = 8;
+  inline bool has_find_value_() const;
+  inline void clear_find_value_();
+  static const int kFindValueFieldNumber = 8;
+  inline const ::oo::proto::find_value& find_value_() const;
+  inline ::oo::proto::find_value* mutable_find_value_();
+  
+  // optional .oo.proto.find_value_result find_value_result_ = 9;
+  inline bool has_find_value_result_() const;
+  inline void clear_find_value_result_();
+  static const int kFindValueResultFieldNumber = 9;
+  inline const ::oo::proto::find_value_result& find_value_result_() const;
+  inline ::oo::proto::find_value_result* mutable_find_value_result_();
+  
+  // optional .oo.proto.proxy_pkg proxy_pkg_ = 10;
+  inline bool has_proxy_pkg_() const;
+  inline void clear_proxy_pkg_();
+  static const int kProxyPkgFieldNumber = 10;
+  inline const ::oo::proto::proxy_pkg& proxy_pkg_() const;
+  inline ::oo::proto::proxy_pkg* mutable_proxy_pkg_();
+  
+  // @@protoc_insertion_point(class_scope:oo.proto.net_ctrl_msg)
+ private:
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  mutable int _cached_size_;
+  
+  ::std::string* trans_local_id_;
+  static const ::std::string _default_trans_local_id_;
+  ::oo::proto::node_active* node_active__;
+  ::oo::proto::node_kad_update* node_kad_update__;
+  ::oo::proto::store_key* store_key__;
+  ::oo::proto::store_key_result* store_key_result__;
+  ::oo::proto::find_node* find_node__;
+  ::oo::proto::find_node_result* find_node_result__;
+  ::oo::proto::find_value* find_value__;
+  ::oo::proto::find_value_result* find_value_result__;
+  ::oo::proto::proxy_pkg* proxy_pkg__;
+  friend void  protobuf_AddDesc_o_5fnet_5fctrl_2eproto();
+  friend void protobuf_AssignDesc_o_5fnet_5fctrl_2eproto();
+  friend void protobuf_ShutdownFile_o_5fnet_5fctrl_2eproto();
+  
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+  
+  // WHY DOES & HAVE LOWER PRECEDENCE THAN != !?
+  inline bool _has_bit(int index) const {
+    return (_has_bits_[index / 32] & (1u << (index % 32))) != 0;
+  }
+  inline void _set_bit(int index) {
+    _has_bits_[index / 32] |= (1u << (index % 32));
+  }
+  inline void _clear_bit(int index) {
+    _has_bits_[index / 32] &= ~(1u << (index % 32));
+  }
+  
+  void InitAsDefaultInstance();
+  static net_ctrl_msg* default_instance_;
+};
 // ===================================================================
 
 
@@ -1277,6 +1545,68 @@ inline ::std::string* store_key::mutable_value() {
     value_ = new ::std::string;
   }
   return value_;
+}
+
+// -------------------------------------------------------------------
+
+// store_key_result
+
+// required string key = 1;
+inline bool store_key_result::has_key() const {
+  return _has_bit(0);
+}
+inline void store_key_result::clear_key() {
+  if (key_ != &_default_key_) {
+    key_->clear();
+  }
+  _clear_bit(0);
+}
+inline const ::std::string& store_key_result::key() const {
+  return *key_;
+}
+inline void store_key_result::set_key(const ::std::string& value) {
+  _set_bit(0);
+  if (key_ == &_default_key_) {
+    key_ = new ::std::string;
+  }
+  key_->assign(value);
+}
+inline void store_key_result::set_key(const char* value) {
+  _set_bit(0);
+  if (key_ == &_default_key_) {
+    key_ = new ::std::string;
+  }
+  key_->assign(value);
+}
+inline void store_key_result::set_key(const char* value, size_t size) {
+  _set_bit(0);
+  if (key_ == &_default_key_) {
+    key_ = new ::std::string;
+  }
+  key_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* store_key_result::mutable_key() {
+  _set_bit(0);
+  if (key_ == &_default_key_) {
+    key_ = new ::std::string;
+  }
+  return key_;
+}
+
+// required bool is_suc = 2;
+inline bool store_key_result::has_is_suc() const {
+  return _has_bit(1);
+}
+inline void store_key_result::clear_is_suc() {
+  is_suc_ = false;
+  _clear_bit(1);
+}
+inline bool store_key_result::is_suc() const {
+  return is_suc_;
+}
+inline void store_key_result::set_is_suc(bool value) {
+  _set_bit(1);
+  is_suc_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1591,6 +1921,205 @@ inline ::std::string* proxy_pkg::mutable_pkg() {
     pkg_ = new ::std::string;
   }
   return pkg_;
+}
+
+// -------------------------------------------------------------------
+
+// net_ctrl_msg
+
+// optional string trans_local_id = 1;
+inline bool net_ctrl_msg::has_trans_local_id() const {
+  return _has_bit(0);
+}
+inline void net_ctrl_msg::clear_trans_local_id() {
+  if (trans_local_id_ != &_default_trans_local_id_) {
+    trans_local_id_->clear();
+  }
+  _clear_bit(0);
+}
+inline const ::std::string& net_ctrl_msg::trans_local_id() const {
+  return *trans_local_id_;
+}
+inline void net_ctrl_msg::set_trans_local_id(const ::std::string& value) {
+  _set_bit(0);
+  if (trans_local_id_ == &_default_trans_local_id_) {
+    trans_local_id_ = new ::std::string;
+  }
+  trans_local_id_->assign(value);
+}
+inline void net_ctrl_msg::set_trans_local_id(const char* value) {
+  _set_bit(0);
+  if (trans_local_id_ == &_default_trans_local_id_) {
+    trans_local_id_ = new ::std::string;
+  }
+  trans_local_id_->assign(value);
+}
+inline void net_ctrl_msg::set_trans_local_id(const char* value, size_t size) {
+  _set_bit(0);
+  if (trans_local_id_ == &_default_trans_local_id_) {
+    trans_local_id_ = new ::std::string;
+  }
+  trans_local_id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* net_ctrl_msg::mutable_trans_local_id() {
+  _set_bit(0);
+  if (trans_local_id_ == &_default_trans_local_id_) {
+    trans_local_id_ = new ::std::string;
+  }
+  return trans_local_id_;
+}
+
+// optional .oo.proto.node_active node_active_ = 2;
+inline bool net_ctrl_msg::has_node_active_() const {
+  return _has_bit(1);
+}
+inline void net_ctrl_msg::clear_node_active_() {
+  if (node_active__ != NULL) node_active__->::oo::proto::node_active::Clear();
+  _clear_bit(1);
+}
+inline const ::oo::proto::node_active& net_ctrl_msg::node_active_() const {
+  return node_active__ != NULL ? *node_active__ : *default_instance_->node_active__;
+}
+inline ::oo::proto::node_active* net_ctrl_msg::mutable_node_active_() {
+  _set_bit(1);
+  if (node_active__ == NULL) node_active__ = new ::oo::proto::node_active;
+  return node_active__;
+}
+
+// optional .oo.proto.node_kad_update node_kad_update_ = 3;
+inline bool net_ctrl_msg::has_node_kad_update_() const {
+  return _has_bit(2);
+}
+inline void net_ctrl_msg::clear_node_kad_update_() {
+  if (node_kad_update__ != NULL) node_kad_update__->::oo::proto::node_kad_update::Clear();
+  _clear_bit(2);
+}
+inline const ::oo::proto::node_kad_update& net_ctrl_msg::node_kad_update_() const {
+  return node_kad_update__ != NULL ? *node_kad_update__ : *default_instance_->node_kad_update__;
+}
+inline ::oo::proto::node_kad_update* net_ctrl_msg::mutable_node_kad_update_() {
+  _set_bit(2);
+  if (node_kad_update__ == NULL) node_kad_update__ = new ::oo::proto::node_kad_update;
+  return node_kad_update__;
+}
+
+// optional .oo.proto.store_key store_key_ = 4;
+inline bool net_ctrl_msg::has_store_key_() const {
+  return _has_bit(3);
+}
+inline void net_ctrl_msg::clear_store_key_() {
+  if (store_key__ != NULL) store_key__->::oo::proto::store_key::Clear();
+  _clear_bit(3);
+}
+inline const ::oo::proto::store_key& net_ctrl_msg::store_key_() const {
+  return store_key__ != NULL ? *store_key__ : *default_instance_->store_key__;
+}
+inline ::oo::proto::store_key* net_ctrl_msg::mutable_store_key_() {
+  _set_bit(3);
+  if (store_key__ == NULL) store_key__ = new ::oo::proto::store_key;
+  return store_key__;
+}
+
+// optional .oo.proto.store_key_result store_key_result_ = 5;
+inline bool net_ctrl_msg::has_store_key_result_() const {
+  return _has_bit(4);
+}
+inline void net_ctrl_msg::clear_store_key_result_() {
+  if (store_key_result__ != NULL) store_key_result__->::oo::proto::store_key_result::Clear();
+  _clear_bit(4);
+}
+inline const ::oo::proto::store_key_result& net_ctrl_msg::store_key_result_() const {
+  return store_key_result__ != NULL ? *store_key_result__ : *default_instance_->store_key_result__;
+}
+inline ::oo::proto::store_key_result* net_ctrl_msg::mutable_store_key_result_() {
+  _set_bit(4);
+  if (store_key_result__ == NULL) store_key_result__ = new ::oo::proto::store_key_result;
+  return store_key_result__;
+}
+
+// optional .oo.proto.find_node find_node_ = 6;
+inline bool net_ctrl_msg::has_find_node_() const {
+  return _has_bit(5);
+}
+inline void net_ctrl_msg::clear_find_node_() {
+  if (find_node__ != NULL) find_node__->::oo::proto::find_node::Clear();
+  _clear_bit(5);
+}
+inline const ::oo::proto::find_node& net_ctrl_msg::find_node_() const {
+  return find_node__ != NULL ? *find_node__ : *default_instance_->find_node__;
+}
+inline ::oo::proto::find_node* net_ctrl_msg::mutable_find_node_() {
+  _set_bit(5);
+  if (find_node__ == NULL) find_node__ = new ::oo::proto::find_node;
+  return find_node__;
+}
+
+// optional .oo.proto.find_node_result find_node_result_ = 7;
+inline bool net_ctrl_msg::has_find_node_result_() const {
+  return _has_bit(6);
+}
+inline void net_ctrl_msg::clear_find_node_result_() {
+  if (find_node_result__ != NULL) find_node_result__->::oo::proto::find_node_result::Clear();
+  _clear_bit(6);
+}
+inline const ::oo::proto::find_node_result& net_ctrl_msg::find_node_result_() const {
+  return find_node_result__ != NULL ? *find_node_result__ : *default_instance_->find_node_result__;
+}
+inline ::oo::proto::find_node_result* net_ctrl_msg::mutable_find_node_result_() {
+  _set_bit(6);
+  if (find_node_result__ == NULL) find_node_result__ = new ::oo::proto::find_node_result;
+  return find_node_result__;
+}
+
+// optional .oo.proto.find_value find_value_ = 8;
+inline bool net_ctrl_msg::has_find_value_() const {
+  return _has_bit(7);
+}
+inline void net_ctrl_msg::clear_find_value_() {
+  if (find_value__ != NULL) find_value__->::oo::proto::find_value::Clear();
+  _clear_bit(7);
+}
+inline const ::oo::proto::find_value& net_ctrl_msg::find_value_() const {
+  return find_value__ != NULL ? *find_value__ : *default_instance_->find_value__;
+}
+inline ::oo::proto::find_value* net_ctrl_msg::mutable_find_value_() {
+  _set_bit(7);
+  if (find_value__ == NULL) find_value__ = new ::oo::proto::find_value;
+  return find_value__;
+}
+
+// optional .oo.proto.find_value_result find_value_result_ = 9;
+inline bool net_ctrl_msg::has_find_value_result_() const {
+  return _has_bit(8);
+}
+inline void net_ctrl_msg::clear_find_value_result_() {
+  if (find_value_result__ != NULL) find_value_result__->::oo::proto::find_value_result::Clear();
+  _clear_bit(8);
+}
+inline const ::oo::proto::find_value_result& net_ctrl_msg::find_value_result_() const {
+  return find_value_result__ != NULL ? *find_value_result__ : *default_instance_->find_value_result__;
+}
+inline ::oo::proto::find_value_result* net_ctrl_msg::mutable_find_value_result_() {
+  _set_bit(8);
+  if (find_value_result__ == NULL) find_value_result__ = new ::oo::proto::find_value_result;
+  return find_value_result__;
+}
+
+// optional .oo.proto.proxy_pkg proxy_pkg_ = 10;
+inline bool net_ctrl_msg::has_proxy_pkg_() const {
+  return _has_bit(9);
+}
+inline void net_ctrl_msg::clear_proxy_pkg_() {
+  if (proxy_pkg__ != NULL) proxy_pkg__->::oo::proto::proxy_pkg::Clear();
+  _clear_bit(9);
+}
+inline const ::oo::proto::proxy_pkg& net_ctrl_msg::proxy_pkg_() const {
+  return proxy_pkg__ != NULL ? *proxy_pkg__ : *default_instance_->proxy_pkg__;
+}
+inline ::oo::proto::proxy_pkg* net_ctrl_msg::mutable_proxy_pkg_() {
+  _set_bit(9);
+  if (proxy_pkg__ == NULL) proxy_pkg__ = new ::oo::proto::proxy_pkg;
+  return proxy_pkg__;
 }
 
 

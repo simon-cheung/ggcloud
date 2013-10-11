@@ -75,17 +75,15 @@ namespace oo{
         // MsgPortTaskManager
         // timeout 10 seconds
         KDInfo("New Connection [%s] from service[%s]", pNew->getName().c_str(), service.c_str());
-        int idt = MsgPortTaskManager::instance().addTimer(boost::bind(&kad_net_ctrl::waitSession, pNew), 10000, 1, (ulong)(this));
+        int idt = MsgPortTaskManager::instance().addTimer(boost::bind(&kad_net_ctrl::work_waitSession, pNew), 10000, 1, (ulong)(this));
+        // mark
+        pNew->setData(NULL);
         // check routine
-        pNew->setHandler(boost::bind(&kad_net_ctrl::onPacket, idt, _1, _2, _3), boost::bind(&kad_net_ctrl::onError, idt, _1, _2));
+        pNew->setHandler(boost::bind(&kad_net_ctrl::onPacket,  _1, _2, _3), boost::bind(&kad_net_ctrl::onError, _1, _2));
     }
 
-    void kad_net_ctrl::waitSession(SessionPtr pSession){
-        KDError("Connection [%s] , timeout for check.so close", pSession->getName().c_str());
-        pSession->close();
-    }
 
-    void kad_net_ctrl::onPacket(int idt, SessionPtr pSession, void* buf, size_t len){
+    void kad_net_ctrl::onPacket(SessionPtr pSession, void* buf, size_t len){
         Message* msg;
         if(!netpacket_2_protobuf(&msg, std::string((const char*)buf, len))){
             KDError("Connection [%s] , check msg error", pSession->getName().c_str());
@@ -94,14 +92,24 @@ namespace oo{
         }// end, error msg
 
         // process msg
+        MsgPortTaskManager::instance().addTask(boost::bind(&kad_net_ctrl::work_onPacket, pSession, msg), (ulong)(this));
     }
 
-    void kad_net_ctrl::onError(int idt, SessionPtr pSession, const boost::system::error_code& e){
+    void kad_net_ctrl::onError(SessionPtr pSession, const boost::system::error_code& e){
+        MsgPortTaskManager::instance().addTask(boost::bind(&kad_net_ctrl::work_onError, pSession), (ulong)(this));
     }
-
-    void kad_net_ctrl::onPacketOnSession(SessionPtr pSession, void* buf, size_t len){
+    
+    void kad_net_ctrl::work_waitSession(SessionPtr pSession){
+        if(pSession->getData() != NULL){
+            return; // has check
+        }
+        KDError("Connection [%s] , timeout for check.so close", pSession->getName().c_str());
+        pSession->close();
     }
-
-    void kad_net_ctrl::onErrorOnSeesion(SessionPtr pSession, const boost::system::error_code& e){
+    void kad_net_ctrl::work_onPacket(SessionPtr pSession, Message* msg){        
+        // process msg
+    }
+    
+    void kad_net_ctrl::work_onError(SessionPtr pSession){
     }
 }

@@ -24,10 +24,12 @@ namespace oo{
     protected:
         // net thread
         void waitSession(SessionPtr pSession);
-        void onPacket(int idt, SessionPtr pSession, void* buf, size_t len);
-        void onError(int idt, SessionPtr pSession, const boost::system::error_code& e);
-        void onPacketOnSession(SessionPtr pSession, void* buf, size_t len);
-        void onErrorOnSeesion(SessionPtr pSession, const boost::system::error_code& e);
+        void onPacket(SessionPtr pSession, void* buf, size_t len);
+        void onError(SessionPtr pSession, const boost::system::error_code& e);        
+        // worker
+        void work_waitSession(SessionPtr pSession);
+        void work_onPacket(SessionPtr pSession, Message* msg);
+        void work_onError(SessionPtr pSession);
     protected:
         // kad net op
         void publish_self();
