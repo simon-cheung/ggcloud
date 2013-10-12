@@ -108,6 +108,9 @@ namespace oo{
     }
     void kad_net_ctrl::work_onPacket(SessionPtr pSession, Message* msg){        
         // process msg
+        if(Pt_Msg_is_Type(msg, oo::proto::node_active)){
+            
+        }
     }
     
     void kad_net_ctrl::work_onError(SessionPtr pSession){

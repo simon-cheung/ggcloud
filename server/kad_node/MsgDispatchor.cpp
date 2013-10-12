@@ -19,7 +19,7 @@ namespace oo{
         return mDispatchMutex.try_lock();
     }
 
-    void MsgDispatchor::setDirectDispatchor(msgid id, MsgProc dis, int life, ulong worker, int priority)
+    void MsgDispatchor::setTaskDispatchor(const std::string& id, MsgProc dis, int life, ulong worker, int priority)
     {
         mutex::scoped_lock sl(mDispatchMutex);
         Dispatchor dispa;
@@ -30,16 +30,16 @@ namespace oo{
         mDispatchors.insert(MsgProcTbl::value_type(id,dispa) );
     }
 
-    void MsgDispatchor::remDispatchor(msgid id)
+    void MsgDispatchor::remDispatchor(const std::string& id)
     {
         mutex::scoped_lock sl(mDispatchMutex);
         mDispatchors.erase(id);
     }
 
-    bool MsgDispatchor::dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf)
+    bool MsgDispatchor::dispatch(const std::string& from, const std::string& to, Message* msg)
     {
         mDispatchMutex.lock();
-        MsgProcTbl::iterator cit = mDispatchors.find(id);
+        MsgProcTbl::iterator cit = mDispatchors.find(to);
         if( cit != mDispatchors.end() )
         {
             Dispatchor dispa = cit->second;
@@ -51,7 +51,7 @@ namespace oo{
             }
             mDispatchMutex.unlock();
 
-            _dispatch(id, from, to, buf, dispa);
+            _dispatch(from, to, msg, dispa);
             return true;
         }
         else
@@ -61,30 +61,16 @@ namespace oo{
         }
     }
 
-    int MsgDispatchor::_dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf, Dispatchor& da)
+    int MsgDispatchor::_dispatch(const std::string& from, const std::string& to, Message* msg, Dispatchor& da)
     {
         // simple
-        da.func(from, to, buf);
+//        da.func(from, to, msg);
+        MsgPortTaskManager::instance().addTask(boost::bind(da.func, from, to, msg), da.worker, da.priority);
         return 0;
     }
 
-    void _waitDispatchor(std::string& ppWait, const std::string& msg)
-    {
-        ppWait = msg;
-    }
-
-    void _managedDispatchor(msgid id, MsgProc proc, int worker, int priority, const std::string& from, const std::string& to, const std::string& buf)
-    {
-        MsgPortTaskManager::instance().addTask(boost::bind(proc, from, to, buf), worker, priority);
-    }
-
-    void MsgDispatchor::wait(msgid id, std::string& ppWait)
+    void MsgDispatchor::wait(const std::string& id, std::string& ppWait)
     {
         //setDirectDispatchor(id, boost::bind(&_waitDispatchor, ppWait, _1), 1);
-    }
-
-    void MsgDispatchor::setTaskDispatchor(msgid id, MsgProc proc, int life, ulong worker, int priority)
-    {
-        setDirectDispatchor(id, boost::bind(&_managedDispatchor, id, proc, worker, priority, _1, _2, _3), life, worker, priority);
     }
 }

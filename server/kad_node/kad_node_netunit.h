@@ -4,7 +4,6 @@ namespace oo{
 
     class kad_node_netunit
         : public singleton_default<kad_node_netunit>
-        , public MsgDispatchor
     {
     public:
         kad_node_netunit(void);

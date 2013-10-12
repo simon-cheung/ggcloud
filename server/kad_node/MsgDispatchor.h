@@ -2,14 +2,14 @@
 
 namespace oo{
     struct Dispatchor_base;
-    typedef boost::function< void (const std::string& from, const std::string& to, const std::string& buf)>       MsgProc;
+    typedef boost::function< void (const std::string& from, const std::string& to, Message*)>       MsgProc;
     typedef boost::function_base MsgProcBase;
-    typedef std::string msgid;
 
-    class MsgDispatchor{
+    class MsgDispatchor
+        : public singleton_default<MsgDispatchor>{
         struct Dispatchor
         {
-            MsgProcBase* func;
+            MsgProc func;
             ulong   worker;
             int     priority;
             int     life;
@@ -19,21 +19,21 @@ namespace oo{
         mutex             mDispatchMutex;
     public:
         // for process
-        void wait(msgid id, std::string& ppWait);
+        void wait(const std::string& id, std::string& ppWait);
         // dispatch
-        void     setTaskDispatchor(msgid id, MsgProc proc, int life = -1, ulong worker = -1, int priority = -1);
-        void     setDirectDispatchor(msgid id, MsgProc dis, int life = -1, ulong worker = -1, int priority = -1);
-        void     remDispatchor(msgid id);
+        void     setTaskDispatchor(const std::string& id, MsgProc proc, int life = -1, ulong worker = -1, int priority = -1);
+        void     remDispatchor(const std::string& id);
 
         void    lockDispatch();
         void    unlockDispatch();
         bool    tryLockDispatch();
 
-        bool    dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf);
+        bool    dispatch(const std::string& from, const std::string& to, Message* msg);
     protected:
-        int    _dispatch(msgid id, const std::string& from, const std::string& to, const std::string& buf, Dispatchor& da);
+        int    _dispatch(const std::string& from, const std::string& to, Message* msg, Dispatchor& da);
     };
 
+    
     struct SNMSession{
         std::string cert;
         std::string peer_id;
@@ -52,6 +52,14 @@ namespace oo{
         return true;
     }
 
+#define Protobuf_Msg_Id(msg) \
+        ((ulong)(msg->GetDescriptor()))
+#define Protobuf_Type_id(type) \
+        ((ulong)(type::default_instance_->GetDescriptor()))
+
+#define Pt_Msg_is_Type(msg, type) \
+        (Protobuf_Msg_Id(msg) == Protobuf_Type_id(type) )
+    
     inline bool netpacket_2_protobuf(Message** msg, const std::string& buff){
         try{
             size_t zpos = buff.find_first_of('\0');
