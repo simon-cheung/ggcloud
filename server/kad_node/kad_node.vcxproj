@@ -91,6 +91,7 @@
     <ClCompile Include="..\..\protocol\o_conf.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\protocol\o_net_base.pb.cc" />
     <ClCompile Include="..\..\protocol\o_net_conf.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -115,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\protocol\o_conf.pb.h" />
+    <ClInclude Include="..\..\protocol\o_net_base.pb.h" />
     <ClInclude Include="..\..\protocol\o_net_conf.pb.h" />
     <ClInclude Include="..\..\protocol\o_net_ctrl.pb.h" />
     <ClInclude Include="kad_node_proxy.h" />
@@ -131,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\protocol\o_conf.proto" />
+    <None Include="..\..\protocol\o_net_base.proto" />
     <None Include="..\..\protocol\o_net_conf.proto" />
     <None Include="..\..\protocol\o_net_ctrl.proto" />
     <None Include="ReadMe.txt" />

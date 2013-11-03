@@ -63,6 +63,9 @@
     <ClCompile Include="msg_flow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\protocol\o_net_base.pb.cc">
+      <Filter>protocol</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kad_net.h">
@@ -107,6 +110,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\protocol\o_net_base.pb.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -117,6 +123,9 @@
       <Filter>protocol</Filter>
     </None>
     <None Include="..\..\protocol\o_conf.proto">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="..\..\protocol\o_net_base.proto">
       <Filter>protocol</Filter>
     </None>
   </ItemGroup>

@@ -85,5 +85,21 @@ namespace oo
         bool _getTask(MsgPortTask& rt, ulong& group);
         void taskproc(int i);
     };
+
+    inline void tm_pause(bool bpause){
+        MsgPortTaskManager::instance().pause(bpause);
+    }
+
+    inline void tm_pause_timer(bool bpause){
+        MsgPortTaskManager::instance().pauseTimer(bpause);
+    }
+
+    inline void tm_add_task(MsgPortTask task, ulong worker = -1, int priority = -1){
+        MsgPortTaskManager::instance().addTask(task, worker, priority);
+    }
+    inline int tm_add_timer(TimerTask task, int cycletime, int life = -1, ulong worker = -1, int priority = -1){
+        MsgPortTaskManager::instance().addTimer(task, cycletime, life, worker, priority);
+    }
+
 }
 

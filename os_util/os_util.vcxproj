@@ -75,6 +75,7 @@
   <ItemGroup>
     <ClCompile Include="asiosocket.cpp" />
     <ClCompile Include="bigint.cpp" />
+    <ClCompile Include="idutil.cpp" />
     <ClCompile Include="oslog.cpp" />
     <ClCompile Include="osutil.cpp" />
   </ItemGroup>
@@ -82,6 +83,7 @@
     <ClInclude Include="asiosocket.h" />
     <ClInclude Include="bigint.h" />
     <ClInclude Include="cross_macro.h" />
+    <ClInclude Include="idutil.h" />
     <ClInclude Include="logmacro.h" />
     <ClInclude Include="oslog.h" />
     <ClInclude Include="ospch.h" />

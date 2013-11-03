@@ -27,6 +27,9 @@
     <ClCompile Include="osutil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="idutil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asiosocket.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cross_macro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="idutil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

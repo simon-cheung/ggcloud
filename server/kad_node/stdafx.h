@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <osutils.h>
+#include <idutil.h>
 #include <logmacro.h>
 #include <bigint.h>
 #include <asiosocket.h>
