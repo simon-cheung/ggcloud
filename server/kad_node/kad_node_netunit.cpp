@@ -7,6 +7,9 @@
 #include "kad_node_netunit.h"
 #include "task_mgr.h"
 
+// transactions
+#include "trans/knu_channel.h"
+
 namespace oo{
     static void sendMsg(SessionPtr pSession, uuid fid, uuid toid, std::string msg);
     //=============================================================================================
@@ -49,9 +52,16 @@ namespace oo{
             pSession->close();
             onError(pSession, boost::system::error_code());
         }// end, error msg
-        pSession->setData(1);
-        // check node
-        kad_net_ctrl::instance().async_query_node(ppkg.from(), );
+        std::stringstream ss;
+        ss << (uint64)(SessionPtr::get(pSession));
+        std::string tid = ss.str();
+        knu_channel* kc = trans_mgr::instance()->find(tid);
+        if(kc == NULL){
+            kc = new knu_channel;
+            kc->startup(tid, pSession, &ppkg);
+        }else{
+            kc->queue(&ppkg);
+        }
     }
 
     void kad_node_netunit::onError(SessionPtr pSession, const boost::system::error_code& e){
