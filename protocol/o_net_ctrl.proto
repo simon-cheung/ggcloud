@@ -49,16 +49,3 @@ message find_value_result{
 	required node_info r1 = 1;
 	optional string	   value = 2;
 }
-
-message net_ctrl_msg{
-    optional string trans_local_id = 1;
-    optional node_active node_active_ = 2;
-    optional node_kad_update node_kad_update_ = 3;
-    optional store_key store_key_ = 4;
-    optional store_key_result store_key_result_ = 5;
-    optional find_node find_node_ = 6;
-    optional find_node_result find_node_result_ = 7;
-    optional find_value find_value_ = 8;
-    optional find_value_result find_value_result_ = 9;
-    optional proxy_pkg proxy_pkg_ = 10;
-}
