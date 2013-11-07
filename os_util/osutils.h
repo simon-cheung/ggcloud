@@ -32,6 +32,19 @@
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 
+#define Pt_Msg_Id(msg) \
+    ((ulong)(msg->GetDescriptor()))
+#define Pt_Type_Id(type) \
+    ((ulong)(type::descriptor())
+
+#define Pt_Msg_Name(msg) \
+    (msg->GetDescriptor()->name())
+#define Pt_Type_Name(type) \
+    (type::descriptor()->name())
+     
+#define Pt_Msg_is_Type(msg, type) \
+ (Pt_Msg_Id(msg) == Pt_Type_Id(type))
+
 
 #ifdef WIN32
 #include <conio.h>

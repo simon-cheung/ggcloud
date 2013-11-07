@@ -17,16 +17,19 @@ namespace oo{
         }
         peer_ = sess;
         id_ = sid;
+        pkg_que_.push_back(ppkg);
+        
+        
         commit();
         kad_net_ctrl::instance().async_query_node(ppkg->from(), boost::bind(&query_node_result, this, _1));
     }
     
     void knu_channel::query_node_result(node_info ni){
-    
+
     }
     
     void knu_channel::queue(oo::proto::proxy_pkg* ppkg){
-        
+        pkg_que_.push_back(ppkg);
     }
 
     void knu_channel::proc_msg(const std::string& from, const std::string& to, Message* msg){

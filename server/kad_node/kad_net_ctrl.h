@@ -26,6 +26,8 @@ namespace oo{
         int async_query_node(const std::string& key, boost::function<void (node_info)> result_cb);
 
         std::string local_value_query(const std::string& key);
+        
+        void proc_msg(SessionPtr sess, oo::proto::proxy_pkg* pkg);
     protected:
         // kad net op
         void publish_self();

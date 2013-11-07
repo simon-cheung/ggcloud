@@ -16,8 +16,10 @@ namespace oo{
         void start(kad_net* kn);
         void stop();
 
-        void accept_session(std::string id);
-        void reject_session(std::string id);
+        void accept_session(std::string id, SessionPtr sess);
+        void reject_session(std::string id, SessionPtr sess);
+        
+        bool async_send_to(oo::proto::proxy_pkg* ppkg);
     protected:
         void handle_conn(SessionPtr pNew, std::string service);
         // net thread

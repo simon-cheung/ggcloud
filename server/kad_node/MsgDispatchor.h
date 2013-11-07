@@ -51,14 +51,6 @@ namespace oo{
         msg->SerializeToString(&buff);
         return true;
     }
-
-#define Protobuf_Msg_Id(msg) \
-        ((ulong)(msg->GetDescriptor()))
-#define Protobuf_Type_id(type) \
-        ((ulong)(type::default_instance_->GetDescriptor()))
-
-#define Pt_Msg_is_Type(msg, type) \
-        (Protobuf_Msg_Id(msg) == Protobuf_Type_id(type) )
     
     inline bool netpacket_2_protobuf(Message** msg, const std::string& buff){
         try{

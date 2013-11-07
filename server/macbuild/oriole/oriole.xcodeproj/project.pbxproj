@@ -41,6 +41,7 @@
 		222AC14A17DF03300041CE49 /* ospch.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AC13B17DF03300041CE49 /* ospch.h */; };
 		222AC14B17DF03300041CE49 /* osutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 222AC13C17DF03300041CE49 /* osutil.cpp */; };
 		222AC14C17DF03300041CE49 /* osutils.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AC13D17DF03300041CE49 /* osutils.h */; };
+		225F1FA118288CA200A2066F /* knc_active_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225F1F9F18288CA200A2066F /* knc_active_node.cpp */; };
 		22AA1251182743CF0052945B /* o_net_base.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 22AA124E182743CF0052945B /* o_net_base.pb.cc */; };
 		22AA125518277B480052945B /* trans_mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AA125318277B480052945B /* trans_mgr.cpp */; };
 		22AA1259182790B20052945B /* knu_channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AA1258182790B10052945B /* knu_channel.cpp */; };
@@ -138,6 +139,8 @@
 		222AC13C17DF03300041CE49 /* osutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osutil.cpp; sourceTree = "<group>"; };
 		222AC13D17DF03300041CE49 /* osutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osutils.h; sourceTree = "<group>"; };
 		222AC13E17DF03300041CE49 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		225F1F9F18288CA200A2066F /* knc_active_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = knc_active_node.cpp; path = trans/knc_active_node.cpp; sourceTree = "<group>"; };
+		225F1FA018288CA200A2066F /* knc_active_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = knc_active_node.h; path = trans/knc_active_node.h; sourceTree = "<group>"; };
 		22AA124E182743CF0052945B /* o_net_base.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = o_net_base.pb.cc; sourceTree = "<group>"; };
 		22AA124F182743CF0052945B /* o_net_base.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = o_net_base.pb.h; sourceTree = "<group>"; };
 		22AA1250182743CF0052945B /* o_net_base.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = o_net_base.proto; sourceTree = "<group>"; };
@@ -239,7 +242,7 @@
 		222AC0B717DF007E0041CE49 /* kad_node */ = {
 			isa = PBXGroup;
 			children = (
-				22AA1258182790B10052945B /* knu_channel.cpp */,
+				225F1F9C18288C2200A2066F /* trans */,
 				222AC0B817DF007E0041CE49 /* kad_net.cpp */,
 				222AC0B917DF007E0041CE49 /* kad_net.h */,
 				222AC0BA17DF007E0041CE49 /* kad_net_ctrl.cpp */,
@@ -264,7 +267,6 @@
 				2223B91E17E1BD020055FC14 /* msg_flow.h */,
 				22AA125318277B480052945B /* trans_mgr.cpp */,
 				22AA125418277B480052945B /* trans_mgr.h */,
-				22AA1257182781F80052945B /* knu_channel.h */,
 			);
 			path = kad_node;
 			sourceTree = "<group>";
@@ -326,6 +328,17 @@
 			);
 			name = os_util;
 			path = ../../../os_util;
+			sourceTree = "<group>";
+		};
+		225F1F9C18288C2200A2066F /* trans */ = {
+			isa = PBXGroup;
+			children = (
+				22AA1257182781F80052945B /* knu_channel.h */,
+				22AA1258182790B10052945B /* knu_channel.cpp */,
+				225F1F9F18288CA200A2066F /* knc_active_node.cpp */,
+				225F1FA018288CA200A2066F /* knc_active_node.h */,
+			);
+			name = trans;
 			sourceTree = "<group>";
 		};
 		22C2EFAE17DF246000A0E9D7 /* Products */ = {
@@ -482,6 +495,7 @@
 				22AA1251182743CF0052945B /* o_net_base.pb.cc in Sources */,
 				22AA125518277B480052945B /* trans_mgr.cpp in Sources */,
 				22AA1259182790B20052945B /* knu_channel.cpp in Sources */,
+				225F1FA118288CA200A2066F /* knc_active_node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

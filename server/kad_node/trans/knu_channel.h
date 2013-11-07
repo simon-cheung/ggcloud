@@ -16,6 +16,7 @@ namespace oo {
     public:
         SessionPtr peer_;
         std::string peer_id_;
+        std::vector<oo::proto::proxy_pkg*> pkg_que_;
         bool startup(const std::string& sid, SessionPtr sess, oo::proto::proxy_pkg* ppkg);
         
         void query_node_result(node_info ni);

@@ -33,6 +33,27 @@ namespace oo{
     {
     }
 
+    void kad_node_netunit::accept_session(std::string id, SessionPtr sess){
+        mutex::scoped_lock sl(session_mutex_);
+        session_map_.insert(session_map::value_type(id, sess));
+    }
+    
+    void kad_node_netunit::reject_session(std::string id, SessionPtr sess){
+        sess->close();
+    }
+    
+    bool kad_node_netunit::send_to(oo::proto::proxy_pkg* ppkg){
+        mutex::scoped_lock sl(session_mutex_);
+        session_map::iterator it = session_map_.find(ppkg->to());
+        if(it != session_map_.end()){
+            std::string buf;
+            ppkg->SerializeToString(&buf);
+            it->second->write_to_free(buf.c_str(), buf.length());
+        }else{ // auto connect node, then send
+            
+        }
+    }
+    
     void kad_node_netunit::handle_conn(SessionPtr pNew, std::string service){
         // MsgPortTaskManager
         // timeout 10 seconds
@@ -52,15 +73,19 @@ namespace oo{
             pSession->close();
             onError(pSession, boost::system::error_code());
         }// end, error msg
-        std::stringstream ss;
-        ss << (uint64)(SessionPtr::get(pSession));
-        std::string tid = ss.str();
-        knu_channel* kc = trans_mgr::instance()->find(tid);
-        if(kc == NULL){
-            kc = new knu_channel;
-            kc->startup(tid, pSession, &ppkg);
+        if(ppkg.pkg_type() == Pt_Type_Name(oo::proto::active_node) ){
+            kad_node_ctrl::instance().proc_msg(pSession, &ppkg);
         }else{
-            kc->queue(&ppkg);
+            std::stringstream ss;
+            ss << (uint64)(SessionPtr::get(pSession));
+            std::string tid = ss.str();
+            knu_channel* kc = trans_mgr::instance()->find(tid);
+            if(kc == NULL){
+                kc = new knu_channel;
+                kc->startup(tid, pSession, &ppkg);
+            }else{
+                kc->queue(&ppkg);
+            }
         }
     }
 
