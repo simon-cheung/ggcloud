@@ -22,6 +22,7 @@ namespace oo{
         kad_net_ = new kad_net;
         kad_net_->load_conf(conf);
 
+        kad_net_state_ = 0;
         tm_add_task(boost::bind(&kad_net_ctrl::_active_self, this), (ulong)(this));
         return 1;
     }
@@ -68,8 +69,82 @@ namespace oo{
         const oo::proto::node_info& lni = kad_net_->get_local_node_info();
         std::vector<node_info> kadn;
         kad_net_->find_shortest(oo::node_id::from_hex_string(lni.id()), kadn);
-        for(std::vector<node_info>::iterator it = kadn.begin(); it != kadn.end(); it++){
+        if(kadn.empty()){ // self is root node
+            _active_self_result(1);
+        }else{
+            oo::proto::proxy_pkg ppkg;
+            oo::proto::node_active na;
+            oo::proto::node_info* ni = na.mutable_node();
+            ni->CopyFrom(lni);
+            ppkg.set_from(lni.id());
+            ppkg.set_to("");
+            ppkg.set_pkg_type(Pt_Type_Name(oo::proto::node_active));
+            std::string np;
+            na.SerializeToString(&np);
+            ppkg.set_pkg_body(np);
+            for(std::vector<node_info>::iterator it = kadn.begin(); it != kadn.end(); it++){
 
+            }
         }
+    }
+
+    void  kad_net_ctrl::async_proc_msg(SessionPtr sess, oo::proto::proxy_pkg* pkg){
+        if(pkg->pkg_type() == Pt_Type_Name(oo::proto::node_active)){
+            oo::proto::node_active* na = netpacket_2_proto<oo::proto::node_active>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_node_active, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::node_kad_update)){
+            oo::proto::node_kad_update* na = netpacket_2_proto<oo::proto::node_kad_update>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_node_kad_update, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::store_key)){
+            oo::proto::store_key* na = netpacket_2_proto<oo::proto::store_key>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_store_key, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::store_key_result)){
+            oo::proto::store_key_result* na = netpacket_2_proto<oo::proto::store_key_result>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_store_key_result, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::find_node)){
+            oo::proto::find_node* na = netpacket_2_proto<oo::proto::find_node>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_find_node, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::find_node_result)){
+            oo::proto::find_node_result* na = netpacket_2_proto<oo::proto::find_node_result>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_find_node_result, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::find_value)){
+            oo::proto::find_value* na = netpacket_2_proto<oo::proto::find_value>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_find_value, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+
+        }else if(pkg->pkg_type() == Pt_Type_Name(oo::proto::find_value_result)){
+            oo::proto::find_value_result* na = netpacket_2_proto<oo::proto::find_value_result>(pkg->pkg_body());
+            tm_add_task(boost::bind(&kad_net_ctrl::handle_find_value_result, this, sess, pkg->from(), pkg->to(), na), ulong(this));
+        }else{
+        }
+    }
+
+    void kad_net_ctrl::handle_node_active(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void kad_net_ctrl::handle_node_kad_update(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void kad_net_ctrl::handle_store_key(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void kad_net_ctrl::handle_store_key_result(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void kad_net_ctrl::handle_find_node(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void kad_net_ctrl::handle_find_node_result(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void kad_net_ctrl::handle_find_value(SessionPtr sess, const std::string& from, const std::string& to, Message*){
+    }
+
+    void handle_find_value_result(SessionPtr sess, const std::string& from, const std::string& to, Message*){
     }
 }

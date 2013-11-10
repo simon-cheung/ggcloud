@@ -64,4 +64,13 @@ namespace oo{
         }
         return false;
     }
+
+    template<class Ptype>
+    Ptype* netpacket_2_proto(const std::string& buff){
+        Ptype* pt = new Ptype;
+        if(pt->ParseFromString(buff))
+            return pt;
+        else 
+            return NULL;
+    }
 }

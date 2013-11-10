@@ -7,9 +7,6 @@
 #include "kad_node_netunit.h"
 #include "task_mgr.h"
 
-// transactions
-#include "trans/knu_channel.h"
-
 namespace oo{
     static void sendMsg(SessionPtr pSession, uuid fid, uuid toid, std::string msg);
     //=============================================================================================
@@ -35,6 +32,7 @@ namespace oo{
 
     void kad_node_netunit::accept_session(std::string id, SessionPtr sess){
         mutex::scoped_lock sl(session_mutex_);
+        sess->setName(id);
         session_map_.insert(session_map::value_type(id, sess));
     }
     
@@ -42,16 +40,16 @@ namespace oo{
         sess->close();
     }
     
-    bool kad_node_netunit::send_to(oo::proto::proxy_pkg* ppkg){
+    bool kad_node_netunit::async_send_to(oo::proto::proxy_pkg* ppkg){
         mutex::scoped_lock sl(session_mutex_);
         session_map::iterator it = session_map_.find(ppkg->to());
         if(it != session_map_.end()){
             std::string buf;
             ppkg->SerializeToString(&buf);
-            it->second->write_to_free(buf.c_str(), buf.length());
-        }else{ // auto connect node, then send
-            
+            it->second->write_not_free(buf.c_str(), buf.length());
+            return true;
         }
+        return false;
     }
     
     void kad_node_netunit::handle_conn(SessionPtr pNew, std::string service){
@@ -59,8 +57,6 @@ namespace oo{
         // timeout 10 seconds
         KDInfo("New Connection [%s] from service[%s]", pNew->getName().c_str(), service.c_str());
         int idt = tm_add_timer(boost::bind(&kad_node_netunit::work_waitSession, pNew), 10000, 1, (ulong)(this));
-        // mark
-        pNew->setData(NULL);
         // check routine
         pNew->setHandler(boost::bind(&kad_node_netunit::onPacket,  _1, _2, _3), boost::bind(&kad_node_netunit::onError, _1, _2));
     }
@@ -73,31 +69,12 @@ namespace oo{
             pSession->close();
             onError(pSession, boost::system::error_code());
         }// end, error msg
-        if(ppkg.pkg_type() == Pt_Type_Name(oo::proto::active_node) ){
-            kad_node_ctrl::instance().proc_msg(pSession, &ppkg);
-        }else{
-            std::stringstream ss;
-            ss << (uint64)(SessionPtr::get(pSession));
-            std::string tid = ss.str();
-            knu_channel* kc = trans_mgr::instance()->find(tid);
-            if(kc == NULL){
-                kc = new knu_channel;
-                kc->startup(tid, pSession, &ppkg);
-            }else{
-                kc->queue(&ppkg);
-            }
-        }
+        kad_net_ctrl::instance().proc_msg(pSession, &ppkg);
     }
 
     void kad_node_netunit::onError(SessionPtr pSession, const boost::system::error_code& e){
-        tm_add_task(boost::bind(&kad_node_netunit::work_onError, pSession), (ulong)(this));
-    }
-
-    void kad_node_netunit::work_waitSession(SessionPtr pSession){
-        if(pSession->getData() != NULL){
-            return; // has check
-        }
-        KDError("Connection [%s] , timeout for check.so close", pSession->getName().c_str());
+        mutex::scoped_lock sl(session_mutex_);
+        session_map_.erase(pSession->getName());
         pSession->close();
     }
 }

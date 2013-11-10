@@ -16,6 +16,9 @@
     <Filter Include="protocol">
       <UniqueIdentifier>{ca653d0f-0eb8-48df-b553-9528605b9aa0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="trans">
+      <UniqueIdentifier>{a3fc8428-bc80-405d-b956-0e0a324b60cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kad_net.cpp">
@@ -66,6 +69,12 @@
     <ClCompile Include="..\..\protocol\o_net_base.pb.cc">
       <Filter>protocol</Filter>
     </ClCompile>
+    <ClCompile Include="trans\knc_active_node.cpp">
+      <Filter>trans</Filter>
+    </ClCompile>
+    <ClCompile Include="trans\knu_channel.cpp">
+      <Filter>trans</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kad_net.h">
@@ -112,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="..\..\protocol\o_net_base.pb.h">
       <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="trans\knc_active_node.h">
+      <Filter>trans</Filter>
+    </ClInclude>
+    <ClInclude Include="trans\knu_channel.h">
+      <Filter>trans</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
