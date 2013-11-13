@@ -62,4 +62,9 @@ namespace oo{
     void trans_base::cancel(){
         trans_mgr::instance().unreg_trans(this);
     }
+    
+    uint64 trans_base::gen_index(){
+        static oo::AtomicRef ar_;
+        return ar_.ref();
+    }
 }

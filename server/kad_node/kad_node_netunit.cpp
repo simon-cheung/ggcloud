@@ -48,6 +48,8 @@ namespace oo{
             ppkg->SerializeToString(&buf);
             it->second->write_not_free(buf.c_str(), buf.length());
             return true;
+        }else{
+            
         }
         return false;
     }
@@ -69,7 +71,7 @@ namespace oo{
             pSession->close();
             onError(pSession, boost::system::error_code());
         }// end, error msg
-        kad_net_ctrl::instance().proc_msg(pSession, &ppkg);
+        kad_net_ctrl::instance().async_proc_msg(pSession, &ppkg);
     }
 
     void kad_node_netunit::onError(SessionPtr pSession, const boost::system::error_code& e){

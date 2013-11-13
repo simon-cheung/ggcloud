@@ -140,7 +140,26 @@ namespace oo{
         return 0;
     }
 
-    int kad_net::find_shortest(const node_id& dest, std::vector<node_info>& out){
+    int kad_net::find_shortest(const node_id& dest, node_inf& out){
+
+        std::vector<node_info> vout;
+        find_adjacency(dest, vout);
+        size_t ikb = -1;
+        std::vector<node_info>::iterator itc = vout.end();
+        for (std::vector<node_info>::iterator it = vout.begin(); it != vout.end(); it ++) {
+            size_t tkb = kvalue(dest, node_id::from_hex_string(it->id()));
+            if( ikb > tkb ){
+                ikb = tkb;
+                itc = it;
+            }
+        }
+        if(itc == vout.end())
+            return 0;
+        out = *itc;
+        return 1;
+    }
+    
+    int kad_net::find_adjacency(const node_id& dest, std::vector<node_info>& out){
         size_t kv = kvalue(dest, node_id::from_hex_string(cur_node_info_.id()));
         k_bucket& kb = k_bucket_[kv];
         if(!kb.empty()) {

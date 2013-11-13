@@ -8,6 +8,8 @@
 #include "kad_node_netunit.h"
 #include "MsgDispatchor.h"
 
+#include "trans/knc_active_self.h"
+
 namespace oo{
 
     kad_net_ctrl::kad_net_ctrl(void)
@@ -68,7 +70,7 @@ namespace oo{
     void kad_net_ctrl::_active_self(){
         const oo::proto::node_info& lni = kad_net_->get_local_node_info();
         std::vector<node_info> kadn;
-        kad_net_->find_shortest(oo::node_id::from_hex_string(lni.id()), kadn);
+        kad_net_->find_adjacency(oo::node_id::from_hex_string(lni.id()), kadn);
         if(kadn.empty()){ // self is root node
             _active_self_result(1);
         }else{
@@ -76,16 +78,18 @@ namespace oo{
             oo::proto::node_active na;
             oo::proto::node_info* ni = na.mutable_node();
             ni->CopyFrom(lni);
-            ppkg.set_from(lni.id());
-            ppkg.set_to("");
-            ppkg.set_pkg_type(Pt_Type_Name(oo::proto::node_active));
             std::string np;
             na.SerializeToString(&np);
             ppkg.set_pkg_body(np);
+            
+            ppkg.set_from(lni.id());
+            ppkg.set_pkg_type(Pt_Type_Name(oo::proto::node_active));
             for(std::vector<node_info>::iterator it = kadn.begin(); it != kadn.end(); it++){
-
+                ppkg.set_to(it->id());
+                kad_node_netunit::instance().async_send_to(&ppkg);
             }
         }
+        
     }
 
     void  kad_net_ctrl::async_proc_msg(SessionPtr sess, oo::proto::proxy_pkg* pkg){

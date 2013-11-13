@@ -43,8 +43,9 @@ namespace oo{
         int merge_node_lst(std::vector<node_info>& info);
         int place_node(const node_info& ni);
         int remove_node(const node_id& dest);
-        int find_shortest(const node_id& dest, std::vector<node_info>& out);
-
+        int find_adjacency(const node_id& dest, std::vector<node_info>& out);
+        int find_shortest(const node_id& dest, node_inf& out);
+        
         const node_info& get_local_node_info() const { return cur_node_info_;}
     };
 

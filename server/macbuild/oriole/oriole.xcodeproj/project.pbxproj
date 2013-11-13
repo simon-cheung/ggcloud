@@ -42,6 +42,9 @@
 		222AC14B17DF03300041CE49 /* osutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 222AC13C17DF03300041CE49 /* osutil.cpp */; };
 		222AC14C17DF03300041CE49 /* osutils.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AC13D17DF03300041CE49 /* osutils.h */; };
 		225F1FA118288CA200A2066F /* knc_active_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225F1F9F18288CA200A2066F /* knc_active_node.cpp */; };
+		228839CD1833180600ECA338 /* knc_active_self.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 228839CB1833180600ECA338 /* knc_active_self.cpp */; };
+		228839D118331BD500ECA338 /* idutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 228839CF18331BD500ECA338 /* idutil.cpp */; };
+		228839D218331BD500ECA338 /* idutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 228839D018331BD500ECA338 /* idutil.h */; };
 		22AA1251182743CF0052945B /* o_net_base.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 22AA124E182743CF0052945B /* o_net_base.pb.cc */; };
 		22AA125518277B480052945B /* trans_mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AA125318277B480052945B /* trans_mgr.cpp */; };
 		22AA1259182790B20052945B /* knu_channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AA1258182790B10052945B /* knu_channel.cpp */; };
@@ -141,6 +144,10 @@
 		222AC13E17DF03300041CE49 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		225F1F9F18288CA200A2066F /* knc_active_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = knc_active_node.cpp; path = trans/knc_active_node.cpp; sourceTree = "<group>"; };
 		225F1FA018288CA200A2066F /* knc_active_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = knc_active_node.h; path = trans/knc_active_node.h; sourceTree = "<group>"; };
+		228839CB1833180600ECA338 /* knc_active_self.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = knc_active_self.cpp; path = trans/knc_active_self.cpp; sourceTree = "<group>"; };
+		228839CC1833180600ECA338 /* knc_active_self.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = knc_active_self.h; path = trans/knc_active_self.h; sourceTree = "<group>"; };
+		228839CF18331BD500ECA338 /* idutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = idutil.cpp; sourceTree = "<group>"; };
+		228839D018331BD500ECA338 /* idutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idutil.h; sourceTree = "<group>"; };
 		22AA124E182743CF0052945B /* o_net_base.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = o_net_base.pb.cc; sourceTree = "<group>"; };
 		22AA124F182743CF0052945B /* o_net_base.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = o_net_base.pb.h; sourceTree = "<group>"; };
 		22AA1250182743CF0052945B /* o_net_base.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = o_net_base.proto; sourceTree = "<group>"; };
@@ -310,6 +317,8 @@
 		222AC12C17DF03300041CE49 /* os_util */ = {
 			isa = PBXGroup;
 			children = (
+				228839CF18331BD500ECA338 /* idutil.cpp */,
+				228839D018331BD500ECA338 /* idutil.h */,
 				222AC12D17DF03300041CE49 /* asiosocket.cpp */,
 				222AC12E17DF03300041CE49 /* asiosocket.h */,
 				222AC12F17DF03300041CE49 /* bigint.cpp */,
@@ -337,6 +346,8 @@
 				22AA1258182790B10052945B /* knu_channel.cpp */,
 				225F1F9F18288CA200A2066F /* knc_active_node.cpp */,
 				225F1FA018288CA200A2066F /* knc_active_node.h */,
+				228839CB1833180600ECA338 /* knc_active_self.cpp */,
+				228839CC1833180600ECA338 /* knc_active_self.h */,
 			);
 			name = trans;
 			sourceTree = "<group>";
@@ -372,6 +383,7 @@
 				222AC14917DF03300041CE49 /* oslog.h in Headers */,
 				222AC14A17DF03300041CE49 /* ospch.h in Headers */,
 				222AC14C17DF03300041CE49 /* osutils.h in Headers */,
+				228839D218331BD500ECA338 /* idutil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +497,7 @@
 				222AC0F517DF007E0041CE49 /* kad_net_ctrl.cpp in Sources */,
 				222AC0F617DF007E0041CE49 /* kad_node.cpp in Sources */,
 				222AC0F717DF007E0041CE49 /* kad_node_netunit.cpp in Sources */,
+				228839CD1833180600ECA338 /* knc_active_self.cpp in Sources */,
 				222AC0F817DF007E0041CE49 /* kad_node_proxy.cpp in Sources */,
 				222AC0F917DF007E0041CE49 /* MsgDispatchor.cpp in Sources */,
 				222AC0FA17DF007E0041CE49 /* service_frm.cpp in Sources */,
@@ -519,6 +532,7 @@
 				222AC14117DF03300041CE49 /* bigint.cpp in Sources */,
 				222AC14617DF03300041CE49 /* macUtils.cpp in Sources */,
 				222AC14817DF03300041CE49 /* oslog.cpp in Sources */,
+				228839D118331BD500ECA338 /* idutil.cpp in Sources */,
 				222AC14B17DF03300041CE49 /* osutil.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

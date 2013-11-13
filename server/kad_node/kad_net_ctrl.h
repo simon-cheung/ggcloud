@@ -30,6 +30,8 @@ namespace oo{
         
         void async_proc_msg(SessionPtr sess, oo::proto::proxy_pkg* pkg);
         void proc_msg(SessionPtr sess, const std::string& from, const std::string& to, Message*);
+    public:
+        kad_net* get_kad_net() const { return kad_net_; }
     protected:
         // kad net op
         void publish_self();
@@ -46,6 +48,7 @@ namespace oo{
         void handle_find_value_result(SessionPtr sess, const std::string& from, const std::string& to, Message*);
     protected:
         void _active_self();
+    public:
         void _active_self_result(int state);
     };
 }
