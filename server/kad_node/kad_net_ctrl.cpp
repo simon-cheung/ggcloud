@@ -88,10 +88,14 @@ namespace oo{
                 ppkg.set_to(it->id());
                 kad_node_netunit::instance().async_send_to(&ppkg);
             }
+            tm_add_timer(boost::bind(&kad_net_ctrl::_active_self_timeout, this), 100000, 1, ulong(this));
         }
         
     }
 
+    void kad_net_ctrl::_active_self_timeout(){
+        
+    }
     void  kad_net_ctrl::async_proc_msg(SessionPtr sess, oo::proto::proxy_pkg* pkg){
         if(pkg->pkg_type() == Pt_Type_Name(oo::proto::node_active)){
             oo::proto::node_active* na = netpacket_2_proto<oo::proto::node_active>(pkg->pkg_body());

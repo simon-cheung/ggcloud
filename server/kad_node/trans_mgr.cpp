@@ -28,7 +28,7 @@ namespace oo{
     
     trans_base* trans_mgr::find(const std::string& id){
         mutex::scoped_lock sl(trans_mutex_);
-        trans_map::iterator it = trans_map_.find(tb->get_id());
+        trans_map::iterator it = trans_map_.find(id);
         if(it != trans_map_.end())
             return it->second;
         return NULL;
