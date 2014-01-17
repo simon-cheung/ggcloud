@@ -10,7 +10,37 @@ namespace dn{
 	}
 
 	int service_frm_impl::stop(){
+		return 0;
+	}
 
+	int service_frm_impl::update(){
+		pkt_que_mutex_.lock();
+		pkt_que curque;
+		curque.swap(pkt_que_);
+		pkt_que_mutex_.unlock();
+
+		for (const auto& rpkt : curque){
+			dispatch(rpkt);
+		}
+		return 0;
+
+	}
+
+	int service_frm_impl::async_dispatch(base_id from, base_id to, net_pkt pkt){
+		sfrm_pkt sp;
+		sp.op_code_ = SFRM_OP_CODE::RECV;
+		sp.op_params_ = 0;
+		sp.net_pkt_.from_ = from;
+		sp.net_pkt_.to_ = to;
+		sp.net_pkt_.pkt_ = pkt;
+
+		return async_dispatch(sp);
+	}
+
+	int service_frm_impl::async_dispatch(const sfrm_pkt& sp){
+		std::lock_guard<std::mutex> sl(pkt_que_mutex_);
+		pkt_que_.push_back(sp);
+		return 0;
 	}
 
 	int service_frm_impl::dispatch(base_id from, base_id to, net_pkt pkt){
@@ -30,7 +60,7 @@ namespace dn{
 		entry_map::iterator it = entry_map_.find(sp.net_pkt_.to_);
 		if (it == entry_map_.end()){
 			// error msg routine
-			return -1;
+			return 1;
 		}
 		(it->second).handler_(sp);
 
@@ -48,6 +78,11 @@ namespace dn{
 		sh(pkt);
 	}
 
+	bool service_frm_impl::try_dispatch(base_id from, base_id to){
+		std::lock_guard<std::mutex> sl(entry_map_mutex_);
+		return entry_map_.find(to) != entry_map_.end();
+	}
+
 	int service_frm_impl::async_request(base_id from, base_id to, net_pkt pkt, sfrm_pkt_handle handler){
 		base_id transid;
 		do{
@@ -58,8 +93,11 @@ namespace dn{
 				break;
 		} while (1);
 
-		// do send
-		{
+		// do dispatch
+		if (try_dispatch(from, to)){
+			return async_dispatch(from, to, pkt);
+
+		}else{// do send
 			// check session
 			if (root_->has_session(from, to) &&
 				root_->send_to(from, to, pkt) == 0){
@@ -70,8 +108,7 @@ namespace dn{
 				if (bsuc){
 					root_->send_to(from, to, pkt);
 					return;
-				}
-				else{
+				}else{
 					// tellout, error
 					unreg_entry(transid);
 
@@ -138,6 +175,7 @@ namespace dn{
 			ed.handler_ = entry_pt;
 			ed.life_ = life;
 			entry_map_.insert(entry_map::value_type(id, ed));
+			root_->register_object(id);
 		}
 		else
 			return -1;
@@ -148,8 +186,10 @@ namespace dn{
 	int service_frm_impl::unreg_entry(base_id id){
 		std::lock_guard<std::mutex> sl(entry_map_mutex_);
 		entry_map::iterator it = entry_map_.find(id);
-		if (it == entry_map_.end())
+		if (it == entry_map_.end()){
 			entry_map_.erase(it);
+			root_->unregister_object(id);
+		}
 		else
 			return -1;
 		return 0;

@@ -14,5 +14,4 @@ namespace dn{
 	int node_net::stop(){
 
 	}
-	
 }

@@ -5,6 +5,8 @@
 #include <functional>
 
 namespace dn{
+	// id rule: {entity name}[/branch][:flag], 
+	// 
 	typedef std::string base_id;
 	typedef std::string net_pkt;
 	typedef const base_id c_base_id;
@@ -13,11 +15,10 @@ namespace dn{
 	typedef const c_net_pkt& c_net_pkt_ref;
 
 	enum SFRM_OP_CODE {
-		GEN_SESSION,
-		REM_SESSION,
 		SEND,
 		SEND_RESULT,
 		RECV,
+		TIME_OUT,
 	};
 
 	struct sfrm_net_pkt{

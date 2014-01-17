@@ -16,6 +16,9 @@
     <Filter Include="node">
       <UniqueIdentifier>{fedc1cdc-5262-40c4-a2d4-0e851f043b87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="protocol">
+      <UniqueIdentifier>{6ceb322a-dd5c-494b-9cc0-3d39995ca12d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -48,6 +51,9 @@
     <ClInclude Include="node\node_net.h">
       <Filter>node</Filter>
     </ClInclude>
+    <ClInclude Include="protocol\config.pb.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -71,5 +77,16 @@
     <ClCompile Include="node\node_net.cpp">
       <Filter>node</Filter>
     </ClCompile>
+    <ClCompile Include="protocol\config.pb.cc">
+      <Filter>protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="protocol\config.proto">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="protocol\meta_node.proto">
+      <Filter>protocol</Filter>
+    </None>
   </ItemGroup>
 </Project>

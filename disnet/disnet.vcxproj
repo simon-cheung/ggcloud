@@ -53,6 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\thirdsdk\protobuf-2.3.0\vs2010porjects\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -88,6 +89,7 @@
     <ClInclude Include="node\service_frm.h" />
     <ClInclude Include="node\service_frm_impl.h" />
     <ClInclude Include="node\trans_dn.h" />
+    <ClInclude Include="protocol\config.pb.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -98,7 +100,12 @@
     <ClCompile Include="node\node_net.cpp" />
     <ClCompile Include="node\service_frm.cpp" />
     <ClCompile Include="node\trans_dn.cpp" />
+    <ClCompile Include="protocol\config.pb.cc" />
     <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="protocol\config.proto" />
+    <None Include="protocol\meta_node.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
