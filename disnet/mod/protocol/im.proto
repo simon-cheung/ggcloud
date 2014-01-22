@@ -1,0 +1,47 @@
+option optimize_for = SPEED;
+
+message user_register{
+	required string name = 1;
+	required string pwd = 2;	
+}
+
+message user_register_resp{
+	required string result = 1;
+}
+
+message user_logon{
+	required string name = 1;
+	required string pwd = 2;	
+	optional string resource = 3;	
+}
+
+message user_search{
+	required string desc = 1;
+}
+
+message user_search_result{
+	repeated string user_lst = 1;
+}
+
+message media_inner{
+	repeated string type = 4;			//voice message, jpg, png, gif
+	repeated string data = 5;
+}
+
+message chat_send{
+	required string from = 1;
+	required string to = 2;
+	required string txt = 3;
+	repeated media_inner con = 4;
+}
+
+
+message chat_stream{
+	required string from = 1;
+	required string to = 2;
+	required string type = 3;			//voice, video
+	required string desc = 4;	
+}
+
+
+
