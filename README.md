@@ -1,4 +1,4 @@
 ggcloud
 ======
 
-something
+a good game server. all in one. 
