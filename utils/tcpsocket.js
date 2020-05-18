@@ -5,7 +5,7 @@ var idu = require('../lframe/idutil')
 var logutil = require('./logutil')
 const {log, loginfo, logerr, logdebug} = logutil
 
-var CommandType = require('./netEventCode')
+var CommandType = require('./netCode')
 
 function S_WSocket(serverPort, bindip, optionos) {
     var that = this

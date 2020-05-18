@@ -2,7 +2,7 @@ const Socket = require("./tcpsocket")
 const WebSocket = require("./websocket")
 // var WebSocket = require("./siosocket")
 const ByteBuffer=require('./byteBuffer')
-const CommandType = require('./netEventCode')
+const CommandType = require('./netCode')
 const logutil = require('./logutil')
 const {log, loginfo, logerr, logdebug} = logutil
 
@@ -20,17 +20,17 @@ function pingT() {
     }
 }
 
-function sessionMgr() {
+function SessionMgr() {
     this.socketMap = {}
     this.serverSocketMap={}
     //setTimeout(pingT,10)
 }
 
-sessionMgr.prototype.getSessionInfo = function(sid){
+SessionMgr.prototype.getSessionInfo = function(sid){
     return this.socketMap[sid]
 }
 
-sessionMgr.prototype.startServer=function(port, netservice, proc, bindip, options){
+SessionMgr.prototype.startServer=function(port, netservice, proc, bindip, options){
     var that = this
     var service=null
     if(netservice == 'WebSocket')
@@ -43,7 +43,7 @@ sessionMgr.prototype.startServer=function(port, netservice, proc, bindip, option
     this.serverSocketMap[port] = socketServer
 }
 
-sessionMgr.prototype.connectServer=function(port, netservice, serverIp, proc){
+SessionMgr.prototype.connectServer=function(port, netservice, serverIp, proc){
     var that = this
     var service=null
     if(netservice == 'WebSocket')
@@ -56,7 +56,7 @@ sessionMgr.prototype.connectServer=function(port, netservice, serverIp, proc){
     // this.serverSocketMap[port] = socketClient
 }
 
-sessionMgr.prototype.send = function (type, obj) {
+SessionMgr.prototype.send = function (type, obj) {
     var that = this
     var msgNumber = obj.msgNumber || 0
     var body = obj.body
@@ -114,11 +114,11 @@ sessionMgr.prototype.send = function (type, obj) {
 
 }
 
-sessionMgr.prototype.closeSession=function(sid){
+SessionMgr.prototype.closeSession=function(sid){
     this.send(CommandType.CLOSED_SESSION,{ sessionId:sid})
 }
 
-sessionMgr.prototype.sendAll = function (msgNumber, body, thenClose) {
+SessionMgr.prototype.sendAll = function (msgNumber, body, thenClose) {
     var buffer = buildPackage(msgNumber, body)
 
     for (var key in this.socketMap) {
@@ -134,7 +134,7 @@ sessionMgr.prototype.sendAll = function (msgNumber, body, thenClose) {
     // this.socketServer.sendToSomePeer(socks, msgNumber, body)
 }
 
-sessionMgr.prototype.sendTo = function (sessionId, msgNumber, body) {
+SessionMgr.prototype.sendTo = function (sessionId, msgNumber, body) {
     var socket = this.socketMap[sessionId]
     //log("sessionId:"+sessionId+"  "+socket+"  "+Object.keys(this.socketMap).length)
     if (socket != null && socket != undefined) {
@@ -144,7 +144,7 @@ sessionMgr.prototype.sendTo = function (sessionId, msgNumber, body) {
     }
 }
 
-sessionMgr.prototype.sendToThenClose = function (sessionId, msgNumber, body) {
+SessionMgr.prototype.sendToThenClose = function (sessionId, msgNumber, body) {
     var socket = this.socketMap[sessionId]
     //log("sessionId:"+sessionId+"  "+socket+"  "+Object.keys(this.socketMap).length)
     if (socket != null && socket != undefined) {
@@ -166,11 +166,13 @@ function buildPackage(msgNumber, body){
     return buffer
 }
 
-sessionMgr.prototype.stopServer=function(port){
+SessionMgr.prototype.stopServer=function(port){
     if(this.serverSocketMap[port]){
         this.serverSocketMap[port].stop()
         delete this.serverSocketMap[port]
     }
 }
 
-module.exports=sessionMgr
+SessionMgr.smgrInst = new SessionMgr()
+
+module.exports=SessionMgr

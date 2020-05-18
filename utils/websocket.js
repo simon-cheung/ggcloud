@@ -8,7 +8,7 @@ var ByteBuffer = require('./byteBuffer')
 var logutil = require('./logutil')
 const {log, loginfo, logerr, logdebug} = logutil
 
-var CommandType = require('./netEventCode')
+var CommandType = require('./netCode')
 
 const processRequest = (req, res) => {
     res.writeHead(200);
