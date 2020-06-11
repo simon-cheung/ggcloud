@@ -5,21 +5,20 @@ const idutil = require('../utils/idutil')
 
 let defaultOpt = {
     host:'localhost',
-    port:3101,
-    cookie:'ieNfy(u&i292'
+    port:3101
 }
 
-function RRoutine(opt){
+function TBroker(opt){
     let lopt = {}
     Object.assign(lopt, defaultOpt)
     this.opt = lopt
 
-    smgrInst.connectServer(lopt.port, 'Tcp', lopt.host, this.procNetEvent.bind(this))
+    smgrInst.startServer(lopt.port, 'Tcp', this.procNetEvent.bind(this), lopt.host)
 }
 
-RRoutine.prototype.procNetEvent = function(ncode, obj){
+TBroker.prototype.procNetEvent = function(ncode, obj){
     switch(ncode){
-        case netcode.CONNECT_RESULT:{
+        case netcode.ACCEPT_RESULT:{
 
         }break
         case netcode.RECV_MSG_FROM_USER:{

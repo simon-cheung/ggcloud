@@ -7,7 +7,7 @@ let defaultOpt = {
     port:3101
 }
 
-function RProducer(opt){
+function TProducer(opt){
     let lopt = {}
     Object.assign(lopt, defaultOpt)
     this.opt = lopt
