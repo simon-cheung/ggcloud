@@ -41,6 +41,15 @@ function DAgent(id, cli){
     // declare msg entry
     cli.add_msg_entry(this)
 
+    this.act_idle=(blackboard)=>{
+
+        return BTree.BT_Running
+    }
+
+    this.build=()=>{
+
+    }
+    
     this.update=()=>{        
     }
 }

@@ -10,7 +10,7 @@ var CommandType = require('./netCode')
 function S_WSocket(serverPort, bindip, optionos) {
     var that = this
     this.port = serverPort
-    this.bindip = bindip
+    this.bindip = bindip || 'localhost'
     this.serverSock = net.createServer(function(sock){
         // connection
         connectionEstablished(that, sock, CommandType.ACCEPT_RESULT)
